@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+
+    <!-- Attestation de vente: per sold plot, also bound to the Print menu. -->
+    <record id="action_report_plot_attestation" model="ir.actions.report">
+        <field name="name">Attestation de vente</field>
+        <field name="model">real.estate.plot</field>
+        <field name="report_type">qweb-pdf</field>
+        <field name="report_name">real_estate_agency.report_plot_attestation</field>
+        <field name="report_file">real_estate_agency.report_plot_attestation</field>
+        <field name="print_report_name">'Attestation - %s' % (object.reference)</field>
+        <field name="binding_model_id" ref="model_real_estate_plot"/>
+        <field name="binding_type">report</field>
+    </record>
+
+    <!-- Commission report (driven by the period wizard). -->
+    <record id="action_report_commission" model="ir.actions.report">
+        <field name="name">Commission Report</field>
+        <field name="model">real.estate.commission.report.wizard</field>
+        <field name="report_type">qweb-pdf</field>
+        <field name="report_name">real_estate_agency.report_commission</field>
+        <field name="report_file">real_estate_agency.report_commission</field>
+    </record>
+
+    <!-- Inventory report (driven by the filter wizard). -->
+    <record id="action_report_inventory" model="ir.actions.report">
+        <field name="name">Inventory Report</field>
+        <field name="model">real.estate.inventory.report.wizard</field>
+        <field name="report_type">qweb-pdf</field>
+        <field name="report_name">real_estate_agency.report_inventory</field>
+        <field name="report_file">real_estate_agency.report_inventory</field>
+    </record>
+
+</odoo>

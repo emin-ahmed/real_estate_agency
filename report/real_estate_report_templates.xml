@@ -1,0 +1,201 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+
+    <!-- ===================== ATTESTATION DE VENTE ==================== -->
+    <template id="report_plot_attestation">
+        <t t-call="web.html_container">
+            <t t-foreach="docs" t-as="o">
+                <t t-call="web.external_layout">
+                    <div class="page">
+                        <h2 class="text-center mb-4">Attestation de Vente</h2>
+
+                        <p>
+                            Nous, <strong t-field="o.company_id.name"/>, attestons par la
+                            présente la vente de la parcelle désignée ci-dessous.
+                        </p>
+
+                        <table class="table table-sm table-borderless mt-3"
+                               style="max-width:600px;">
+                            <tr>
+                                <th style="width:40%;">Référence</th>
+                                <td><span t-field="o.reference"/></td>
+                            </tr>
+                            <tr t-if="o.plot_number">
+                                <th>Numéro de parcelle</th>
+                                <td><span t-field="o.plot_number"/></td>
+                            </tr>
+                            <tr t-if="o.lotissement_id">
+                                <th>Lotissement</th>
+                                <td><span t-field="o.lotissement_id.name"/></td>
+                            </tr>
+                            <tr>
+                                <th>Superficie</th>
+                                <td><span t-field="o.surface"/> m²</td>
+                            </tr>
+                            <tr t-if="o.moughataa_id">
+                                <th>Moughataa</th>
+                                <td><span t-field="o.moughataa_id.name"/></td>
+                            </tr>
+                            <tr t-if="o.neighborhood">
+                                <th>Quartier</th>
+                                <td><span t-field="o.neighborhood"/></td>
+                            </tr>
+                        </table>
+
+                        <p class="mt-4">
+                            Vendue à <strong t-field="o.buyer_id.name"/>
+                            le <span t-field="o.sale_date"/>
+                            au prix de
+                            <strong t-out="o.sale_price"
+                                    t-options='{"widget": "monetary", "display_currency": o.currency_id}'/>.
+                        </p>
+                        <p t-if="o.agent_id">
+                            Agent en charge de la vente :
+                            <span t-field="o.agent_id.name"/>.
+                        </p>
+
+                        <div class="row mt-5 pt-5">
+                            <div class="col-6 text-center">
+                                L'acheteur<br/><br/><br/>______________________
+                            </div>
+                            <div class="col-6 text-center">
+                                Pour l'agence<br/><br/><br/>______________________
+                            </div>
+                        </div>
+                    </div>
+                </t>
+            </t>
+        </t>
+    </template>
+
+    <!-- ======================= COMMISSION REPORT ==================== -->
+    <template id="report_commission">
+        <t t-call="web.html_container">
+            <t t-call="web.external_layout">
+                <div class="page">
+                    <h2 class="text-center">Commission Report</h2>
+                    <p class="text-center text-muted">
+                        From <span t-esc="date_from"/> to <span t-esc="date_to"/>
+                    </p>
+
+                    <p t-if="not agent_groups" class="text-center mt-4">
+                        No commissions in this period.
+                    </p>
+
+                    <t t-foreach="agent_groups" t-as="g">
+                        <h4 class="mt-4" t-esc="g['agent'].display_name or 'Unassigned'"/>
+                        <table class="table table-sm">
+                            <thead>
+                                <tr>
+                                    <th>Reference</th>
+                                    <th>Buyer</th>
+                                    <th>Sale Date</th>
+                                    <th class="text-end">Sale Price</th>
+                                    <th class="text-end">Commission</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr t-foreach="g['plots']" t-as="p">
+                                    <td><span t-field="p.reference"/></td>
+                                    <td><span t-field="p.buyer_id.name"/></td>
+                                    <td><span t-field="p.sale_date"/></td>
+                                    <td class="text-end">
+                                        <span t-field="p.sale_price"/>
+                                    </td>
+                                    <td class="text-end">
+                                        <span t-field="p.commission_total"/>
+                                    </td>
+                                </tr>
+                            </tbody>
+                            <tfoot>
+                                <tr>
+                                    <th colspan="3">Subtotal</th>
+                                    <th class="text-end">
+                                        <span t-out="g['total_sales']"
+                                              t-options='{"widget": "monetary", "display_currency": currency}'/>
+                                    </th>
+                                    <th class="text-end">
+                                        <span t-out="g['total_commission']"
+                                              t-options='{"widget": "monetary", "display_currency": currency}'/>
+                                    </th>
+                                </tr>
+                            </tfoot>
+                        </table>
+                    </t>
+
+                    <div t-if="agent_groups" class="text-end mt-3">
+                        <h4>
+                            Total commission:
+                            <span t-out="grand_commission"
+                                  t-options='{"widget": "monetary", "display_currency": currency}'/>
+                        </h4>
+                    </div>
+                </div>
+            </t>
+        </t>
+    </template>
+
+    <!-- ======================= INVENTORY REPORT ===================== -->
+    <template id="report_inventory">
+        <t t-call="web.html_container">
+            <t t-call="web.external_layout">
+                <div class="page">
+                    <h2 class="text-center">Inventory Report</h2>
+
+                    <h4 class="mt-4">By Status</h4>
+                    <table class="table table-sm" style="max-width:400px;">
+                        <tr><th>Total</th><td t-esc="by_state['total']"/></tr>
+                        <tr><th>Available</th><td t-esc="by_state['available']"/></tr>
+                        <tr><th>Reserved</th><td t-esc="by_state['reserved']"/></tr>
+                        <tr><th>Sold</th><td t-esc="by_state['sold']"/></tr>
+                    </table>
+
+                    <h4 class="mt-4">By Moughataa</h4>
+                    <table class="table table-sm">
+                        <thead>
+                            <tr>
+                                <th>Moughataa</th>
+                                <th class="text-end">Total</th>
+                                <th class="text-end">Available</th>
+                                <th class="text-end">Reserved</th>
+                                <th class="text-end">Sold</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr t-foreach="by_moughataa" t-as="r">
+                                <td t-esc="r['name']"/>
+                                <td class="text-end" t-esc="r['total']"/>
+                                <td class="text-end" t-esc="r['available']"/>
+                                <td class="text-end" t-esc="r['reserved']"/>
+                                <td class="text-end" t-esc="r['sold']"/>
+                            </tr>
+                        </tbody>
+                    </table>
+
+                    <h4 class="mt-4">By Lotissement</h4>
+                    <table class="table table-sm">
+                        <thead>
+                            <tr>
+                                <th>Lotissement</th>
+                                <th class="text-end">Total</th>
+                                <th class="text-end">Available</th>
+                                <th class="text-end">Reserved</th>
+                                <th class="text-end">Sold</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr t-foreach="by_lotissement" t-as="r">
+                                <td t-esc="r['name']"/>
+                                <td class="text-end" t-esc="r['total']"/>
+                                <td class="text-end" t-esc="r['available']"/>
+                                <td class="text-end" t-esc="r['reserved']"/>
+                                <td class="text-end" t-esc="r['sold']"/>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </t>
+        </t>
+    </template>
+
+</odoo>

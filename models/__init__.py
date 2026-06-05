@@ -4,6 +4,7 @@ from . import real_estate_tag
 from . import real_estate_lotissement
 from . import real_estate_plot
 from . import real_estate_plot_image
+from . import real_estate_plot_document
 from . import res_company
 from . import res_config_settings
 from . import res_partner

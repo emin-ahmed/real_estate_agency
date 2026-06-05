@@ -56,6 +56,9 @@ class RealEstatePlot(models.Model):
     image_ids = fields.One2many(
         comodel_name='real.estate.plot.image', inverse_name='plot_id',
         string='Photos')
+    document_ids = fields.One2many(
+        comodel_name='real.estate.plot.document', inverse_name='plot_id',
+        string='Documents')
 
     company_id = fields.Many2one(
         comodel_name='res.company', string='Company',
