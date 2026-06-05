@@ -12,9 +12,11 @@ const STATE_COLORS = {
     reserved: "#fd7e14",
     sold: "#dc3545",
 };
-// Nouakchott centre (see CLAUDE.md) — used when no plots have coordinates.
-const DEFAULT_CENTER = { lat: 18.0735, lng: -15.9582 };
-const DEFAULT_ZOOM = 13;
+// Default view: focused on Nouakchott West (Tevragh Zeina / Ksar), where most
+// listings sit. The map opens here and only re-frames when a filter narrows
+// the set (see applyFilters).
+const DEFAULT_CENTER = { lat: 18.095, lng: -15.985 };
+const DEFAULT_ZOOM = 15;
 // Teardrop pin path (24x36 viewport), anchored at the tip.
 const PIN_PATH =
     "M12 0C5.37 0 0 5.37 0 12c0 9 12 24 12 24s12-15 12-24C24 5.37 18.63 0 12 0z";
@@ -212,12 +214,29 @@ export class RealEstateMap extends Component {
             bounds.extend(position);
         }
         this.state.shownCount = plots.length;
-        if (plots.length) {
+        // Re-frame only when a filter is narrowing the set; otherwise keep the
+        // default Nouakchott-West view instead of zooming out to fit everything.
+        if (plots.length && this._filtersActive()) {
             this.gmap.fitBounds(bounds);
-            if (plots.length === 1) {
-                this.gmap.setZoom(17);
-            }
+            google.maps.event.addListenerOnce(this.gmap, "idle", () => {
+                if (this.gmap.getZoom() > 17) {
+                    this.gmap.setZoom(17);
+                }
+            });
         }
+    }
+
+    _filtersActive() {
+        const f = this.state.filters;
+        return (
+            !(f.available && f.reserved && f.sold) ||
+            !!f.moughataaId ||
+            !!f.lotissementId ||
+            !!f.priceMin ||
+            !!f.priceMax ||
+            !!f.surfaceMin ||
+            !!f.surfaceMax
+        );
     }
 
     clearMarkers() {
