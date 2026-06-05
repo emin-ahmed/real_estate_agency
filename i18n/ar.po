@@ -1,0 +1,1456 @@
+# Translation of Odoo Server.
+# This file contains the translation of the following modules:
+# 	* real_estate_agency
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: Odoo Server 19.0\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2026-06-05 21:07+0000\n"
+"PO-Revision-Date: 2026-06-05 21:07+0000\n"
+"Last-Translator: \n"
+"Language-Team: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: \n"
+"Plural-Forms: \n"
+
+#. module: real_estate_agency
+#: model:ir.actions.report,print_report_name:real_estate_agency.action_report_plot_attestation
+msgid "'Attestation - %s' % (object.reference)"
+msgstr ""
+
+#. module: real_estate_agency
+#: model_terms:ir.ui.view,arch_db:real_estate_agency.report_plot_attestation
+msgid ""
+", attestons par la\n"
+"                            présente la vente de la parcelle désignée ci-dessous."
+msgstr ""
+
+#. module: real_estate_agency
+#: model_terms:ir.ui.view,arch_db:real_estate_agency.res_config_settings_view_form_real_estate
+msgid "<span> %</span>"
+msgstr ""
+
+#. module: real_estate_agency
+#: model:ir.model.constraint,message:real_estate_agency.constraint_real_estate_moughataa_name_uniq
+msgid "A moughataa with this name already exists."
+msgstr "توجد مقاطعة بهذا الاسم بالفعل."
+
+#. module: real_estate_agency
+#. odoo-python
+#: code:addons/real_estate_agency/models/real_estate_plot.py:0
+msgid "A sold plot (%s) requires a buyer and a sale price."
+msgstr "تتطلب القطعة المباعة (%s) مشتريًا وسعر بيع."
+
+#. module: real_estate_agency
+#: model:ir.model.constraint,message:real_estate_agency.constraint_real_estate_tag_name_uniq
+msgid "A tag with this name already exists."
+msgstr "يوجد وسم بهذا الاسم بالفعل."
+
+#. module: real_estate_agency
+#: model_terms:ir.ui.view,arch_db:real_estate_agency.res_config_settings_view_form_real_estate
+msgid "AIza..."
+msgstr ""
+
+#. module: real_estate_agency
+#: model:ir.model.fields,field_description:real_estate_agency.field_real_estate_lotissement__message_needaction
+#: model:ir.model.fields,field_description:real_estate_agency.field_real_estate_plot__message_needaction
+msgid "Action Needed"
+msgstr ""
+
+#. module: real_estate_agency
+#: model:ir.model.fields,field_description:real_estate_agency.field_real_estate_moughataa__active
+msgid "Active"
+msgstr ""
+
+#. module: real_estate_agency
+#: model:ir.model.fields,field_description:real_estate_agency.field_real_estate_plot__activity_ids
+msgid "Activities"
+msgstr ""
+
+#. module: real_estate_agency
+#: model:ir.model.fields,field_description:real_estate_agency.field_real_estate_plot__activity_exception_decoration
+msgid "Activity Exception Decoration"
+msgstr ""
+
+#. module: real_estate_agency
+#: model:ir.model.fields,field_description:real_estate_agency.field_real_estate_plot__activity_state
+msgid "Activity State"
+msgstr ""
+
+#. module: real_estate_agency
+#: model:ir.model.fields,field_description:real_estate_agency.field_real_estate_plot__activity_type_icon
+msgid "Activity Type Icon"
+msgstr ""
+
+#. module: real_estate_agency
+#: model:ir.model.fields,field_description:real_estate_agency.field_real_estate_plot__address
+msgid "Address"
+msgstr "العنوان"
+
+#. module: real_estate_agency
+#. odoo-javascript
+#: code:addons/real_estate_agency/static/src/dashboard/dashboard.xml:0
+#: model:ir.model.fields,field_description:real_estate_agency.field_real_estate_commission_report_wizard__agent_id
+#: model:ir.model.fields,field_description:real_estate_agency.field_real_estate_plot__agent_id
+#: model_terms:ir.ui.view,arch_db:real_estate_agency.real_estate_commission_view_search
+msgid "Agent"
+msgstr "الوكيل"
+
+#. module: real_estate_agency
+#: model_terms:ir.ui.view,arch_db:real_estate_agency.report_plot_attestation
+msgid "Agent en charge de la vente :"
+msgstr ""
+
+#. module: real_estate_agency
+#: model:ir.model.fields,help:real_estate_agency.field_real_estate_plot__sale_price
+msgid "Agreed price; may differ from the listing price."
+msgstr "السعر المتفق عليه؛ قد يختلف عن السعر المعروض."
+
+#. module: real_estate_agency
+#. odoo-javascript
+#: code:addons/real_estate_agency/static/src/map/map_action.xml:0
+msgid "All lotissements"
+msgstr "كل التجزئات"
+
+#. module: real_estate_agency
+#. odoo-javascript
+#: code:addons/real_estate_agency/static/src/map/map_action.xml:0
+msgid "All moughataa"
+msgstr "كل المقاطعات"
+
+#. module: real_estate_agency
+#: model:real.estate.moughataa,name:real_estate_agency.moughataa_arafat
+msgid "Arafat"
+msgstr ""
+
+#. module: real_estate_agency
+#: model:ir.model.fields,field_description:real_estate_agency.field_real_estate_lotissement__message_attachment_count
+#: model:ir.model.fields,field_description:real_estate_agency.field_real_estate_plot__message_attachment_count
+msgid "Attachment Count"
+msgstr ""
+
+#. module: real_estate_agency
+#: model_terms:ir.ui.view,arch_db:real_estate_agency.report_plot_attestation
+msgid "Attestation de Vente"
+msgstr ""
+
+#. module: real_estate_agency
+#: model:ir.actions.report,name:real_estate_agency.action_report_plot_attestation
+#: model_terms:ir.ui.view,arch_db:real_estate_agency.real_estate_plot_view_form
+msgid "Attestation de vente"
+msgstr ""
+
+#. module: real_estate_agency
+#. odoo-javascript
+#: code:addons/real_estate_agency/static/src/dashboard/dashboard.xml:0
+msgid "Avail."
+msgstr "متاح"
+
+#. module: real_estate_agency
+#. odoo-javascript
+#: code:addons/real_estate_agency/static/src/dashboard/dashboard.xml:0
+#: code:addons/real_estate_agency/static/src/map/map_action.js:0
+#: code:addons/real_estate_agency/static/src/map/map_action.xml:0
+#: model:ir.model.fields,field_description:real_estate_agency.field_real_estate_lotissement__available_count
+#: model:ir.model.fields.selection,name:real_estate_agency.selection__real_estate_plot__state__available
+#: model_terms:ir.ui.view,arch_db:real_estate_agency.real_estate_plot_view_search
+#: model_terms:ir.ui.view,arch_db:real_estate_agency.report_inventory
+msgid "Available"
+msgstr "متاحة"
+
+#. module: real_estate_agency
+#: model:real.estate.tag,name:real_estate_agency.tag_bornage
+msgid "Bornage"
+msgstr ""
+
+#. module: real_estate_agency
+#: model:ir.model.fields,field_description:real_estate_agency.field_real_estate_plot__buyer_id
+#: model_terms:ir.ui.view,arch_db:real_estate_agency.report_commission
+msgid "Buyer"
+msgstr "المشتري"
+
+#. module: real_estate_agency
+#: model:ir.actions.act_window,name:real_estate_agency.res_partner_buyer_action
+#: model:ir.ui.menu,name:real_estate_agency.real_estate_menu_buyers
+msgid "Buyers"
+msgstr "المشترون"
+
+#. module: real_estate_agency
+#: model_terms:ir.ui.view,arch_db:real_estate_agency.report_inventory
+msgid "By Lotissement"
+msgstr "حسب التجزئة"
+
+#. module: real_estate_agency
+#: model_terms:ir.ui.view,arch_db:real_estate_agency.report_inventory
+msgid "By Moughataa"
+msgstr "حسب المقاطعة"
+
+#. module: real_estate_agency
+#: model_terms:ir.ui.view,arch_db:real_estate_agency.report_inventory
+msgid "By Status"
+msgstr "حسب الحالة"
+
+#. module: real_estate_agency
+#. odoo-javascript
+#: code:addons/real_estate_agency/static/src/dashboard/dashboard.xml:0
+msgid "By moughataa"
+msgstr "حسب المقاطعة"
+
+#. module: real_estate_agency
+#: model_terms:ir.ui.view,arch_db:real_estate_agency.commission_report_wizard_view_form
+#: model_terms:ir.ui.view,arch_db:real_estate_agency.inventory_report_wizard_view_form
+msgid "Cancel"
+msgstr "إلغاء"
+
+#. module: real_estate_agency
+#: model_terms:ir.ui.view,arch_db:real_estate_agency.real_estate_plot_view_form
+msgid "Caption"
+msgstr "تعليق"
+
+#. module: real_estate_agency
+#: model:real.estate.tag,name:real_estate_agency.tag_cloture
+msgid "Clôturé"
+msgstr ""
+
+#. module: real_estate_agency
+#: model:ir.model.fields,field_description:real_estate_agency.field_real_estate_moughataa__code
+msgid "Code"
+msgstr "الرمز"
+
+#. module: real_estate_agency
+#: model:ir.model.fields,field_description:real_estate_agency.field_real_estate_tag__color
+msgid "Color"
+msgstr "اللون"
+
+#. module: real_estate_agency
+#. odoo-javascript
+#: code:addons/real_estate_agency/static/src/dashboard/dashboard.xml:0
+#: model:ir.model.fields,field_description:real_estate_agency.field_real_estate_plot__commission_total
+#: model_terms:ir.ui.view,arch_db:real_estate_agency.real_estate_plot_view_form
+#: model_terms:ir.ui.view,arch_db:real_estate_agency.report_commission
+msgid "Commission"
+msgstr "العمولة"
+
+#. module: real_estate_agency
+#: model:ir.model.fields,field_description:real_estate_agency.field_real_estate_plot__commission_rate
+msgid "Commission Rate (%)"
+msgstr "نسبة العمولة (%)"
+
+#. module: real_estate_agency
+#: model:ir.actions.act_window,name:real_estate_agency.action_commission_report_wizard
+#: model:ir.actions.report,name:real_estate_agency.action_report_commission
+#: model:ir.model,name:real_estate_agency.model_report_real_estate_agency_report_commission
+#: model:ir.ui.menu,name:real_estate_agency.real_estate_menu_report_commission
+#: model_terms:ir.ui.view,arch_db:real_estate_agency.commission_report_wizard_view_form
+#: model_terms:ir.ui.view,arch_db:real_estate_agency.report_commission
+msgid "Commission Report"
+msgstr "تقرير العمولات"
+
+#. module: real_estate_agency
+#: model:ir.model,name:real_estate_agency.model_real_estate_commission_report_wizard
+msgid "Commission Report Wizard"
+msgstr "معالج تقرير العمولات"
+
+#. module: real_estate_agency
+#: model:ir.model.fields,field_description:real_estate_agency.field_real_estate_plot__commission_type
+msgid "Commission Type"
+msgstr "نوع العمولة"
+
+#. module: real_estate_agency
+#. odoo-javascript
+#: code:addons/real_estate_agency/static/src/dashboard/dashboard.xml:0
+msgid "Commission this month"
+msgstr "عمولات هذا الشهر"
+
+#. module: real_estate_agency
+#: model:ir.actions.act_window,name:real_estate_agency.real_estate_commission_action
+#: model:ir.ui.menu,name:real_estate_agency.real_estate_menu_commissions
+#: model_terms:ir.ui.view,arch_db:real_estate_agency.real_estate_commission_view_list
+#: model_terms:ir.ui.view,arch_db:real_estate_agency.real_estate_commission_view_search
+#: model_terms:ir.ui.view,arch_db:real_estate_agency.res_config_settings_view_form_real_estate
+msgid "Commissions"
+msgstr "العمولات"
+
+#. module: real_estate_agency
+#: model_terms:ir.actions.act_window,help:real_estate_agency.real_estate_commission_action
+msgid ""
+"Commissions appear here as plots are sold. Group by agent and\n"
+"                filter by period to review who earned what."
+msgstr ""
+
+#. module: real_estate_agency
+#: model:ir.model,name:real_estate_agency.model_res_company
+msgid "Companies"
+msgstr ""
+
+#. module: real_estate_agency
+#: model:ir.model.fields,field_description:real_estate_agency.field_real_estate_lotissement__company_id
+#: model:ir.model.fields,field_description:real_estate_agency.field_real_estate_plot__company_id
+msgid "Company"
+msgstr "الشركة"
+
+#. module: real_estate_agency
+#: model:ir.model,name:real_estate_agency.model_res_config_settings
+msgid "Config Settings"
+msgstr ""
+
+#. module: real_estate_agency
+#: model:ir.ui.menu,name:real_estate_agency.real_estate_menu_config
+msgid "Configuration"
+msgstr "الإعدادات"
+
+#. module: real_estate_agency
+#: model:ir.model,name:real_estate_agency.model_res_partner
+msgid "Contact"
+msgstr "اتصال"
+
+#. module: real_estate_agency
+#: model_terms:ir.actions.act_window,help:real_estate_agency.res_partner_buyer_action
+msgid ""
+"Contacts appear here once they have purchased a plot. Open one\n"
+"                to see the plots they bought."
+msgstr ""
+
+#. module: real_estate_agency
+#: model:ir.model.fields.selection,name:real_estate_agency.selection__real_estate_plot_document__doc_type__contrat
+msgid "Contract"
+msgstr "عقد"
+
+#. module: real_estate_agency
+#: model_terms:ir.ui.view,arch_db:real_estate_agency.real_estate_plot_view_form
+msgid "Coordinates"
+msgstr "الإحداثيات"
+
+#. module: real_estate_agency
+#. odoo-javascript
+#: code:addons/real_estate_agency/static/src/map/plot_map_widget.js:0
+msgid "Could not load Google Maps."
+msgstr "تعذّر تحميل خرائط جوجل."
+
+#. module: real_estate_agency
+#. odoo-javascript
+#: code:addons/real_estate_agency/static/src/map/map_action.js:0
+msgid ""
+"Could not load Google Maps. Check the API key, billing and your network."
+msgstr ""
+
+#. module: real_estate_agency
+#: model_terms:ir.actions.act_window,help:real_estate_agency.real_estate_plot_action
+msgid "Create your first land plot"
+msgstr "أنشئ أول قطعة أرض"
+
+#. module: real_estate_agency
+#: model_terms:ir.actions.act_window,help:real_estate_agency.real_estate_lotissement_action
+msgid "Create your first lotissement"
+msgstr "أنشئ أول تجزئة"
+
+#. module: real_estate_agency
+#: model:ir.model.fields,field_description:real_estate_agency.field_real_estate_commission_report_wizard__create_uid
+#: model:ir.model.fields,field_description:real_estate_agency.field_real_estate_inventory_report_wizard__create_uid
+#: model:ir.model.fields,field_description:real_estate_agency.field_real_estate_lotissement__create_uid
+#: model:ir.model.fields,field_description:real_estate_agency.field_real_estate_moughataa__create_uid
+#: model:ir.model.fields,field_description:real_estate_agency.field_real_estate_plot__create_uid
+#: model:ir.model.fields,field_description:real_estate_agency.field_real_estate_plot_document__create_uid
+#: model:ir.model.fields,field_description:real_estate_agency.field_real_estate_plot_image__create_uid
+#: model:ir.model.fields,field_description:real_estate_agency.field_real_estate_tag__create_uid
+msgid "Created by"
+msgstr ""
+
+#. module: real_estate_agency
+#: model:ir.model.fields,field_description:real_estate_agency.field_real_estate_commission_report_wizard__create_date
+#: model:ir.model.fields,field_description:real_estate_agency.field_real_estate_inventory_report_wizard__create_date
+#: model:ir.model.fields,field_description:real_estate_agency.field_real_estate_lotissement__create_date
+#: model:ir.model.fields,field_description:real_estate_agency.field_real_estate_moughataa__create_date
+#: model:ir.model.fields,field_description:real_estate_agency.field_real_estate_plot__create_date
+#: model:ir.model.fields,field_description:real_estate_agency.field_real_estate_plot_document__create_date
+#: model:ir.model.fields,field_description:real_estate_agency.field_real_estate_plot_image__create_date
+#: model:ir.model.fields,field_description:real_estate_agency.field_real_estate_tag__create_date
+msgid "Created on"
+msgstr ""
+
+#. module: real_estate_agency
+#: model:ir.model.fields,field_description:real_estate_agency.field_real_estate_plot__currency_id
+msgid "Currency"
+msgstr "العملة"
+
+#. module: real_estate_agency
+#: model:real.estate.moughataa,name:real_estate_agency.moughataa_dar_naim
+msgid "Dar Naïm"
+msgstr ""
+
+#. module: real_estate_agency
+#: model:ir.actions.client,name:real_estate_agency.real_estate_dashboard_action
+#: model:ir.ui.menu,name:real_estate_agency.real_estate_menu_dashboard
+msgid "Dashboard"
+msgstr "لوحة القيادة"
+
+#. module: real_estate_agency
+#: model:res.groups,comment:real_estate_agency.group_real_estate_user
+msgid "Day-to-day use: manage plots, deals and own commissions."
+msgstr "الاستخدام اليومي: إدارة القطع والمبيعات والعمولات الخاصة."
+
+#. module: real_estate_agency
+#: model_terms:ir.ui.view,arch_db:real_estate_agency.res_config_settings_view_form_real_estate
+msgid "Default Commission"
+msgstr "العمولة الافتراضية"
+
+#. module: real_estate_agency
+#: model:ir.model.fields,field_description:real_estate_agency.field_res_company__re_commission_rate
+#: model:ir.model.fields,field_description:real_estate_agency.field_res_config_settings__re_commission_rate
+msgid "Default Commission Rate (%)"
+msgstr "نسبة العمولة الافتراضية (%)"
+
+#. module: real_estate_agency
+#: model:ir.model.fields,field_description:real_estate_agency.field_res_company__re_commission_type
+#: model:ir.model.fields,field_description:real_estate_agency.field_res_config_settings__re_commission_type
+msgid "Default Commission Type"
+msgstr "نوع العمولة الافتراضي"
+
+#. module: real_estate_agency
+#: model_terms:ir.ui.view,arch_db:real_estate_agency.res_config_settings_view_form_real_estate
+msgid "Default commission applied to new plots. Editable per plot."
+msgstr "العمولة الافتراضية المطبقة على القطع الجديدة. قابلة للتعديل لكل قطعة."
+
+#. module: real_estate_agency
+#: model_terms:ir.ui.view,arch_db:real_estate_agency.real_estate_plot_view_form
+msgid "Describe the plot: access, surroundings, documents, selling points..."
+msgstr "صف القطعة: الوصول، المحيط، الوثائق، نقاط البيع..."
+
+#. module: real_estate_agency
+#: model:ir.model.fields,field_description:real_estate_agency.field_real_estate_plot__description
+#: model_terms:ir.ui.view,arch_db:real_estate_agency.real_estate_plot_view_form
+msgid "Description"
+msgstr "الوصف"
+
+#. module: real_estate_agency
+#: model:ir.model.fields,field_description:real_estate_agency.field_real_estate_commission_report_wizard__display_name
+#: model:ir.model.fields,field_description:real_estate_agency.field_real_estate_inventory_report_wizard__display_name
+#: model:ir.model.fields,field_description:real_estate_agency.field_real_estate_lotissement__display_name
+#: model:ir.model.fields,field_description:real_estate_agency.field_real_estate_moughataa__display_name
+#: model:ir.model.fields,field_description:real_estate_agency.field_real_estate_plot__display_name
+#: model:ir.model.fields,field_description:real_estate_agency.field_real_estate_plot_document__display_name
+#: model:ir.model.fields,field_description:real_estate_agency.field_real_estate_plot_image__display_name
+#: model:ir.model.fields,field_description:real_estate_agency.field_real_estate_tag__display_name
+#: model:ir.model.fields,field_description:real_estate_agency.field_report_real_estate_agency_report_commission__display_name
+#: model:ir.model.fields,field_description:real_estate_agency.field_report_real_estate_agency_report_inventory__display_name
+#: model:ir.model.fields,field_description:real_estate_agency.field_res_company__display_name
+#: model:ir.model.fields,field_description:real_estate_agency.field_res_config_settings__display_name
+#: model:ir.model.fields,field_description:real_estate_agency.field_res_partner__display_name
+msgid "Display Name"
+msgstr ""
+
+#. module: real_estate_agency
+#: model:ir.model.fields,field_description:real_estate_agency.field_real_estate_plot__document_ids
+#: model_terms:ir.ui.view,arch_db:real_estate_agency.real_estate_plot_view_form
+msgid "Documents"
+msgstr "المستندات"
+
+#. module: real_estate_agency
+#: model:real.estate.moughataa,name:real_estate_agency.moughataa_el_mina
+msgid "El Mina"
+msgstr ""
+
+#. module: real_estate_agency
+#: model:ir.model.fields,field_description:real_estate_agency.field_real_estate_plot_document__attachment
+msgid "File"
+msgstr "ملف"
+
+#. module: real_estate_agency
+#: model:ir.model.fields,field_description:real_estate_agency.field_real_estate_plot_document__file_name
+msgid "File Name"
+msgstr "اسم الملف"
+
+#. module: real_estate_agency
+#: model:ir.model.fields.selection,name:real_estate_agency.selection__real_estate_plot__commission_type__fixed
+#: model:ir.model.fields.selection,name:real_estate_agency.selection__res_company__re_commission_type__fixed
+msgid "Fixed Amount"
+msgstr "مبلغ ثابت"
+
+#. module: real_estate_agency
+#: model:ir.model.fields,field_description:real_estate_agency.field_real_estate_plot__commission_amount
+msgid "Fixed Commission"
+msgstr "عمولة ثابتة"
+
+#. module: real_estate_agency
+#: model:ir.model.fields,field_description:real_estate_agency.field_real_estate_lotissement__message_follower_ids
+#: model:ir.model.fields,field_description:real_estate_agency.field_real_estate_plot__message_follower_ids
+msgid "Followers"
+msgstr ""
+
+#. module: real_estate_agency
+#: model:ir.model.fields,field_description:real_estate_agency.field_real_estate_lotissement__message_partner_ids
+#: model:ir.model.fields,field_description:real_estate_agency.field_real_estate_plot__message_partner_ids
+msgid "Followers (Partners)"
+msgstr ""
+
+#. module: real_estate_agency
+#: model:ir.model.fields,help:real_estate_agency.field_real_estate_plot__activity_type_icon
+msgid "Font awesome icon e.g. fa-tasks"
+msgstr ""
+
+#. module: real_estate_agency
+#: model:ir.model.fields,field_description:real_estate_agency.field_real_estate_commission_report_wizard__date_from
+#: model_terms:ir.ui.view,arch_db:real_estate_agency.report_commission
+msgid "From"
+msgstr "من"
+
+#. module: real_estate_agency
+#: model:res.groups,comment:real_estate_agency.group_real_estate_manager
+msgid "Full access: configuration, all deals and commissions."
+msgstr "وصول كامل: الإعدادات، جميع المبيعات والعمولات."
+
+#. module: real_estate_agency
+#: model:ir.model.fields,field_description:real_estate_agency.field_res_config_settings__google_maps_api_key
+#: model_terms:ir.ui.view,arch_db:real_estate_agency.res_config_settings_view_form_real_estate
+msgid "Google Maps API Key"
+msgstr "مفتاح واجهة خرائط جوجل"
+
+#. module: real_estate_agency
+#. odoo-javascript
+#: code:addons/real_estate_agency/static/src/map/plot_map_widget.js:0
+msgid "Google Maps failed to initialise."
+msgstr "فشل تهيئة خرائط جوجل."
+
+#. module: real_estate_agency
+#. odoo-javascript
+#: code:addons/real_estate_agency/static/src/map/map_action.js:0
+msgid ""
+"Google Maps failed to initialise. The API key may be invalid or "
+"unauthorised."
+msgstr ""
+
+#. module: real_estate_agency
+#: model_terms:ir.actions.act_window,help:real_estate_agency.real_estate_lotissement_action
+msgid ""
+"Group the plots of a subdivision / land-development project so you\n"
+"                can track how many are available, reserved or sold."
+msgstr ""
+
+#. module: real_estate_agency
+#: model:ir.model.fields,field_description:real_estate_agency.field_real_estate_lotissement__has_message
+#: model:ir.model.fields,field_description:real_estate_agency.field_real_estate_plot__has_message
+msgid "Has Message"
+msgstr ""
+
+#. module: real_estate_agency
+#: model:ir.model.fields,field_description:real_estate_agency.field_real_estate_commission_report_wizard__id
+#: model:ir.model.fields,field_description:real_estate_agency.field_real_estate_inventory_report_wizard__id
+#: model:ir.model.fields,field_description:real_estate_agency.field_real_estate_lotissement__id
+#: model:ir.model.fields,field_description:real_estate_agency.field_real_estate_moughataa__id
+#: model:ir.model.fields,field_description:real_estate_agency.field_real_estate_plot__id
+#: model:ir.model.fields,field_description:real_estate_agency.field_real_estate_plot_document__id
+#: model:ir.model.fields,field_description:real_estate_agency.field_real_estate_plot_image__id
+#: model:ir.model.fields,field_description:real_estate_agency.field_real_estate_tag__id
+#: model:ir.model.fields,field_description:real_estate_agency.field_report_real_estate_agency_report_commission__id
+#: model:ir.model.fields,field_description:real_estate_agency.field_report_real_estate_agency_report_inventory__id
+#: model:ir.model.fields,field_description:real_estate_agency.field_res_company__id
+#: model:ir.model.fields,field_description:real_estate_agency.field_res_config_settings__id
+#: model:ir.model.fields,field_description:real_estate_agency.field_res_partner__id
+msgid "ID"
+msgstr ""
+
+#. module: real_estate_agency
+#: model:ir.model.fields,field_description:real_estate_agency.field_real_estate_plot__activity_exception_icon
+msgid "Icon"
+msgstr ""
+
+#. module: real_estate_agency
+#: model:ir.model.fields,help:real_estate_agency.field_real_estate_plot__activity_exception_icon
+msgid "Icon to indicate an exception activity."
+msgstr ""
+
+#. module: real_estate_agency
+#: model:ir.model.fields,help:real_estate_agency.field_real_estate_lotissement__message_needaction
+#: model:ir.model.fields,help:real_estate_agency.field_real_estate_plot__message_needaction
+msgid "If checked, new messages require your attention."
+msgstr ""
+
+#. module: real_estate_agency
+#: model:ir.model.fields,help:real_estate_agency.field_real_estate_lotissement__message_has_error
+#: model:ir.model.fields,help:real_estate_agency.field_real_estate_plot__message_has_error
+msgid "If checked, some messages have a delivery error."
+msgstr ""
+
+#. module: real_estate_agency
+#: model:ir.model.fields,field_description:real_estate_agency.field_real_estate_plot__image_1920
+#: model:ir.model.fields,field_description:real_estate_agency.field_real_estate_plot_image__image_1920
+msgid "Image"
+msgstr ""
+
+#. module: real_estate_agency
+#: model:ir.model.fields,field_description:real_estate_agency.field_real_estate_plot__image_1024
+#: model:ir.model.fields,field_description:real_estate_agency.field_real_estate_plot_image__image_1024
+msgid "Image 1024"
+msgstr ""
+
+#. module: real_estate_agency
+#: model:ir.model.fields,field_description:real_estate_agency.field_real_estate_plot__image_128
+#: model:ir.model.fields,field_description:real_estate_agency.field_real_estate_plot_image__image_128
+msgid "Image 128"
+msgstr ""
+
+#. module: real_estate_agency
+#: model:ir.model.fields,field_description:real_estate_agency.field_real_estate_plot__image_256
+#: model:ir.model.fields,field_description:real_estate_agency.field_real_estate_plot_image__image_256
+msgid "Image 256"
+msgstr ""
+
+#. module: real_estate_agency
+#: model:ir.model.fields,field_description:real_estate_agency.field_real_estate_plot__image_512
+#: model:ir.model.fields,field_description:real_estate_agency.field_real_estate_plot_image__image_512
+msgid "Image 512"
+msgstr ""
+
+#. module: real_estate_agency
+#: model:ir.actions.act_window,name:real_estate_agency.action_inventory_report_wizard
+#: model:ir.actions.report,name:real_estate_agency.action_report_inventory
+#: model:ir.model,name:real_estate_agency.model_report_real_estate_agency_report_inventory
+#: model:ir.ui.menu,name:real_estate_agency.real_estate_menu_report_inventory
+#: model_terms:ir.ui.view,arch_db:real_estate_agency.inventory_report_wizard_view_form
+#: model_terms:ir.ui.view,arch_db:real_estate_agency.report_inventory
+msgid "Inventory Report"
+msgstr "تقرير المخزون"
+
+#. module: real_estate_agency
+#: model:ir.model,name:real_estate_agency.model_real_estate_inventory_report_wizard
+msgid "Inventory Report Wizard"
+msgstr "معالج تقرير المخزون"
+
+#. module: real_estate_agency
+#: model:ir.model.fields,field_description:real_estate_agency.field_real_estate_lotissement__message_is_follower
+#: model:ir.model.fields,field_description:real_estate_agency.field_real_estate_plot__message_is_follower
+msgid "Is Follower"
+msgstr ""
+
+#. module: real_estate_agency
+#: model_terms:ir.ui.view,arch_db:real_estate_agency.res_config_settings_view_form_real_estate
+msgid ""
+"JavaScript API key for the map (satellite/hybrid view). Create one in the "
+"Google Cloud console with billing enabled, and restrict it by HTTP referrer."
+msgstr ""
+
+#. module: real_estate_agency
+#: model:ir.model.fields,help:real_estate_agency.field_res_config_settings__google_maps_api_key
+msgid ""
+"JavaScript API key used by the interactive map. Restrict it by HTTP referrer"
+" in the Google Cloud console."
+msgstr ""
+
+#. module: real_estate_agency
+#: model:real.estate.moughataa,name:real_estate_agency.moughataa_ksar
+msgid "Ksar"
+msgstr ""
+
+#. module: real_estate_agency
+#: model_terms:ir.ui.view,arch_db:real_estate_agency.report_plot_attestation
+msgid "L'acheteur<br/><br/><br/>______________________"
+msgstr ""
+
+#. module: real_estate_agency
+#: model:ir.model,name:real_estate_agency.model_real_estate_plot
+msgid "Land Plot (Parcelle)"
+msgstr "قطعة أرض"
+
+#. module: real_estate_agency
+#: model:ir.model.fields,field_description:real_estate_agency.field_real_estate_commission_report_wizard__write_uid
+#: model:ir.model.fields,field_description:real_estate_agency.field_real_estate_inventory_report_wizard__write_uid
+#: model:ir.model.fields,field_description:real_estate_agency.field_real_estate_lotissement__write_uid
+#: model:ir.model.fields,field_description:real_estate_agency.field_real_estate_moughataa__write_uid
+#: model:ir.model.fields,field_description:real_estate_agency.field_real_estate_plot__write_uid
+#: model:ir.model.fields,field_description:real_estate_agency.field_real_estate_plot_document__write_uid
+#: model:ir.model.fields,field_description:real_estate_agency.field_real_estate_plot_image__write_uid
+#: model:ir.model.fields,field_description:real_estate_agency.field_real_estate_tag__write_uid
+msgid "Last Updated by"
+msgstr ""
+
+#. module: real_estate_agency
+#: model:ir.model.fields,field_description:real_estate_agency.field_real_estate_commission_report_wizard__write_date
+#: model:ir.model.fields,field_description:real_estate_agency.field_real_estate_inventory_report_wizard__write_date
+#: model:ir.model.fields,field_description:real_estate_agency.field_real_estate_lotissement__write_date
+#: model:ir.model.fields,field_description:real_estate_agency.field_real_estate_moughataa__write_date
+#: model:ir.model.fields,field_description:real_estate_agency.field_real_estate_plot__write_date
+#: model:ir.model.fields,field_description:real_estate_agency.field_real_estate_plot_document__write_date
+#: model:ir.model.fields,field_description:real_estate_agency.field_real_estate_plot_image__write_date
+#: model:ir.model.fields,field_description:real_estate_agency.field_real_estate_tag__write_date
+msgid "Last Updated on"
+msgstr ""
+
+#. module: real_estate_agency
+#: model:ir.model.fields,field_description:real_estate_agency.field_real_estate_plot__latitude
+msgid "Latitude"
+msgstr "خط العرض"
+
+#. module: real_estate_agency
+#: model:ir.model.fields,help:real_estate_agency.field_real_estate_plot__lotissement_id
+msgid "Leave empty for a standalone plot not part of a subdivision."
+msgstr "اترك فارغًا للقطعة المستقلة غير التابعة لتجزئة."
+
+#. module: real_estate_agency
+#: model:ir.model.fields,help:real_estate_agency.field_real_estate_commission_report_wizard__agent_id
+msgid "Leave empty to include every agent."
+msgstr "اترك فارغًا لتضمين جميع الوكلاء."
+
+#. module: real_estate_agency
+#: model:ir.model.fields,field_description:real_estate_agency.field_real_estate_lotissement__location
+#: model_terms:ir.ui.view,arch_db:real_estate_agency.real_estate_lotissement_view_form
+#: model_terms:ir.ui.view,arch_db:real_estate_agency.real_estate_plot_view_form
+msgid "Location"
+msgstr "الموقع"
+
+#. module: real_estate_agency
+#: model:ir.model.fields,field_description:real_estate_agency.field_real_estate_plot__longitude
+msgid "Longitude"
+msgstr "خط الطول"
+
+#. module: real_estate_agency
+#. odoo-javascript
+#: code:addons/real_estate_agency/static/src/map/map_action.xml:0
+#: model:ir.model.fields,field_description:real_estate_agency.field_real_estate_inventory_report_wizard__lotissement_id
+#: model:ir.model.fields,field_description:real_estate_agency.field_real_estate_plot__lotissement_id
+#: model_terms:ir.ui.view,arch_db:real_estate_agency.real_estate_commission_view_search
+#: model_terms:ir.ui.view,arch_db:real_estate_agency.real_estate_lotissement_view_form
+#: model_terms:ir.ui.view,arch_db:real_estate_agency.real_estate_plot_view_search
+#: model_terms:ir.ui.view,arch_db:real_estate_agency.report_inventory
+#: model_terms:ir.ui.view,arch_db:real_estate_agency.report_plot_attestation
+msgid "Lotissement"
+msgstr "تجزئة"
+
+#. module: real_estate_agency
+#: model:ir.model,name:real_estate_agency.model_real_estate_lotissement
+msgid "Lotissement (Subdivision)"
+msgstr "تجزئة"
+
+#. module: real_estate_agency
+#: model:ir.actions.act_window,name:real_estate_agency.real_estate_lotissement_action
+#: model:ir.ui.menu,name:real_estate_agency.real_estate_menu_lotissements
+#: model_terms:ir.ui.view,arch_db:real_estate_agency.real_estate_lotissement_view_list
+#: model_terms:ir.ui.view,arch_db:real_estate_agency.real_estate_lotissement_view_search
+msgid "Lotissements"
+msgstr "التجزئات"
+
+#. module: real_estate_agency
+#: model:res.groups,name:real_estate_agency.group_real_estate_manager
+msgid "Manager"
+msgstr "مدير"
+
+#. module: real_estate_agency
+#. odoo-javascript
+#: code:addons/real_estate_agency/static/src/map/map_action.xml:0
+#: model:ir.actions.client,name:real_estate_agency.real_estate_map_action
+#: model:ir.ui.menu,name:real_estate_agency.real_estate_menu_map
+#: model_terms:ir.ui.view,arch_db:real_estate_agency.res_config_settings_view_form_real_estate
+msgid "Map"
+msgstr "الخريطة"
+
+#. module: real_estate_agency
+#: model_terms:ir.ui.view,arch_db:real_estate_agency.real_estate_plot_view_form
+msgid "Mark Reserved"
+msgstr "وضع علامة محجوزة"
+
+#. module: real_estate_agency
+#: model_terms:ir.ui.view,arch_db:real_estate_agency.real_estate_plot_view_form
+msgid "Mark Sold"
+msgstr "وضع علامة مباعة"
+
+#. module: real_estate_agency
+#. odoo-javascript
+#: code:addons/real_estate_agency/static/src/map/map_action.xml:0
+msgid "Max"
+msgstr "الأقصى"
+
+#. module: real_estate_agency
+#: model:ir.model.fields,field_description:real_estate_agency.field_real_estate_lotissement__message_has_error
+#: model:ir.model.fields,field_description:real_estate_agency.field_real_estate_plot__message_has_error
+msgid "Message Delivery error"
+msgstr ""
+
+#. module: real_estate_agency
+#: model:ir.model.fields,field_description:real_estate_agency.field_real_estate_lotissement__message_ids
+#: model:ir.model.fields,field_description:real_estate_agency.field_real_estate_plot__message_ids
+msgid "Messages"
+msgstr ""
+
+#. module: real_estate_agency
+#. odoo-javascript
+#: code:addons/real_estate_agency/static/src/map/map_action.xml:0
+msgid "Min"
+msgstr "الأدنى"
+
+#. module: real_estate_agency
+#. odoo-javascript
+#: code:addons/real_estate_agency/static/src/dashboard/dashboard.xml:0
+#: code:addons/real_estate_agency/static/src/map/map_action.xml:0
+#: model:ir.actions.act_window,name:real_estate_agency.real_estate_moughataa_action
+#: model:ir.model.fields,field_description:real_estate_agency.field_real_estate_inventory_report_wizard__moughataa_id
+#: model:ir.model.fields,field_description:real_estate_agency.field_real_estate_lotissement__moughataa_id
+#: model:ir.model.fields,field_description:real_estate_agency.field_real_estate_plot__moughataa_id
+#: model:ir.ui.menu,name:real_estate_agency.real_estate_menu_config_moughataa
+#: model_terms:ir.ui.view,arch_db:real_estate_agency.real_estate_lotissement_view_search
+#: model_terms:ir.ui.view,arch_db:real_estate_agency.real_estate_moughataa_view_list
+#: model_terms:ir.ui.view,arch_db:real_estate_agency.real_estate_plot_view_search
+#: model_terms:ir.ui.view,arch_db:real_estate_agency.report_inventory
+#: model_terms:ir.ui.view,arch_db:real_estate_agency.report_plot_attestation
+msgid "Moughataa"
+msgstr "المقاطعة"
+
+#. module: real_estate_agency
+#: model:ir.model,name:real_estate_agency.model_real_estate_moughataa
+msgid "Moughataa (Commune)"
+msgstr "المقاطعة (بلدية)"
+
+#. module: real_estate_agency
+#: model:ir.model.fields,field_description:real_estate_agency.field_real_estate_plot__my_activity_date_deadline
+msgid "My Activity Deadline"
+msgstr ""
+
+#. module: real_estate_agency
+#: model_terms:ir.ui.view,arch_db:real_estate_agency.real_estate_commission_view_search
+msgid "My Commissions"
+msgstr "عمولاتي"
+
+#. module: real_estate_agency
+#: model:ir.model.fields,field_description:real_estate_agency.field_real_estate_lotissement__name
+#: model:ir.model.fields,field_description:real_estate_agency.field_real_estate_moughataa__name
+#: model:ir.model.fields,field_description:real_estate_agency.field_real_estate_plot__name
+#: model:ir.model.fields,field_description:real_estate_agency.field_real_estate_plot_document__name
+#: model:ir.model.fields,field_description:real_estate_agency.field_real_estate_tag__name
+msgid "Name"
+msgstr "الاسم"
+
+#. module: real_estate_agency
+#: model:ir.model.fields,field_description:real_estate_agency.field_real_estate_plot__neighborhood
+msgid "Neighborhood"
+msgstr "الحي"
+
+#. module: real_estate_agency
+#. odoo-javascript
+#: code:addons/real_estate_agency/static/src/map/map_action.xml:0
+msgid "Next"
+msgstr "التالي"
+
+#. module: real_estate_agency
+#: model:ir.model.fields,field_description:real_estate_agency.field_real_estate_plot__activity_date_deadline
+msgid "Next Activity Deadline"
+msgstr ""
+
+#. module: real_estate_agency
+#: model:ir.model.fields,field_description:real_estate_agency.field_real_estate_plot__activity_summary
+msgid "Next Activity Summary"
+msgstr ""
+
+#. module: real_estate_agency
+#: model:ir.model.fields,field_description:real_estate_agency.field_real_estate_plot__activity_type_id
+msgid "Next Activity Type"
+msgstr ""
+
+#. module: real_estate_agency
+#: model_terms:ir.actions.act_window,help:real_estate_agency.res_partner_buyer_action
+msgid "No buyers yet"
+msgstr "لا يوجد مشترون بعد"
+
+#. module: real_estate_agency
+#: model_terms:ir.ui.view,arch_db:real_estate_agency.report_commission
+msgid "No commissions in this period."
+msgstr "لا توجد عمولات في هذه الفترة."
+
+#. module: real_estate_agency
+#: model_terms:ir.actions.act_window,help:real_estate_agency.real_estate_commission_action
+msgid "No commissions yet"
+msgstr "لا توجد عمولات بعد"
+
+#. module: real_estate_agency
+#. odoo-javascript
+#: code:addons/real_estate_agency/static/src/dashboard/dashboard.xml:0
+msgid "No sales yet."
+msgstr "لا توجد مبيعات بعد."
+
+#. module: real_estate_agency
+#: model_terms:ir.ui.view,arch_db:real_estate_agency.report_plot_attestation
+msgid "Nous,"
+msgstr ""
+
+#. module: real_estate_agency
+#: model:ir.model.fields,field_description:real_estate_agency.field_real_estate_lotissement__message_needaction_counter
+#: model:ir.model.fields,field_description:real_estate_agency.field_real_estate_plot__message_needaction_counter
+msgid "Number of Actions"
+msgstr ""
+
+#. module: real_estate_agency
+#: model:ir.model.fields,field_description:real_estate_agency.field_real_estate_lotissement__message_has_error_counter
+#: model:ir.model.fields,field_description:real_estate_agency.field_real_estate_plot__message_has_error_counter
+msgid "Number of errors"
+msgstr ""
+
+#. module: real_estate_agency
+#: model:ir.model.fields,help:real_estate_agency.field_real_estate_lotissement__message_needaction_counter
+#: model:ir.model.fields,help:real_estate_agency.field_real_estate_plot__message_needaction_counter
+msgid "Number of messages requiring action"
+msgstr ""
+
+#. module: real_estate_agency
+#: model:ir.model.fields,help:real_estate_agency.field_real_estate_lotissement__message_has_error_counter
+#: model:ir.model.fields,help:real_estate_agency.field_real_estate_plot__message_has_error_counter
+msgid "Number of messages with delivery error"
+msgstr ""
+
+#. module: real_estate_agency
+#: model_terms:ir.ui.view,arch_db:real_estate_agency.report_plot_attestation
+msgid "Numéro de parcelle"
+msgstr ""
+
+#. module: real_estate_agency
+#: model:ir.model.fields.selection,name:real_estate_agency.selection__real_estate_plot_document__doc_type__other
+msgid "Other"
+msgstr "أخرى"
+
+#. module: real_estate_agency
+#: model:ir.model.fields.selection,name:real_estate_agency.selection__real_estate_plot__commission_type__percentage
+#: model:ir.model.fields.selection,name:real_estate_agency.selection__res_company__re_commission_type__percentage
+msgid "Percentage"
+msgstr "نسبة مئوية"
+
+#. module: real_estate_agency
+#: model:real.estate.tag,name:real_estate_agency.tag_permis_construire
+msgid "Permis de construire"
+msgstr ""
+
+#. module: real_estate_agency
+#: model:ir.model.fields,field_description:real_estate_agency.field_real_estate_plot__image_ids
+#: model_terms:ir.ui.view,arch_db:real_estate_agency.real_estate_plot_view_form
+msgid "Photos"
+msgstr "الصور"
+
+#. module: real_estate_agency
+#: model:ir.model.fields.selection,name:real_estate_agency.selection__real_estate_plot_document__doc_type__plan
+msgid "Plan"
+msgstr "مخطط"
+
+#. module: real_estate_agency
+#: model:ir.model.fields,field_description:real_estate_agency.field_real_estate_lotissement__planned_plots
+msgid "Planned Plots"
+msgstr "القطع المخططة"
+
+#. module: real_estate_agency
+#: model:ir.model.fields,field_description:real_estate_agency.field_real_estate_plot_document__plot_id
+#: model:ir.model.fields,field_description:real_estate_agency.field_real_estate_plot_image__plot_id
+#: model_terms:ir.ui.view,arch_db:real_estate_agency.real_estate_plot_view_form
+msgid "Plot"
+msgstr "قطعة"
+
+#. module: real_estate_agency
+#: model:ir.model,name:real_estate_agency.model_real_estate_plot_document
+msgid "Plot Document"
+msgstr "مستند القطعة"
+
+#. module: real_estate_agency
+#: model:ir.model.fields,field_description:real_estate_agency.field_real_estate_plot__plot_number
+msgid "Plot Number"
+msgstr "رقم القطعة"
+
+#. module: real_estate_agency
+#: model_terms:ir.ui.view,arch_db:real_estate_agency.real_estate_lotissement_view_form
+msgid "Plot Overview"
+msgstr "نظرة عامة على القطع"
+
+#. module: real_estate_agency
+#: model:ir.model,name:real_estate_agency.model_real_estate_plot_image
+msgid "Plot Photo"
+msgstr "صورة القطعة"
+
+#. module: real_estate_agency
+#. odoo-javascript
+#: code:addons/real_estate_agency/static/src/map/map_action.xml:0
+msgid "Plot photo"
+msgstr "صورة القطعة"
+
+#. module: real_estate_agency
+#: model:ir.actions.act_window,name:real_estate_agency.real_estate_plot_action
+#: model:ir.model.fields,field_description:real_estate_agency.field_real_estate_lotissement__plot_ids
+#: model:ir.ui.menu,name:real_estate_agency.real_estate_menu_plots
+#: model_terms:ir.ui.view,arch_db:real_estate_agency.real_estate_lotissement_view_form
+#: model_terms:ir.ui.view,arch_db:real_estate_agency.real_estate_plot_view_graph
+#: model_terms:ir.ui.view,arch_db:real_estate_agency.real_estate_plot_view_list
+#: model_terms:ir.ui.view,arch_db:real_estate_agency.real_estate_plot_view_pivot
+#: model_terms:ir.ui.view,arch_db:real_estate_agency.real_estate_plot_view_search
+msgid "Plots"
+msgstr "قطع الأراضي"
+
+#. module: real_estate_agency
+#: model:ir.model.fields,field_description:real_estate_agency.field_res_partner__plot_purchase_count
+#: model:ir.model.fields,field_description:real_estate_agency.field_res_users__plot_purchase_count
+#: model_terms:ir.ui.view,arch_db:real_estate_agency.res_partner_view_form_real_estate
+msgid "Plots Bought"
+msgstr "القطع المشتراة"
+
+#. module: real_estate_agency
+#: model_terms:ir.ui.view,arch_db:real_estate_agency.report_plot_attestation
+msgid "Pour l'agence<br/><br/><br/>______________________"
+msgstr ""
+
+#. module: real_estate_agency
+#. odoo-javascript
+#: code:addons/real_estate_agency/static/src/map/map_action.xml:0
+msgid "Previous"
+msgstr "السابق"
+
+#. module: real_estate_agency
+#: model:ir.model.fields,field_description:real_estate_agency.field_real_estate_plot__price
+msgid "Price"
+msgstr "السعر"
+
+#. module: real_estate_agency
+#. odoo-javascript
+#: code:addons/real_estate_agency/static/src/map/map_action.xml:0
+msgid "Price (MRU)"
+msgstr "السعر (أوقية)"
+
+#. module: real_estate_agency
+#: model_terms:ir.ui.view,arch_db:real_estate_agency.commission_report_wizard_view_form
+#: model_terms:ir.ui.view,arch_db:real_estate_agency.inventory_report_wizard_view_form
+msgid "Print"
+msgstr "طباعة"
+
+#. module: real_estate_agency
+#: model_terms:ir.ui.view,arch_db:real_estate_agency.real_estate_lotissement_view_form
+msgid "Project"
+msgstr "مشروع"
+
+#. module: real_estate_agency
+#. odoo-python
+#: code:addons/real_estate_agency/models/res_partner.py:0
+#: model:ir.model.fields,field_description:real_estate_agency.field_res_partner__plot_ids
+#: model:ir.model.fields,field_description:real_estate_agency.field_res_users__plot_ids
+msgid "Purchased Plots"
+msgstr "القطع المشتراة"
+
+#. module: real_estate_agency
+#: model_terms:ir.ui.view,arch_db:real_estate_agency.report_plot_attestation
+msgid "Quartier"
+msgstr ""
+
+#. module: real_estate_agency
+#: model:ir.module.category,name:real_estate_agency.module_category_real_estate
+#: model:ir.ui.menu,name:real_estate_agency.real_estate_menu_root
+#: model:res.groups.privilege,name:real_estate_agency.res_groups_privilege_real_estate
+#: model_terms:ir.ui.view,arch_db:real_estate_agency.res_config_settings_view_form_real_estate
+msgid "Real Estate"
+msgstr "العقارات"
+
+#. module: real_estate_agency
+#. odoo-javascript
+#: code:addons/real_estate_agency/static/src/dashboard/dashboard.xml:0
+msgid "Real Estate Overview"
+msgstr "نظرة عامة على العقارات"
+
+#. module: real_estate_agency
+#: model:ir.model,name:real_estate_agency.model_real_estate_tag
+msgid "Real Estate Tag"
+msgstr "وسم عقاري"
+
+#. module: real_estate_agency
+#: model:ir.model.fields,field_description:real_estate_agency.field_real_estate_plot__reference
+#: model_terms:ir.ui.view,arch_db:real_estate_agency.report_commission
+msgid "Reference"
+msgstr "المرجع"
+
+#. module: real_estate_agency
+#: model:ir.model.fields,field_description:real_estate_agency.field_real_estate_lotissement__code
+msgid "Reference Code"
+msgstr "رمز المرجع"
+
+#. module: real_estate_agency
+#: model_terms:ir.actions.act_window,help:real_estate_agency.real_estate_plot_action
+msgid ""
+"Register the plots your agency markets, with their location,\n"
+"                surface, price and availability status."
+msgstr ""
+
+#. module: real_estate_agency
+#: model:ir.ui.menu,name:real_estate_agency.real_estate_menu_reporting
+msgid "Reporting"
+msgstr "التقارير"
+
+#. module: real_estate_agency
+#: model_terms:ir.ui.view,arch_db:real_estate_agency.real_estate_plot_view_form
+msgid "Reservation"
+msgstr "الحجز"
+
+#. module: real_estate_agency
+#: model:ir.model.fields,field_description:real_estate_agency.field_real_estate_plot__reservation_date
+msgid "Reservation Date"
+msgstr "تاريخ الحجز"
+
+#. module: real_estate_agency
+#. odoo-javascript
+#: code:addons/real_estate_agency/static/src/dashboard/dashboard.xml:0
+#: code:addons/real_estate_agency/static/src/map/map_action.js:0
+#: code:addons/real_estate_agency/static/src/map/map_action.xml:0
+#: model:ir.model.fields,field_description:real_estate_agency.field_real_estate_lotissement__reserved_count
+#: model:ir.model.fields.selection,name:real_estate_agency.selection__real_estate_plot__state__reserved
+#: model_terms:ir.ui.view,arch_db:real_estate_agency.real_estate_plot_view_search
+#: model_terms:ir.ui.view,arch_db:real_estate_agency.report_inventory
+msgid "Reserved"
+msgstr "محجوزة"
+
+#. module: real_estate_agency
+#: model:ir.model.fields,field_description:real_estate_agency.field_real_estate_plot__reserved_by_id
+msgid "Reserved By"
+msgstr "حُجزت بواسطة"
+
+#. module: real_estate_agency
+#. odoo-javascript
+#: code:addons/real_estate_agency/static/src/map/map_action.xml:0
+msgid "Reset filters"
+msgstr "إعادة تعيين المرشحات"
+
+#. module: real_estate_agency
+#: model:ir.model.fields,field_description:real_estate_agency.field_real_estate_plot__activity_user_id
+msgid "Responsible User"
+msgstr ""
+
+#. module: real_estate_agency
+#. odoo-javascript
+#: code:addons/real_estate_agency/static/src/dashboard/dashboard.xml:0
+msgid "Resv."
+msgstr "محجوز"
+
+#. module: real_estate_agency
+#. odoo-javascript
+#: code:addons/real_estate_agency/static/src/dashboard/dashboard.xml:0
+msgid "Revenue this month"
+msgstr "إيرادات هذا الشهر"
+
+#. module: real_estate_agency
+#: model:real.estate.moughataa,name:real_estate_agency.moughataa_riyad
+msgid "Riyad"
+msgstr ""
+
+#. module: real_estate_agency
+#: model_terms:ir.ui.view,arch_db:real_estate_agency.report_plot_attestation
+msgid "Référence"
+msgstr ""
+
+#. module: real_estate_agency
+#: model:ir.model.fields,field_description:real_estate_agency.field_real_estate_plot__sale_date
+#: model_terms:ir.ui.view,arch_db:real_estate_agency.real_estate_commission_view_search
+#: model_terms:ir.ui.view,arch_db:real_estate_agency.report_commission
+msgid "Sale Date"
+msgstr "تاريخ البيع"
+
+#. module: real_estate_agency
+#: model_terms:ir.ui.view,arch_db:real_estate_agency.real_estate_plot_view_form
+msgid "Sale Information"
+msgstr "معلومات البيع"
+
+#. module: real_estate_agency
+#: model_terms:ir.ui.view,arch_db:real_estate_agency.real_estate_commission_view_search
+msgid "Sale Month"
+msgstr "شهر البيع"
+
+#. module: real_estate_agency
+#: model:ir.model.fields,field_description:real_estate_agency.field_real_estate_plot__sale_price
+#: model_terms:ir.ui.view,arch_db:real_estate_agency.report_commission
+msgid "Sale Price"
+msgstr "سعر البيع"
+
+#. module: real_estate_agency
+#. odoo-javascript
+#: code:addons/real_estate_agency/static/src/dashboard/dashboard.xml:0
+msgid "Sales"
+msgstr "المبيعات"
+
+#. module: real_estate_agency
+#. odoo-javascript
+#: code:addons/real_estate_agency/static/src/dashboard/dashboard.xml:0
+msgid "Sales this month"
+msgstr "مبيعات هذا الشهر"
+
+#. module: real_estate_agency
+#: model:real.estate.moughataa,name:real_estate_agency.moughataa_sebkha
+msgid "Sebkha"
+msgstr ""
+
+#. module: real_estate_agency
+#: model:ir.model.fields,field_description:real_estate_agency.field_real_estate_plot_document__sequence
+#: model:ir.model.fields,field_description:real_estate_agency.field_real_estate_plot_image__sequence
+msgid "Sequence"
+msgstr "التسلسل"
+
+#. module: real_estate_agency
+#: model_terms:ir.ui.view,arch_db:real_estate_agency.real_estate_plot_view_form
+msgid "Set Available"
+msgstr "جعلها متاحة"
+
+#. module: real_estate_agency
+#. odoo-python
+#: code:addons/real_estate_agency/models/real_estate_plot.py:0
+msgid "Set a buyer and a sale price on plot %s before marking it as sold."
+msgstr "حدّد مشتريًا وسعر بيع للقطعة %s قبل وضع علامة مباعة."
+
+#. module: real_estate_agency
+#. odoo-javascript
+#: code:addons/real_estate_agency/static/src/map/map_action.js:0
+msgid ""
+"Set the Google Maps API key in Settings → Real Estate to enable the map."
+msgstr ""
+
+#. module: real_estate_agency
+#. odoo-javascript
+#: code:addons/real_estate_agency/static/src/map/plot_map_widget.js:0
+msgid "Set the Google Maps API key in Settings → Real Estate."
+msgstr "أدخل مفتاح واجهة خرائط جوجل في الإعدادات → العقارات."
+
+#. module: real_estate_agency
+#: model_terms:ir.ui.view,arch_db:real_estate_agency.res_config_settings_view_form_real_estate
+msgid "Settings for the interactive plot map."
+msgstr "إعدادات خريطة القطع التفاعلية."
+
+#. module: real_estate_agency
+#. odoo-javascript
+#: code:addons/real_estate_agency/static/src/dashboard/dashboard.xml:0
+#: code:addons/real_estate_agency/static/src/map/map_action.js:0
+#: code:addons/real_estate_agency/static/src/map/map_action.xml:0
+#: model:ir.model.fields,field_description:real_estate_agency.field_real_estate_lotissement__sold_count
+#: model:ir.model.fields.selection,name:real_estate_agency.selection__real_estate_plot__state__sold
+#: model_terms:ir.ui.view,arch_db:real_estate_agency.real_estate_plot_view_search
+#: model_terms:ir.ui.view,arch_db:real_estate_agency.report_inventory
+msgid "Sold"
+msgstr "مباعة"
+
+#. module: real_estate_agency
+#: model_terms:ir.ui.view,arch_db:real_estate_agency.real_estate_commission_view_search
+msgid "Sold This Month"
+msgstr "المباعة هذا الشهر"
+
+#. module: real_estate_agency
+#: model_terms:ir.ui.view,arch_db:real_estate_agency.real_estate_commission_view_search
+msgid "Sold This Year"
+msgstr "المباعة هذه السنة"
+
+#. module: real_estate_agency
+#. odoo-javascript
+#: code:addons/real_estate_agency/static/src/map/map_action.xml:0
+#: model:ir.model.fields,field_description:real_estate_agency.field_real_estate_plot__state
+#: model_terms:ir.ui.view,arch_db:real_estate_agency.real_estate_plot_view_search
+msgid "Status"
+msgstr "الحالة"
+
+#. module: real_estate_agency
+#: model:ir.model.fields,help:real_estate_agency.field_real_estate_plot__activity_state
+msgid ""
+"Status based on activities\n"
+"Overdue: Due date is already passed\n"
+"Today: Activity date is today\n"
+"Planned: Future activities."
+msgstr ""
+
+#. module: real_estate_agency
+#: model_terms:ir.ui.view,arch_db:real_estate_agency.report_commission
+msgid "Subtotal"
+msgstr "المجموع الفرعي"
+
+#. module: real_estate_agency
+#: model_terms:ir.ui.view,arch_db:real_estate_agency.report_plot_attestation
+msgid "Superficie"
+msgstr ""
+
+#. module: real_estate_agency
+#. odoo-javascript
+#: code:addons/real_estate_agency/static/src/map/map_action.xml:0
+#: model:ir.model.fields,field_description:real_estate_agency.field_real_estate_plot__surface
+msgid "Surface (m²)"
+msgstr "المساحة (م²)"
+
+#. module: real_estate_agency
+#: model:ir.actions.act_window,name:real_estate_agency.real_estate_tag_action
+#: model:ir.model.fields,field_description:real_estate_agency.field_real_estate_plot__tag_ids
+#: model:ir.ui.menu,name:real_estate_agency.real_estate_menu_config_tags
+#: model_terms:ir.ui.view,arch_db:real_estate_agency.real_estate_tag_view_list
+msgid "Tags"
+msgstr "الوسوم"
+
+#. module: real_estate_agency
+#: model:real.estate.moughataa,name:real_estate_agency.moughataa_tevragh_zeina
+msgid "Tevragh Zeina"
+msgstr ""
+
+#. module: real_estate_agency
+#: model:real.estate.moughataa,name:real_estate_agency.moughataa_teyarett
+msgid "Teyarett"
+msgstr ""
+
+#. module: real_estate_agency
+#: model:ir.model.fields,help:real_estate_agency.field_real_estate_plot__agent_id
+msgid "The agent who handled the sale and earns the commission."
+msgstr "الوكيل الذي أنجز البيع ويحصل على العمولة."
+
+#. module: real_estate_agency
+#: model:ir.model.constraint,message:real_estate_agency.constraint_real_estate_lotissement_code_uniq
+msgid "The reference code must be unique."
+msgstr "يجب أن يكون رمز المرجع فريدًا."
+
+#. module: real_estate_agency
+#. odoo-javascript
+#: code:addons/real_estate_agency/static/src/map/map_action.xml:0
+msgid "Tip: right-click the map to create a plot at that location."
+msgstr "نصيحة: انقر بزر الفأرة الأيمن على الخريطة لإنشاء قطعة في ذلك الموقع."
+
+#. module: real_estate_agency
+#: model:ir.model.fields,field_description:real_estate_agency.field_real_estate_plot_image__name
+msgid "Title"
+msgstr "العنوان"
+
+#. module: real_estate_agency
+#: model:ir.model.fields.selection,name:real_estate_agency.selection__real_estate_plot_document__doc_type__titre_foncier
+#: model:real.estate.tag,name:real_estate_agency.tag_titre_foncier
+msgid "Titre foncier"
+msgstr ""
+
+#. module: real_estate_agency
+#: model:ir.model.fields,field_description:real_estate_agency.field_real_estate_commission_report_wizard__date_to
+msgid "To"
+msgstr "إلى"
+
+#. module: real_estate_agency
+#. odoo-javascript
+#: code:addons/real_estate_agency/static/src/dashboard/dashboard.xml:0
+msgid "Top agents"
+msgstr "أفضل الوكلاء"
+
+#. module: real_estate_agency
+#. odoo-javascript
+#: code:addons/real_estate_agency/static/src/dashboard/dashboard.xml:0
+#: model_terms:ir.ui.view,arch_db:real_estate_agency.real_estate_lotissement_view_list
+#: model_terms:ir.ui.view,arch_db:real_estate_agency.report_inventory
+msgid "Total"
+msgstr "الإجمالي"
+
+#. module: real_estate_agency
+#: model:ir.model.fields,field_description:real_estate_agency.field_real_estate_lotissement__plot_count
+msgid "Total Plots"
+msgstr "إجمالي القطع"
+
+#. module: real_estate_agency
+#: model_terms:ir.ui.view,arch_db:real_estate_agency.real_estate_commission_view_list
+#: model_terms:ir.ui.view,arch_db:real_estate_agency.real_estate_plot_view_list
+msgid "Total commission"
+msgstr "إجمالي العمولة"
+
+#. module: real_estate_agency
+#: model_terms:ir.ui.view,arch_db:real_estate_agency.report_commission
+msgid "Total commission:"
+msgstr "إجمالي العمولة:"
+
+#. module: real_estate_agency
+#: model:ir.model.fields,help:real_estate_agency.field_real_estate_lotissement__planned_plots
+msgid "Total number of plots this lotissement is planned to contain."
+msgstr "العدد الإجمالي للقطع المخطط أن تحتويها هذه التجزئة."
+
+#. module: real_estate_agency
+#. odoo-javascript
+#: code:addons/real_estate_agency/static/src/dashboard/dashboard.xml:0
+msgid "Total plots"
+msgstr "إجمالي القطع"
+
+#. module: real_estate_agency
+#: model_terms:ir.ui.view,arch_db:real_estate_agency.real_estate_plot_view_list
+msgid "Total price"
+msgstr "السعر الإجمالي"
+
+#. module: real_estate_agency
+#: model_terms:ir.ui.view,arch_db:real_estate_agency.real_estate_commission_view_list
+#: model_terms:ir.ui.view,arch_db:real_estate_agency.real_estate_plot_view_list
+msgid "Total sales"
+msgstr "إجمالي المبيعات"
+
+#. module: real_estate_agency
+#: model_terms:ir.ui.view,arch_db:real_estate_agency.real_estate_plot_view_list
+msgid "Total surface"
+msgstr ""
+
+#. module: real_estate_agency
+#: model:real.estate.moughataa,name:real_estate_agency.moughataa_toujounine
+msgid "Toujounine"
+msgstr ""
+
+#. module: real_estate_agency
+#: model:ir.model.fields,field_description:real_estate_agency.field_real_estate_plot_document__doc_type
+msgid "Type"
+msgstr "النوع"
+
+#. module: real_estate_agency
+#: model_terms:ir.ui.view,arch_db:real_estate_agency.res_config_settings_view_form_real_estate
+msgid "Type and rate pre-filled when creating a plot."
+msgstr "النوع والنسبة يُملآن مسبقًا عند إنشاء قطعة."
+
+#. module: real_estate_agency
+#: model:ir.model.fields,help:real_estate_agency.field_real_estate_plot__activity_exception_decoration
+msgid "Type of the exception activity on record."
+msgstr ""
+
+#. module: real_estate_agency
+#: model:res.groups,name:real_estate_agency.group_real_estate_user
+msgid "User"
+msgstr "مستخدم"
+
+#. module: real_estate_agency
+#: model_terms:ir.ui.view,arch_db:real_estate_agency.report_plot_attestation
+msgid "Vendue à"
+msgstr ""
+
+#. module: real_estate_agency
+#: model:real.estate.tag,name:real_estate_agency.tag_viabilise
+msgid "Viabilisé"
+msgstr ""
+
+#. module: real_estate_agency
+#. odoo-javascript
+#: code:addons/real_estate_agency/static/src/map/map_action.xml:0
+msgid "View Details"
+msgstr "عرض التفاصيل"
+
+#. module: real_estate_agency
+#: model_terms:ir.ui.view,arch_db:real_estate_agency.report_plot_attestation
+msgid "au prix de"
+msgstr ""
+
+#. module: real_estate_agency
+#. odoo-python
+#: code:addons/real_estate_agency/models/res_partner.py:0
+msgid "buyer_id"
+msgstr ""
+
+#. module: real_estate_agency
+#: model_terms:ir.ui.view,arch_db:real_estate_agency.real_estate_lotissement_view_form
+msgid "e.g. Lotissement El Wahda"
+msgstr ""
+
+#. module: real_estate_agency
+#: model_terms:ir.ui.view,arch_db:real_estate_agency.report_plot_attestation
+msgid "le"
+msgstr ""
+
+#. module: real_estate_agency
+#. odoo-javascript
+#: code:addons/real_estate_agency/static/src/map/map_action.xml:0
+#: model_terms:ir.ui.view,arch_db:real_estate_agency.report_plot_attestation
+msgid "m²"
+msgstr ""
+
+#. module: real_estate_agency
+#: model_terms:ir.ui.view,arch_db:real_estate_agency.real_estate_plot_view_kanban
+msgid "m² ·"
+msgstr ""
+
+#. module: real_estate_agency
+#. odoo-javascript
+#: code:addons/real_estate_agency/static/src/map/map_action.xml:0
+msgid "shown"
+msgstr "معروضة"
+
+#. module: real_estate_agency
+#: model_terms:ir.ui.view,arch_db:real_estate_agency.report_commission
+msgid "to"
+msgstr "إلى"
