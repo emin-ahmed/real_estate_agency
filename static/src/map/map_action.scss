@@ -1,0 +1,87 @@
+.o_re_map_action {
+    // Fills the .o_action flex column (height:100%) that wraps a client action.
+    flex: 1 1 auto;
+    height: 100%;
+    display: flex;
+    overflow: hidden;
+
+    .o_re_sidebar {
+        flex: 0 0 290px;
+        width: 290px;
+        overflow-y: auto;
+        padding: 12px 14px;
+        border-right: 1px solid #dee2e6;
+        background-color: #ffffff;
+
+        .o_re_sidebar_header {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            margin-bottom: 12px;
+        }
+
+        .o_re_filter_block {
+            margin-bottom: 12px;
+        }
+
+        .o_re_filter_label {
+            display: block;
+            font-weight: 600;
+            font-size: 12px;
+            text-transform: uppercase;
+            color: #6c757d;
+            margin-bottom: 4px;
+        }
+
+        .o_re_dot {
+            display: inline-block;
+            width: 10px;
+            height: 10px;
+            border-radius: 50%;
+            margin-right: 2px;
+        }
+    }
+
+    .o_re_map {
+        flex: 1 1 auto;
+        height: 100%;
+        z-index: 0;
+    }
+}
+
+// Leaflet wraps divIcons in a white box by default; strip it.
+.o_re_marker {
+    background: transparent;
+    border: none;
+}
+
+.o_re_popup {
+    min-width: 200px;
+
+    .o_re_popup_img {
+        width: 100%;
+        max-height: 120px;
+        object-fit: cover;
+        border-radius: 4px;
+        margin-bottom: 6px;
+    }
+
+    .o_re_popup_title {
+        display: flex;
+        align-items: center;
+        gap: 6px;
+        margin-bottom: 2px;
+    }
+
+    .o_re_badge {
+        color: #ffffff;
+        padding: 1px 7px;
+        border-radius: 9px;
+        font-size: 11px;
+    }
+
+    .o_re_popup_price {
+        font-weight: 600;
+        margin: 2px 0;
+    }
+}

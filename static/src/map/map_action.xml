@@ -1,0 +1,120 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<templates xml:space="preserve">
+
+    <t t-name="real_estate_agency.MapAction">
+        <div class="o_re_map_action">
+            <div class="o_re_sidebar">
+                <div class="o_re_sidebar_header">
+                    <h5 class="mb-0">Map</h5>
+                    <span class="badge text-bg-primary">
+                        <t t-esc="state.shownCount"/> / <t t-esc="state.totalCount"/> shown
+                    </span>
+                </div>
+
+                <div class="o_re_filter_block">
+                    <label class="o_re_filter_label">Status</label>
+                    <div class="form-check">
+                        <input type="checkbox" class="form-check-input"
+                               id="re_f_available" t-model="state.filters.available"
+                               t-on-change="onFilterChange"/>
+                        <label class="form-check-label" for="re_f_available">
+                            <span class="o_re_dot" style="background-color:#28a745;"/> Available
+                        </label>
+                    </div>
+                    <div class="form-check">
+                        <input type="checkbox" class="form-check-input"
+                               id="re_f_reserved" t-model="state.filters.reserved"
+                               t-on-change="onFilterChange"/>
+                        <label class="form-check-label" for="re_f_reserved">
+                            <span class="o_re_dot" style="background-color:#fd7e14;"/> Reserved
+                        </label>
+                    </div>
+                    <div class="form-check">
+                        <input type="checkbox" class="form-check-input"
+                               id="re_f_sold" t-model="state.filters.sold"
+                               t-on-change="onFilterChange"/>
+                        <label class="form-check-label" for="re_f_sold">
+                            <span class="o_re_dot" style="background-color:#dc3545;"/> Sold
+                        </label>
+                    </div>
+                </div>
+
+                <div class="o_re_filter_block">
+                    <label class="o_re_filter_label" for="re_f_lotissement">Lotissement</label>
+                    <select id="re_f_lotissement" class="form-select form-select-sm"
+                            t-model="state.filters.lotissementId" t-on-change="onFilterChange">
+                        <option value="">All lotissements</option>
+                        <option t-foreach="state.lotissementOptions" t-as="lot" t-key="lot.id"
+                                t-att-value="lot.id" t-esc="lot.name"/>
+                    </select>
+                </div>
+
+                <div class="o_re_filter_block">
+                    <label class="o_re_filter_label" for="re_f_moughataa">Moughataa</label>
+                    <select id="re_f_moughataa" class="form-select form-select-sm"
+                            t-model="state.filters.moughataaId" t-on-change="onFilterChange">
+                        <option value="">All moughataa</option>
+                        <option t-foreach="state.moughataaOptions" t-as="m" t-key="m.id"
+                                t-att-value="m.id" t-esc="m.name"/>
+                    </select>
+                </div>
+
+                <div class="o_re_filter_block">
+                    <label class="o_re_filter_label">Price (MRU)</label>
+                    <div class="d-flex gap-1">
+                        <input type="number" class="form-control form-control-sm" placeholder="Min"
+                               t-model="state.filters.priceMin" t-on-change="onFilterChange"/>
+                        <input type="number" class="form-control form-control-sm" placeholder="Max"
+                               t-model="state.filters.priceMax" t-on-change="onFilterChange"/>
+                    </div>
+                </div>
+
+                <div class="o_re_filter_block">
+                    <label class="o_re_filter_label">Surface (m²)</label>
+                    <div class="d-flex gap-1">
+                        <input type="number" class="form-control form-control-sm" placeholder="Min"
+                               t-model="state.filters.surfaceMin" t-on-change="onFilterChange"/>
+                        <input type="number" class="form-control form-control-sm" placeholder="Max"
+                               t-model="state.filters.surfaceMax" t-on-change="onFilterChange"/>
+                    </div>
+                </div>
+
+                <button class="btn btn-outline-secondary btn-sm w-100 mt-2"
+                        t-on-click="onResetFilters">
+                    Reset filters
+                </button>
+
+                <p class="text-muted small mt-3 mb-0">
+                    Tip: right-click the map to create a plot at that location.
+                </p>
+            </div>
+
+            <div class="o_re_map" t-ref="map"/>
+        </div>
+    </t>
+
+    <t t-name="real_estate_agency.PlotPopup">
+        <div class="o_re_popup">
+            <img t-if="plot.image_128" class="o_re_popup_img"
+                 t-att-src="'data:image/jpeg;base64,' + plot.image_128"/>
+            <div class="o_re_popup_title">
+                <strong t-esc="plot.reference"/>
+                <span class="o_re_badge" t-attf-style="background-color:{{ stateColor }};"
+                      t-esc="stateLabel"/>
+            </div>
+            <div t-if="lotissementName" class="text-muted small" t-esc="lotissementName"/>
+            <div class="o_re_popup_price">
+                <t t-esc="priceLabel"/> <t t-esc="currencyName"/>
+                <span class="text-muted"> · <t t-esc="plot.surface"/> m²</span>
+            </div>
+            <div t-if="plot.neighborhood" class="text-muted small">
+                <t t-esc="plot.neighborhood"/>
+                <t t-if="moughataaName"> — <t t-esc="moughataaName"/></t>
+            </div>
+            <button class="btn btn-sm btn-primary o_re_view_details mt-2">
+                View Details
+            </button>
+        </div>
+    </t>
+
+</templates>

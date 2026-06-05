@@ -7,6 +7,13 @@
               sequence="20"
               groups="group_real_estate_user"/>
 
+    <!-- Map (landing page) -->
+    <menuitem id="real_estate_menu_map"
+              name="Map"
+              parent="real_estate_menu_root"
+              action="real_estate_map_action"
+              sequence="5"/>
+
     <!-- Plots -->
     <menuitem id="real_estate_menu_plots"
               name="Plots"
