@@ -1,0 +1,50 @@
+.o_re_dashboard {
+    overflow: auto;
+    height: 100%;
+    background-color: #f8f9fa;
+
+    .o_re_card {
+        background: #ffffff;
+        border: 1px solid #e9ecef;
+        border-radius: 8px;
+        padding: 16px;
+        text-align: center;
+        cursor: pointer;
+        transition: box-shadow 0.15s ease;
+        height: 100%;
+
+        &:hover {
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.12);
+        }
+
+        .o_re_card_value {
+            font-size: 26px;
+            font-weight: 700;
+            line-height: 1.1;
+        }
+
+        .o_re_card_label {
+            color: #6c757d;
+            font-size: 13px;
+            margin-top: 4px;
+        }
+
+        &.o_re_available .o_re_card_value { color: #28a745; }
+        &.o_re_reserved .o_re_card_value { color: #fd7e14; }
+        &.o_re_sold .o_re_card_value { color: #dc3545; }
+
+        &.o_re_card_accent {
+            cursor: default;
+            &:hover { box-shadow: none; }
+        }
+    }
+
+    .o_re_panel {
+        background: #ffffff;
+        border: 1px solid #e9ecef;
+        border-radius: 8px;
+        padding: 16px;
+
+        h5 { margin-bottom: 12px; }
+    }
+}

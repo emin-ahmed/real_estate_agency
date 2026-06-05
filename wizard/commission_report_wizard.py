@@ -70,5 +70,5 @@ class ReportCommission(models.AbstractModel):
             'agent_groups': agent_groups,
             'grand_sales': sum(g['total_sales'] for g in agent_groups),
             'grand_commission': sum(g['total_commission'] for g in agent_groups),
-            'currency': self.env.company.currency_id,
+            'currency': self.env['real.estate.plot']._default_currency(),
         }

@@ -30,7 +30,7 @@ class RealEstatePlot(models.Model):
         string='Price', currency_field='currency_id')
     currency_id = fields.Many2one(
         comodel_name='res.currency', string='Currency',
-        default=lambda self: self.env.company.currency_id)
+        default=lambda self: self._default_currency())
 
     latitude = fields.Float(string='Latitude', digits=(10, 7))
     longitude = fields.Float(string='Longitude', digits=(10, 7))
@@ -137,6 +137,70 @@ class RealEstatePlot(models.Model):
         key = self.env['ir.config_parameter'].sudo().get_param(
             'real_estate_agency.google_maps_api_key', default='')
         return {'google_maps_api_key': key}
+
+    @api.model
+    def _default_currency(self):
+        """The agency operates in MRU; fall back to the company currency only
+        if MRU is somehow unavailable."""
+        return self.env.ref('base.MRU', raise_if_not_found=False) \
+            or self.env.company.currency_id
+
+    @api.model
+    def get_dashboard_data(self):
+        """Aggregates for the manager dashboard client action."""
+        Plot = self.env['real.estate.plot']
+        today = fields.Date.context_today(self)
+        month_start = today.replace(day=1)
+
+        all_plots = Plot.search([])
+        by_state = {
+            'available': len(all_plots.filtered(lambda p: p.state == 'available')),
+            'reserved': len(all_plots.filtered(lambda p: p.state == 'reserved')),
+            'sold': len(all_plots.filtered(lambda p: p.state == 'sold')),
+        }
+
+        sold_month = Plot.search([
+            ('state', '=', 'sold'),
+            ('sale_date', '>=', month_start),
+            ('sale_date', '<=', today),
+        ])
+
+        sold_all = Plot.search([('state', '=', 'sold')])
+        agents = {}
+        for plot in sold_all:
+            grp = agents.setdefault(plot.agent_id.id, {
+                'name': plot.agent_id.display_name or 'Unassigned',
+                'count': 0,
+                'commission': 0.0,
+            })
+            grp['count'] += 1
+            grp['commission'] += plot.commission_total
+        top_agents = sorted(
+            agents.values(), key=lambda a: a['commission'], reverse=True)[:5]
+
+        by_moughataa = []
+        for moughataa in all_plots.mapped('moughataa_id'):
+            recs = all_plots.filtered(lambda p: p.moughataa_id == moughataa)
+            by_moughataa.append({
+                'name': moughataa.display_name,
+                'total': len(recs),
+                'available': len(recs.filtered(lambda p: p.state == 'available')),
+                'reserved': len(recs.filtered(lambda p: p.state == 'reserved')),
+                'sold': len(recs.filtered(lambda p: p.state == 'sold')),
+            })
+        by_moughataa.sort(key=lambda d: d['total'], reverse=True)
+
+        currency = self._default_currency()
+        return {
+            'total': len(all_plots),
+            'by_state': by_state,
+            'sales_month_count': len(sold_month),
+            'revenue_month': sum(sold_month.mapped('sale_price')),
+            'commission_month': sum(sold_month.mapped('commission_total')),
+            'top_agents': top_agents,
+            'by_moughataa': by_moughataa,
+            'currency_symbol': currency.symbol or '',
+        }
 
     @api.model
     def get_plot_images(self, plot_id):

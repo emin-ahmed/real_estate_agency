@@ -1,0 +1,119 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<templates xml:space="preserve">
+
+    <t t-name="real_estate_agency.Dashboard">
+        <div class="o_re_dashboard p-3">
+            <h2 class="mb-3">Real Estate Overview</h2>
+
+            <div class="row g-3">
+                <div class="col-6 col-md-3">
+                    <div class="o_re_card" t-on-click="() => this.openAll()">
+                        <div class="o_re_card_value"><t t-esc="fmt(state.data.total)"/></div>
+                        <div class="o_re_card_label">Total plots</div>
+                    </div>
+                </div>
+                <div class="col-6 col-md-3">
+                    <div class="o_re_card o_re_available"
+                         t-on-click="() => this.openState('available')">
+                        <div class="o_re_card_value">
+                            <t t-esc="fmt(state.data.by_state and state.data.by_state.available)"/>
+                        </div>
+                        <div class="o_re_card_label">Available</div>
+                    </div>
+                </div>
+                <div class="col-6 col-md-3">
+                    <div class="o_re_card o_re_reserved"
+                         t-on-click="() => this.openState('reserved')">
+                        <div class="o_re_card_value">
+                            <t t-esc="fmt(state.data.by_state and state.data.by_state.reserved)"/>
+                        </div>
+                        <div class="o_re_card_label">Reserved</div>
+                    </div>
+                </div>
+                <div class="col-6 col-md-3">
+                    <div class="o_re_card o_re_sold"
+                         t-on-click="() => this.openState('sold')">
+                        <div class="o_re_card_value">
+                            <t t-esc="fmt(state.data.by_state and state.data.by_state.sold)"/>
+                        </div>
+                        <div class="o_re_card_label">Sold</div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="row g-3 mt-1">
+                <div class="col-6 col-md-4">
+                    <div class="o_re_card o_re_card_accent">
+                        <div class="o_re_card_value"><t t-esc="fmt(state.data.sales_month_count)"/></div>
+                        <div class="o_re_card_label">Sales this month</div>
+                    </div>
+                </div>
+                <div class="col-6 col-md-4">
+                    <div class="o_re_card o_re_card_accent">
+                        <div class="o_re_card_value"><t t-esc="money(state.data.revenue_month)"/></div>
+                        <div class="o_re_card_label">Revenue this month</div>
+                    </div>
+                </div>
+                <div class="col-6 col-md-4">
+                    <div class="o_re_card o_re_card_accent">
+                        <div class="o_re_card_value"><t t-esc="money(state.data.commission_month)"/></div>
+                        <div class="o_re_card_label">Commission this month</div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="row g-3 mt-1">
+                <div class="col-12 col-md-6">
+                    <div class="o_re_panel">
+                        <h5>Top agents</h5>
+                        <table class="table table-sm mb-0">
+                            <thead>
+                                <tr>
+                                    <th>Agent</th>
+                                    <th class="text-end">Sales</th>
+                                    <th class="text-end">Commission</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr t-foreach="state.data.top_agents or []" t-as="a" t-key="a_index">
+                                    <td t-esc="a.name"/>
+                                    <td class="text-end" t-esc="fmt(a.count)"/>
+                                    <td class="text-end" t-esc="money(a.commission)"/>
+                                </tr>
+                                <tr t-if="!state.data.top_agents or !state.data.top_agents.length">
+                                    <td colspan="3" class="text-muted">No sales yet.</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+                <div class="col-12 col-md-6">
+                    <div class="o_re_panel">
+                        <h5>By moughataa</h5>
+                        <table class="table table-sm mb-0">
+                            <thead>
+                                <tr>
+                                    <th>Moughataa</th>
+                                    <th class="text-end">Total</th>
+                                    <th class="text-end">Avail.</th>
+                                    <th class="text-end">Resv.</th>
+                                    <th class="text-end">Sold</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr t-foreach="state.data.by_moughataa or []" t-as="m" t-key="m_index">
+                                    <td t-esc="m.name"/>
+                                    <td class="text-end" t-esc="m.total"/>
+                                    <td class="text-end" t-esc="m.available"/>
+                                    <td class="text-end" t-esc="m.reserved"/>
+                                    <td class="text-end" t-esc="m.sold"/>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </t>
+
+</templates>

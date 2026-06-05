@@ -14,6 +14,14 @@
               action="real_estate_map_action"
               sequence="5"/>
 
+    <!-- Dashboard (Manager only) -->
+    <menuitem id="real_estate_menu_dashboard"
+              name="Dashboard"
+              parent="real_estate_menu_root"
+              action="real_estate_dashboard_action"
+              sequence="6"
+              groups="group_real_estate_manager"/>
+
     <!-- Plots -->
     <menuitem id="real_estate_menu_plots"
               name="Plots"
