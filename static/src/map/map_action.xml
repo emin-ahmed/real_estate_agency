@@ -3,6 +3,13 @@
 
     <t t-name="real_estate_agency.MapAction">
         <div class="o_re_map_action">
+            <div t-if="state.error" class="o_re_map_error">
+                <div class="alert alert-warning text-center mt-4 mx-auto" style="max-width:480px;">
+                    <i class="fa fa-map-marker me-2"/>
+                    <t t-esc="state.error"/>
+                </div>
+            </div>
+            <t t-else="">
             <div class="o_re_sidebar">
                 <div class="o_re_sidebar_header">
                     <h5 class="mb-0">Map</h5>
@@ -90,6 +97,7 @@
             </div>
 
             <div class="o_re_map" t-ref="map"/>
+            </t>
         </div>
     </t>
 

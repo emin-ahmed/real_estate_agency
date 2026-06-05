@@ -9,3 +9,9 @@ class ResConfigSettings(models.TransientModel):
         related='company_id.re_commission_type', readonly=False)
     re_commission_rate = fields.Float(
         related='company_id.re_commission_rate', readonly=False)
+
+    google_maps_api_key = fields.Char(
+        string='Google Maps API Key',
+        config_parameter='real_estate_agency.google_maps_api_key',
+        help='JavaScript API key used by the interactive map. Restrict it by '
+             'HTTP referrer in the Google Cloud console.')

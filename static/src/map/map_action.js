@@ -1,9 +1,10 @@
 /** @odoo-module **/
-/* global L */
+/* global google */
 import { Component, onWillStart, useEffect, useRef, useState } from "@odoo/owl";
 import { registry } from "@web/core/registry";
 import { useService } from "@web/core/utils/hooks";
 import { renderToElement } from "@web/core/utils/render";
+import { loadJS } from "@web/core/assets";
 import { _t } from "@web/core/l10n/translation";
 
 const STATE_COLORS = {
@@ -12,8 +13,11 @@ const STATE_COLORS = {
     sold: "#dc3545",
 };
 // Nouakchott centre (see CLAUDE.md) — used when no plots have coordinates.
-const DEFAULT_CENTER = [18.0735, -15.9582];
+const DEFAULT_CENTER = { lat: 18.0735, lng: -15.9582 };
 const DEFAULT_ZOOM = 13;
+// Teardrop pin path (24x36 viewport), anchored at the tip.
+const PIN_PATH =
+    "M12 0C5.37 0 0 5.37 0 12c0 9 12 24 12 24s12-15 12-24C24 5.37 18.63 0 12 0z";
 
 export class RealEstateMap extends Component {
     static template = "real_estate_agency.MapAction";
@@ -25,11 +29,13 @@ export class RealEstateMap extends Component {
 
         this.mapRef = useRef("map");
         this.allPlots = [];
-        this.leafletMap = null;
-        this.markerLayer = null;
+        this.gmap = null;
+        this.markers = [];
+        this.infoWindow = null;
 
         this.state = useState({
-            loaded: false,
+            ready: false,
+            error: "",
             shownCount: 0,
             totalCount: 0,
             moughataaOptions: [],
@@ -37,21 +43,48 @@ export class RealEstateMap extends Component {
             filters: this._emptyFilters(),
         });
 
-        onWillStart(() => this.loadData());
+        onWillStart(async () => {
+            const config = await this.orm.call(
+                "real.estate.plot", "get_map_config", []
+            );
+            const apiKey = config.google_maps_api_key;
+            if (!apiKey) {
+                this.state.error = _t(
+                    "Set the Google Maps API key in Settings → Real Estate to enable the map."
+                );
+                return;
+            }
+            await this.loadData();
+            try {
+                await loadJS(
+                    "https://maps.googleapis.com/maps/api/js?key=" +
+                        encodeURIComponent(apiKey) +
+                        "&v=weekly"
+                );
+            } catch {
+                this.state.error = _t(
+                    "Could not load Google Maps. Check the API key, billing and your network."
+                );
+                return;
+            }
+            if (!window.google || !window.google.maps) {
+                this.state.error = _t(
+                    "Google Maps failed to initialise. The API key may be invalid or unauthorised."
+                );
+                return;
+            }
+            this.state.ready = true;
+        });
 
-        // Create the Leaflet map once the container div is mounted; tear it
-        // down on unmount. Mirrors addons/delivery .../map.js.
+        // Build the map once the container is in the DOM and Maps is ready.
         useEffect(
             () => {
-                this.initMap();
-                return () => {
-                    if (this.leafletMap) {
-                        this.leafletMap.remove();
-                        this.leafletMap = null;
-                    }
-                };
+                if (this.state.ready) {
+                    this.initMap();
+                }
+                return () => this.clearMarkers();
             },
-            () => [this.state.loaded]
+            () => [this.state.ready]
         );
     }
 
@@ -88,38 +121,37 @@ export class RealEstateMap extends Component {
         this.state.totalCount = plots.length;
         this.state.moughataaOptions = moughataas;
         this.state.lotissementOptions = lotissements;
-        this.state.loaded = true;
     }
 
     // ---- map ----------------------------------------------------------
     initMap() {
-        if (!this.mapRef.el || this.leafletMap) {
+        if (!this.mapRef.el || this.gmap) {
             return;
         }
-        this.leafletMap = L.map(this.mapRef.el).setView(DEFAULT_CENTER, DEFAULT_ZOOM);
-        L.tileLayer("https://tile.openstreetmap.org/{z}/{x}/{y}.png", {
-            maxZoom: 19,
-            attribution:
-                '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors',
-        }).addTo(this.leafletMap);
-        this.markerLayer = L.layerGroup().addTo(this.leafletMap);
-        this.leafletMap.on("contextmenu", (ev) => this.onMapRightClick(ev));
+        this.gmap = new google.maps.Map(this.mapRef.el, {
+            center: DEFAULT_CENTER,
+            zoom: DEFAULT_ZOOM,
+            mapTypeId: "hybrid", // satellite imagery + street/place labels
+            mapTypeControl: true,
+            streetViewControl: false,
+            fullscreenControl: true,
+            gestureHandling: "greedy",
+        });
+        this.infoWindow = new google.maps.InfoWindow();
+        this.gmap.addListener("contextmenu", (e) => this.onMapRightClick(e));
         this.applyFilters();
     }
 
     makeIcon(stateVal) {
-        const color = STATE_COLORS[stateVal] || "#6c757d";
-        const html = `<svg width="26" height="38" viewBox="0 0 26 38" xmlns="http://www.w3.org/2000/svg">
-            <path d="M13 0C5.82 0 0 5.82 0 13c0 9.5 13 25 13 25s13-15.5 13-25C26 5.82 20.18 0 13 0z"
-                  fill="${color}" stroke="#ffffff" stroke-width="2"/>
-            <circle cx="13" cy="13" r="4.5" fill="#ffffff"/></svg>`;
-        return L.divIcon({
-            className: "o_re_marker",
-            html,
-            iconSize: [26, 38],
-            iconAnchor: [13, 38],
-            popupAnchor: [0, -34],
-        });
+        return {
+            path: PIN_PATH,
+            fillColor: STATE_COLORS[stateVal] || "#6c757d",
+            fillOpacity: 1,
+            strokeColor: "#ffffff",
+            strokeWeight: 1.5,
+            scale: 1.3,
+            anchor: new google.maps.Point(12, 36),
+        };
     }
 
     // ---- filtering (client-side) -------------------------------------
@@ -158,23 +190,41 @@ export class RealEstateMap extends Component {
     }
 
     applyFilters() {
-        if (!this.markerLayer) {
+        if (!this.gmap) {
             return;
         }
-        this.markerLayer.clearLayers();
+        this.clearMarkers();
         const plots = this.filteredPlots();
-        const bounds = [];
+        const bounds = new google.maps.LatLngBounds();
         for (const plot of plots) {
-            const latlng = [plot.latitude, plot.longitude];
-            bounds.push(latlng);
-            const marker = L.marker(latlng, { icon: this.makeIcon(plot.state) });
-            marker.bindPopup(() => this.makePopup(plot), { minWidth: 220 });
-            this.markerLayer.addLayer(marker);
+            const position = { lat: plot.latitude, lng: plot.longitude };
+            const marker = new google.maps.Marker({
+                position,
+                map: this.gmap,
+                icon: this.makeIcon(plot.state),
+                title: plot.reference,
+            });
+            marker.addListener("click", () => {
+                this.infoWindow.setContent(this.makePopup(plot));
+                this.infoWindow.open({ anchor: marker, map: this.gmap });
+            });
+            this.markers.push(marker);
+            bounds.extend(position);
         }
         this.state.shownCount = plots.length;
-        if (bounds.length) {
-            this.leafletMap.fitBounds(bounds, { padding: [40, 40], maxZoom: 16 });
+        if (plots.length) {
+            this.gmap.fitBounds(bounds);
+            if (plots.length === 1) {
+                this.gmap.setZoom(17);
+            }
         }
+    }
+
+    clearMarkers() {
+        for (const marker of this.markers) {
+            marker.setMap(null);
+        }
+        this.markers = [];
     }
 
     onFilterChange() {
@@ -226,8 +276,12 @@ export class RealEstateMap extends Component {
     }
 
     // ---- right-click quick create ------------------------------------
-    onMapRightClick(ev) {
-        const { lat, lng } = ev.latlng;
+    onMapRightClick(e) {
+        if (!e.latLng) {
+            return;
+        }
+        const lat = e.latLng.lat();
+        const lng = e.latLng.lng();
         this.action.doAction(
             {
                 type: "ir.actions.act_window",

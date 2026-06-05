@@ -47,12 +47,10 @@
         height: 100%;
         z-index: 0;
     }
-}
 
-// Leaflet wraps divIcons in a white box by default; strip it.
-.o_re_marker {
-    background: transparent;
-    border: none;
+    .o_re_map_error {
+        flex: 1 1 auto;
+    }
 }
 
 .o_re_popup {

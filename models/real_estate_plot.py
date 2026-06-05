@@ -121,6 +121,14 @@ class RealEstatePlot(models.Model):
                     'A sold plot (%s) requires a buyer and a sale price.',
                     plot.reference))
 
+    @api.model
+    def get_map_config(self):
+        """Configuration the map client action needs (read by any internal
+        Real Estate user). The API key lives in a system parameter."""
+        key = self.env['ir.config_parameter'].sudo().get_param(
+            'real_estate_agency.google_maps_api_key', default='')
+        return {'google_maps_api_key': key}
+
     @api.model_create_multi
     def create(self, vals_list):
         for vals in vals_list:

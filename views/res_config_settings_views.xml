@@ -23,6 +23,14 @@
                             </div>
                         </setting>
                     </block>
+                    <block title="Map"
+                           help="Settings for the interactive plot map.">
+                        <setting string="Google Maps API Key"
+                                 help="JavaScript API key for the map (satellite/hybrid view). Create one in the Google Cloud console with billing enabled, and restrict it by HTTP referrer.">
+                            <field name="google_maps_api_key"
+                                   placeholder="AIza..."/>
+                        </setting>
+                    </block>
                 </app>
             </xpath>
         </field>

@@ -1,7 +1,7 @@
 # Part of the real_estate_agency module. See LICENSE file for details.
 {
     'name': 'Real Estate Agency (Mauritania)',
-    'version': '19.0.3.0.0',
+    'version': '19.0.3.1.0',
     'summary': 'Manage land-plot sales, agents and commissions for real estate agencies',
     'description': """
 Real Estate Agency (Mauritania)
@@ -43,10 +43,8 @@ Amounts are in Mauritanian Ouguiya (MRU). Built incrementally on Odoo Community.
     ],
     'assets': {
         'web.assets_backend': [
-            # Vendored Leaflet 1.9.4 (lib before the component that uses it).
-            'real_estate_agency/static/lib/leaflet/leaflet.css',
-            'real_estate_agency/static/lib/leaflet/leaflet.js',
-            # Map client action.
+            # Map client action. Google Maps JS is loaded at runtime from
+            # Google's servers using the API key configured in Settings.
             'real_estate_agency/static/src/**/*.js',
             'real_estate_agency/static/src/**/*.xml',
             'real_estate_agency/static/src/**/*.scss',
