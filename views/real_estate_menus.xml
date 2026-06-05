@@ -21,6 +21,20 @@
               action="real_estate_lotissement_action"
               sequence="20"/>
 
+    <!-- Buyers -->
+    <menuitem id="real_estate_menu_buyers"
+              name="Buyers"
+              parent="real_estate_menu_root"
+              action="res_partner_buyer_action"
+              sequence="30"/>
+
+    <!-- Commissions -->
+    <menuitem id="real_estate_menu_commissions"
+              name="Commissions"
+              parent="real_estate_menu_root"
+              action="real_estate_commission_action"
+              sequence="40"/>
+
     <!-- Configuration (Manager only) -->
     <menuitem id="real_estate_menu_config"
               name="Configuration"

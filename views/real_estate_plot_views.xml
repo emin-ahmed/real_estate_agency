@@ -18,6 +18,11 @@
                 <field name="surface" sum="Total surface"/>
                 <field name="price" sum="Total price"/>
                 <field name="currency_id" column_invisible="1"/>
+                <field name="buyer_id" optional="hide"/>
+                <field name="agent_id" optional="hide"/>
+                <field name="sale_price" sum="Total sales" optional="hide"/>
+                <field name="commission_total" sum="Total commission"
+                       optional="hide"/>
                 <field name="tag_ids" widget="many2many_tags"
                        options="{'color_field': 'color'}" optional="hide"/>
                 <field name="state" widget="badge"
@@ -77,6 +82,28 @@
                                 <field name="longitude" nolabel="1"/>
                             </div>
                         </group>
+                    </group>
+                    <group invisible="state == 'available'">
+                        <group string="Sale Information">
+                            <field name="buyer_id"
+                                   required="state == 'sold'"/>
+                            <field name="agent_id"/>
+                            <field name="sale_date"/>
+                            <field name="sale_price"
+                                   required="state == 'sold'"/>
+                        </group>
+                        <group string="Commission">
+                            <field name="commission_type"/>
+                            <field name="commission_rate"
+                                   invisible="commission_type != 'percentage'"/>
+                            <field name="commission_amount"
+                                   invisible="commission_type != 'fixed'"/>
+                            <field name="commission_total"/>
+                        </group>
+                    </group>
+                    <group string="Reservation" invisible="not reserved_by_id">
+                        <field name="reserved_by_id"/>
+                        <field name="reservation_date"/>
                     </group>
                 </sheet>
                 <chatter/>

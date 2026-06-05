@@ -1,7 +1,7 @@
 # Part of the real_estate_agency module. See LICENSE file for details.
 {
     'name': 'Real Estate Agency (Mauritania)',
-    'version': '19.0.1.0.0',
+    'version': '19.0.2.0.0',
     'summary': 'Manage land-plot sales, agents and commissions for real estate agencies',
     'description': """
 Real Estate Agency (Mauritania)
@@ -30,10 +30,14 @@ Amounts are in Mauritanian Ouguiya (MRU). Built incrementally on Odoo Community.
         'data/real_estate_tag_data.xml',
         'views/real_estate_plot_views.xml',
         'views/real_estate_lotissement_views.xml',
+        'views/real_estate_commission_views.xml',
+        'views/res_partner_views.xml',
+        'views/res_config_settings_views.xml',
         'views/real_estate_config_views.xml',
         'views/real_estate_menus.xml',
     ],
     'demo': [
+        'demo/real_estate_partners_demo.xml',
         'demo/real_estate_demo.xml',
     ],
     'application': True,

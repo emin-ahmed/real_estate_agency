@@ -1,5 +1,6 @@
 # Part of the real_estate_agency module. See LICENSE file for details.
 from odoo import api, fields, models
+from odoo.exceptions import UserError, ValidationError
 
 
 class RealEstatePlot(models.Model):
@@ -54,6 +55,43 @@ class RealEstatePlot(models.Model):
         comodel_name='res.company', string='Company',
         default=lambda self: self.env.company)
 
+    # --- Reservation (stamped automatically when marked reserved) ----------
+    reserved_by_id = fields.Many2one(
+        comodel_name='res.users', string='Reserved By', readonly=True,
+        copy=False)
+    reservation_date = fields.Date(
+        string='Reservation Date', readonly=True, copy=False)
+
+    # --- Sale information (filled when reserved/sold) ----------------------
+    buyer_id = fields.Many2one(
+        comodel_name='res.partner', string='Buyer', ondelete='restrict',
+        copy=False, tracking=True)
+    sale_date = fields.Date(string='Sale Date', copy=False, tracking=True)
+    sale_price = fields.Monetary(
+        string='Sale Price', currency_field='currency_id', copy=False,
+        tracking=True, help='Agreed price; may differ from the listing price.')
+    agent_id = fields.Many2one(
+        comodel_name='res.partner', string='Agent', copy=False, tracking=True,
+        default=lambda self: self.env.user.partner_id,
+        help='The agent who handled the sale and earns the commission.')
+
+    # --- Commission --------------------------------------------------------
+    commission_type = fields.Selection(
+        selection=[
+            ('percentage', 'Percentage'),
+            ('fixed', 'Fixed Amount'),
+        ],
+        string='Commission Type',
+        default=lambda self: self.env.company.re_commission_type)
+    commission_rate = fields.Float(
+        string='Commission Rate (%)',
+        default=lambda self: self.env.company.re_commission_rate)
+    commission_amount = fields.Monetary(
+        string='Fixed Commission', currency_field='currency_id')
+    commission_total = fields.Monetary(
+        string='Commission', currency_field='currency_id',
+        compute='_compute_commission_total', store=True)
+
     @api.depends('reference', 'plot_number')
     def _compute_name(self):
         for plot in self:
@@ -61,6 +99,27 @@ class RealEstatePlot(models.Model):
                 plot.name = '%s (N° %s)' % (plot.reference, plot.plot_number)
             else:
                 plot.name = plot.reference
+
+    @api.depends('sale_price', 'commission_type', 'commission_rate',
+                 'commission_amount')
+    def _compute_commission_total(self):
+        for plot in self:
+            if plot.commission_type == 'fixed':
+                plot.commission_total = plot.commission_amount
+            elif plot.commission_type == 'percentage':
+                plot.commission_total = (
+                    plot.sale_price * plot.commission_rate / 100.0)
+            else:
+                plot.commission_total = 0.0
+
+    @api.constrains('state', 'buyer_id', 'sale_price')
+    def _check_sold_requirements(self):
+        for plot in self:
+            if plot.state == 'sold' and (
+                    not plot.buyer_id or not plot.sale_price):
+                raise ValidationError(self.env._(
+                    'A sold plot (%s) requires a buyer and a sale price.',
+                    plot.reference))
 
     @api.model_create_multi
     def create(self, vals_list):
@@ -72,10 +131,28 @@ class RealEstatePlot(models.Model):
 
     # Statusbar buttons -----------------------------------------------------
     def action_set_available(self):
-        self.write({'state': 'available'})
+        self.write({
+            'state': 'available',
+            'reserved_by_id': False,
+            'reservation_date': False,
+        })
 
     def action_set_reserved(self):
-        self.write({'state': 'reserved'})
+        self.write({
+            'state': 'reserved',
+            'reserved_by_id': self.env.user.id,
+            'reservation_date': fields.Date.context_today(self),
+        })
 
     def action_set_sold(self):
-        self.write({'state': 'sold'})
+        for plot in self:
+            if not plot.buyer_id or not plot.sale_price:
+                raise UserError(self.env._(
+                    'Set a buyer and a sale price on plot %s before marking '
+                    'it as sold.', plot.reference))
+            vals = {'state': 'sold'}
+            if not plot.sale_date:
+                vals['sale_date'] = fields.Date.context_today(plot)
+            if not plot.agent_id:
+                vals['agent_id'] = self.env.user.partner_id.id
+            plot.write(vals)

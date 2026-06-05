@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+
+    <!-- Smart button on the contact form: jump to the plots they bought. -->
+    <record id="res_partner_view_form_real_estate" model="ir.ui.view">
+        <field name="name">res.partner.form.real.estate</field>
+        <field name="model">res.partner</field>
+        <field name="inherit_id" ref="base.view_partner_form"/>
+        <field name="arch" type="xml">
+            <xpath expr="//div[@name='button_box']" position="inside">
+                <button type="object" name="action_view_purchased_plots"
+                        class="oe_stat_button" icon="fa-map-marker"
+                        invisible="plot_purchase_count == 0">
+                    <field name="plot_purchase_count" widget="statinfo"
+                           string="Plots Bought"/>
+                </button>
+            </xpath>
+        </field>
+    </record>
+
+    <!-- Buyers: contacts that have purchased at least one plot. -->
+    <record id="res_partner_buyer_action" model="ir.actions.act_window">
+        <field name="name">Buyers</field>
+        <field name="res_model">res.partner</field>
+        <field name="view_mode">kanban,list,form</field>
+        <field name="domain">[('plot_purchase_count', '>', 0)]</field>
+        <field name="context">{'res_partner_search_mode': 'customer'}</field>
+        <field name="help" type="html">
+            <p class="o_view_nocontent_smiling_face">
+                No buyers yet
+            </p>
+            <p>
+                Contacts appear here once they have purchased a plot. Open one
+                to see the plots they bought.
+            </p>
+        </field>
+    </record>
+
+</odoo>

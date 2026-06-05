@@ -53,6 +53,8 @@
         <field name="longitude">-15.921000</field>
         <field name="state">reserved</field>
         <field name="tag_ids" eval="[(6, 0, [ref('tag_titre_foncier')])]"/>
+        <field name="reserved_by_id" ref="base.user_admin"/>
+        <field name="reservation_date" eval="(DateTime.today() - relativedelta(days=7)).strftime('%Y-%m-%d')"/>
     </record>
 
     <record id="plot_wahda_03" model="real.estate.plot">
@@ -67,6 +69,12 @@
         <field name="longitude">-15.920300</field>
         <field name="state">sold</field>
         <field name="tag_ids" eval="[(6, 0, [ref('tag_titre_foncier'), ref('tag_cloture')])]"/>
+        <field name="buyer_id" ref="buyer_sidi"/>
+        <field name="agent_id" ref="agent_moussa"/>
+        <field name="sale_date" eval="(DateTime.today() - relativedelta(months=2)).strftime('%Y-%m-%d')"/>
+        <field name="sale_price">1750000</field>
+        <field name="commission_type">percentage</field>
+        <field name="commission_rate">5.0</field>
     </record>
 
     <record id="plot_wahda_04" model="real.estate.plot">
@@ -108,6 +116,12 @@
         <field name="longitude">-15.918900</field>
         <field name="state">sold</field>
         <field name="tag_ids" eval="[(6, 0, [ref('tag_titre_foncier')])]"/>
+        <field name="buyer_id" ref="buyer_aicha"/>
+        <field name="agent_id" ref="agent_fatma"/>
+        <field name="sale_date" eval="(DateTime.today() - relativedelta(months=1)).strftime('%Y-%m-%d')"/>
+        <field name="sale_price">1400000</field>
+        <field name="commission_type">fixed</field>
+        <field name="commission_amount">80000</field>
     </record>
 
     <!-- ============== PLOTS — Tevragh Zeina Nord (TZ) =============== -->
@@ -137,6 +151,8 @@
         <field name="longitude">-15.985500</field>
         <field name="state">reserved</field>
         <field name="tag_ids" eval="[(6, 0, [ref('tag_titre_foncier')])]"/>
+        <field name="reserved_by_id" ref="base.user_admin"/>
+        <field name="reservation_date" eval="(DateTime.today() - relativedelta(days=3)).strftime('%Y-%m-%d')"/>
     </record>
 
     <record id="plot_tzn_03" model="real.estate.plot">
@@ -151,6 +167,12 @@
         <field name="longitude">-15.987000</field>
         <field name="state">sold</field>
         <field name="tag_ids" eval="[(6, 0, [ref('tag_titre_foncier'), ref('tag_permis_construire')])]"/>
+        <field name="buyer_id" ref="buyer_brahim"/>
+        <field name="agent_id" ref="agent_moussa"/>
+        <field name="sale_date" eval="(DateTime.today() - relativedelta(days=10)).strftime('%Y-%m-%d')"/>
+        <field name="sale_price">4900000</field>
+        <field name="commission_type">percentage</field>
+        <field name="commission_rate">4.0</field>
     </record>
 
     <record id="plot_tzn_04" model="real.estate.plot">
@@ -206,6 +228,8 @@
         <field name="latitude">18.132100</field>
         <field name="longitude">-15.944100</field>
         <field name="state">reserved</field>
+        <field name="reserved_by_id" ref="base.user_admin"/>
+        <field name="reservation_date" eval="(DateTime.today() - relativedelta(days=12)).strftime('%Y-%m-%d')"/>
     </record>
 
     <record id="plot_dne_03" model="real.estate.plot">
@@ -220,6 +244,12 @@
         <field name="longitude">-15.945600</field>
         <field name="state">sold</field>
         <field name="tag_ids" eval="[(6, 0, [ref('tag_titre_foncier')])]"/>
+        <field name="buyer_id" ref="buyer_mariem"/>
+        <field name="agent_id" ref="agent_fatma"/>
+        <field name="sale_date" eval="(DateTime.today() - relativedelta(days=5)).strftime('%Y-%m-%d')"/>
+        <field name="sale_price">850000</field>
+        <field name="commission_type">percentage</field>
+        <field name="commission_rate">5.0</field>
     </record>
 
     <record id="plot_dne_04" model="real.estate.plot">
@@ -259,6 +289,8 @@
         <field name="latitude">18.075600</field>
         <field name="longitude">-16.001200</field>
         <field name="state">reserved</field>
+        <field name="reserved_by_id" ref="base.user_admin"/>
+        <field name="reservation_date" eval="(DateTime.today() - relativedelta(days=1)).strftime('%Y-%m-%d')"/>
     </record>
 
     <record id="plot_standalone_arafat" model="real.estate.plot">
@@ -285,6 +317,12 @@
         <field name="longitude">-15.974300</field>
         <field name="state">sold</field>
         <field name="tag_ids" eval="[(6, 0, [ref('tag_titre_foncier')])]"/>
+        <field name="buyer_id" ref="buyer_yahya"/>
+        <field name="agent_id" ref="agent_moussa"/>
+        <field name="sale_date" eval="(DateTime.today() - relativedelta(months=3)).strftime('%Y-%m-%d')"/>
+        <field name="sale_price">1080000</field>
+        <field name="commission_type">fixed</field>
+        <field name="commission_amount">60000</field>
     </record>
 
     <record id="plot_standalone_toujounine" model="real.estate.plot">

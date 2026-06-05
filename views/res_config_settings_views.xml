@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+
+    <record id="res_config_settings_view_form_real_estate" model="ir.ui.view">
+        <field name="name">res.config.settings.view.form.inherit.real.estate</field>
+        <field name="model">res.config.settings</field>
+        <field name="priority" eval="50"/>
+        <field name="inherit_id" ref="base.res_config_settings_view_form"/>
+        <field name="arch" type="xml">
+            <xpath expr="//form" position="inside">
+                <app data-string="Real Estate" string="Real Estate"
+                     name="real_estate_agency"
+                     groups="real_estate_agency.group_real_estate_manager">
+                    <block title="Commissions"
+                           help="Default commission applied to new plots. Editable per plot.">
+                        <setting string="Default Commission"
+                                 help="Type and rate pre-filled when creating a plot.">
+                            <field name="re_commission_type"/>
+                            <div class="mt-2"
+                                 invisible="re_commission_type != 'percentage'">
+                                <field name="re_commission_rate" class="oe_inline"/>
+                                <span> %</span>
+                            </div>
+                        </setting>
+                    </block>
+                </app>
+            </xpath>
+        </field>
+    </record>
+
+</odoo>

@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo noupdate="1">
+
+    <!-- Loaded BEFORE the plots: sold plots reference these as buyer/agent. -->
+
+    <!-- ============================ AGENTS ========================== -->
+    <record id="agent_moussa" model="res.partner">
+        <field name="name">Moussa Ould Sidi</field>
+        <field name="function">Sales Agent</field>
+        <field name="phone">+222 30 11 22 33</field>
+        <field name="email">moussa.agent@example.mr</field>
+    </record>
+    <record id="agent_fatma" model="res.partner">
+        <field name="name">Fatma Mint Ely</field>
+        <field name="function">Sales Agent</field>
+        <field name="phone">+222 30 44 55 66</field>
+        <field name="email">fatma.agent@example.mr</field>
+    </record>
+
+    <!-- ============================ BUYERS ========================== -->
+    <record id="buyer_sidi" model="res.partner">
+        <field name="name">Sidi Mohamed Ould Ahmed</field>
+        <field name="phone">+222 22 10 20 30</field>
+        <field name="city">Nouakchott</field>
+    </record>
+    <record id="buyer_aicha" model="res.partner">
+        <field name="name">Aïcha Mint Brahim</field>
+        <field name="phone">+222 22 40 50 60</field>
+        <field name="city">Nouakchott</field>
+    </record>
+    <record id="buyer_brahim" model="res.partner">
+        <field name="name">Brahim Ould Cheikh</field>
+        <field name="phone">+222 22 70 80 90</field>
+        <field name="city">Nouakchott</field>
+    </record>
+    <record id="buyer_mariem" model="res.partner">
+        <field name="name">Mariem Mint Sidi</field>
+        <field name="phone">+222 22 11 33 55</field>
+        <field name="city">Nouakchott</field>
+    </record>
+    <record id="buyer_yahya" model="res.partner">
+        <field name="name">Yahya Ould Babah</field>
+        <field name="phone">+222 22 22 44 66</field>
+        <field name="city">Nouakchott</field>
+    </record>
+
+</odoo>
