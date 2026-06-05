@@ -81,8 +81,8 @@ class RealEstatePlot(models.Model):
         tracking=True, help='Agreed price; may differ from the listing price.')
     agent_id = fields.Many2one(
         comodel_name='res.partner', string='Agent', copy=False, tracking=True,
-        default=lambda self: self.env.user.partner_id,
-        help='The agent who handled the sale and earns the commission.')
+        help='The agent who handled the sale and earns the commission. '
+             'Set automatically to the seller when the plot is marked sold.')
 
     # --- Commission --------------------------------------------------------
     commission_type = fields.Selection(
