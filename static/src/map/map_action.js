@@ -206,8 +206,9 @@ export class RealEstateMap extends Component {
                 icon: this.makeIcon(plot.state),
                 title: plot.reference,
             });
-            marker.addListener("click", () => {
-                this.infoWindow.setContent(this.makePopup(plot));
+            marker.addListener("click", async () => {
+                const content = await this.makePopup(plot);
+                this.infoWindow.setContent(content);
                 this.infoWindow.open({ anchor: marker, map: this.gmap });
             });
             this.markers.push(marker);
@@ -257,7 +258,23 @@ export class RealEstateMap extends Component {
     }
 
     // ---- popups -------------------------------------------------------
-    makePopup(plot) {
+    _getImages(plotId) {
+        if (!this._imageCache) {
+            this._imageCache = {};
+        }
+        if (this._imageCache[plotId]) {
+            return Promise.resolve(this._imageCache[plotId]);
+        }
+        return this.orm
+            .call("real.estate.plot", "get_plot_images", [plotId])
+            .then((imgs) => {
+                this._imageCache[plotId] = imgs || [];
+                return this._imageCache[plotId];
+            });
+    }
+
+    async makePopup(plot) {
+        const images = await this._getImages(plot.id);
         const el = renderToElement("real_estate_agency.PlotPopup", {
             plot,
             currencyName: plot.currency_id ? plot.currency_id[1] : "",
@@ -266,7 +283,29 @@ export class RealEstateMap extends Component {
             priceLabel: (plot.price || 0).toLocaleString(),
             stateLabel: this.stateLabel(plot.state),
             stateColor: STATE_COLORS[plot.state] || "#6c757d",
+            hasImages: images.length > 0,
+            imgCount: images.length,
+            firstImg: images.length ? "data:image/jpeg;base64," + images[0] : "",
         });
+        // Wire the carousel arrows when there is more than one photo.
+        if (images.length > 1) {
+            let idx = 0;
+            const imgEl = el.querySelector(".o_re_popup_img");
+            const counter = el.querySelector(".o_re_counter");
+            const show = (i) => {
+                idx = (i + images.length) % images.length;
+                imgEl.src = "data:image/jpeg;base64," + images[idx];
+                counter.textContent = idx + 1 + " / " + images.length;
+            };
+            el.querySelector(".o_re_prev").addEventListener("click", (ev) => {
+                ev.stopPropagation();
+                show(idx - 1);
+            });
+            el.querySelector(".o_re_next").addEventListener("click", (ev) => {
+                ev.stopPropagation();
+                show(idx + 1);
+            });
+        }
         const btn = el.querySelector(".o_re_view_details");
         if (btn) {
             btn.addEventListener("click", () => this.openPlot(plot.id));

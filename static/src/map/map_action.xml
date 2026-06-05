@@ -103,8 +103,14 @@
 
     <t t-name="real_estate_agency.PlotPopup">
         <div class="o_re_popup">
-            <img t-if="plot.image_128" class="o_re_popup_img"
-                 t-att-src="'data:image/jpeg;base64,' + plot.image_128"/>
+            <div t-if="hasImages" class="o_re_carousel">
+                <img class="o_re_popup_img" t-att-src="firstImg" alt="Plot photo"/>
+                <t t-if="imgCount > 1">
+                    <button type="button" class="o_re_nav o_re_prev" aria-label="Previous">&#8249;</button>
+                    <button type="button" class="o_re_nav o_re_next" aria-label="Next">&#8250;</button>
+                    <span class="o_re_counter">1 / <t t-esc="imgCount"/></span>
+                </t>
+            </div>
             <div class="o_re_popup_title">
                 <strong t-esc="plot.reference"/>
                 <span class="o_re_badge" t-attf-style="background-color:{{ stateColor }};"
@@ -113,10 +119,10 @@
             <div t-if="lotissementName" class="text-muted small" t-esc="lotissementName"/>
             <div class="o_re_popup_price">
                 <t t-esc="priceLabel"/> <t t-esc="currencyName"/>
-                <span class="text-muted"> · <t t-esc="plot.surface"/> m²</span>
             </div>
-            <div t-if="plot.neighborhood" class="text-muted small">
-                <t t-esc="plot.neighborhood"/>
+            <div class="text-muted small">
+                <t t-esc="plot.surface"/> m²
+                <t t-if="plot.neighborhood"> · <t t-esc="plot.neighborhood"/></t>
                 <t t-if="moughataaName"> — <t t-esc="moughataaName"/></t>
             </div>
             <button class="btn btn-sm btn-primary o_re_view_details mt-2">

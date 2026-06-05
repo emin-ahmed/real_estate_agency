@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<templates xml:space="preserve">
+
+    <t t-name="real_estate_agency.PlotLocationMap">
+        <div class="o_re_form_map_wrap w-100">
+            <div t-if="state.error" class="alert alert-warning py-2 my-1">
+                <i class="fa fa-map-marker me-2"/>
+                <t t-esc="state.error"/>
+            </div>
+            <div t-else="" class="o_re_form_map" t-ref="map"/>
+        </div>
+    </t>
+
+</templates>

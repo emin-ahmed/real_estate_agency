@@ -51,6 +51,12 @@ class RealEstatePlot(models.Model):
     tag_ids = fields.Many2many(
         comodel_name='real.estate.tag', string='Tags')
 
+    description = fields.Html(string='Description', sanitize_style=True)
+
+    image_ids = fields.One2many(
+        comodel_name='real.estate.plot.image', inverse_name='plot_id',
+        string='Photos')
+
     company_id = fields.Many2one(
         comodel_name='res.company', string='Company',
         default=lambda self: self.env.company)
@@ -128,6 +134,21 @@ class RealEstatePlot(models.Model):
         key = self.env['ir.config_parameter'].sudo().get_param(
             'real_estate_agency.google_maps_api_key', default='')
         return {'google_maps_api_key': key}
+
+    @api.model
+    def get_plot_images(self, plot_id):
+        """Base64 photos for the map popup carousel: the cover image first,
+        then the gallery photos, all at the 512px size."""
+        plot = self.browse(plot_id).exists()
+        if not plot:
+            return []
+        images = []
+        if plot.image_512:
+            images.append(plot.image_512)
+        for photo in plot.image_ids:
+            if photo.image_512:
+                images.append(photo.image_512)
+        return images
 
     @api.model_create_multi
     def create(self, vals_list):

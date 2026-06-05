@@ -7,3 +7,5 @@ access_lotissement_user,real.estate.lotissement.user,model_real_estate_lotisseme
 access_lotissement_manager,real.estate.lotissement.manager,model_real_estate_lotissement,group_real_estate_manager,1,1,1,1
 access_plot_user,real.estate.plot.user,model_real_estate_plot,group_real_estate_user,1,1,1,0
 access_plot_manager,real.estate.plot.manager,model_real_estate_plot,group_real_estate_manager,1,1,1,1
+access_plot_image_user,real.estate.plot.image.user,model_real_estate_plot_image,group_real_estate_user,1,1,1,1
+access_plot_image_manager,real.estate.plot.image.manager,model_real_estate_plot_image,group_real_estate_manager,1,1,1,1

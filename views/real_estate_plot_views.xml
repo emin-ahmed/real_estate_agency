@@ -53,6 +53,7 @@
                            statusbar_visible="available,reserved,sold"/>
                 </header>
                 <sheet>
+                    <widget name="re_plot_location_map"/>
                     <field name="image_1920" widget="image" class="oe_avatar"
                            options="{'preview_image': 'image_128'}"/>
                     <div class="oe_title">
@@ -105,6 +106,23 @@
                         <field name="reserved_by_id"/>
                         <field name="reservation_date"/>
                     </group>
+                    <notebook>
+                        <page string="Description" name="description">
+                            <field name="description"
+                                   placeholder="Describe the plot: access, surroundings, documents, selling points..."/>
+                        </page>
+                        <page string="Photos" name="photos">
+                            <field name="image_ids">
+                                <list editable="bottom">
+                                    <field name="sequence" widget="handle"/>
+                                    <field name="image_1920" widget="image"
+                                           class="oe_avatar"
+                                           options="{'size': [90, 90]}"/>
+                                    <field name="name" placeholder="Caption"/>
+                                </list>
+                            </field>
+                        </page>
+                    </notebook>
                 </sheet>
                 <chatter/>
             </form>
