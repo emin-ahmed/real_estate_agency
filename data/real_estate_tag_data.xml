@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo noupdate="1">
+
+    <!-- Common land-document / status tags. Reference data. -->
+    <record id="tag_titre_foncier" model="real.estate.tag">
+        <field name="name">Titre foncier</field>
+        <field name="color">10</field>
+    </record>
+    <record id="tag_permis_construire" model="real.estate.tag">
+        <field name="name">Permis de construire</field>
+        <field name="color">4</field>
+    </record>
+    <record id="tag_viabilise" model="real.estate.tag">
+        <field name="name">Viabilisé</field>
+        <field name="color">2</field>
+    </record>
+    <record id="tag_cloture" model="real.estate.tag">
+        <field name="name">Clôturé</field>
+        <field name="color">3</field>
+    </record>
+    <record id="tag_bornage" model="real.estate.tag">
+        <field name="name">Bornage</field>
+        <field name="color">7</field>
+    </record>
+
+</odoo>

@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+
+    <!-- =========================== MOUGHATAA ======================== -->
+    <record id="real_estate_moughataa_view_list" model="ir.ui.view">
+        <field name="name">real.estate.moughataa.list</field>
+        <field name="model">real.estate.moughataa</field>
+        <field name="arch" type="xml">
+            <list string="Moughataa" editable="bottom">
+                <field name="name"/>
+                <field name="code"/>
+            </list>
+        </field>
+    </record>
+
+    <record id="real_estate_moughataa_action" model="ir.actions.act_window">
+        <field name="name">Moughataa</field>
+        <field name="res_model">real.estate.moughataa</field>
+        <field name="view_mode">list</field>
+    </record>
+
+    <!-- ============================= TAGS =========================== -->
+    <record id="real_estate_tag_view_list" model="ir.ui.view">
+        <field name="name">real.estate.tag.list</field>
+        <field name="model">real.estate.tag</field>
+        <field name="arch" type="xml">
+            <list string="Tags" editable="bottom">
+                <field name="name"/>
+                <field name="color" widget="color_picker"/>
+            </list>
+        </field>
+    </record>
+
+    <record id="real_estate_tag_action" model="ir.actions.act_window">
+        <field name="name">Tags</field>
+        <field name="res_model">real.estate.tag</field>
+        <field name="view_mode">list</field>
+    </record>
+
+</odoo>

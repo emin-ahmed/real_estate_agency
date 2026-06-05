@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo noupdate="1">
+
+    <!-- The 9 moughataa (communes) of Nouakchott. Reference data. -->
+    <record id="moughataa_arafat" model="real.estate.moughataa">
+        <field name="name">Arafat</field>
+    </record>
+    <record id="moughataa_dar_naim" model="real.estate.moughataa">
+        <field name="name">Dar Naïm</field>
+    </record>
+    <record id="moughataa_el_mina" model="real.estate.moughataa">
+        <field name="name">El Mina</field>
+    </record>
+    <record id="moughataa_ksar" model="real.estate.moughataa">
+        <field name="name">Ksar</field>
+    </record>
+    <record id="moughataa_riyad" model="real.estate.moughataa">
+        <field name="name">Riyad</field>
+    </record>
+    <record id="moughataa_sebkha" model="real.estate.moughataa">
+        <field name="name">Sebkha</field>
+    </record>
+    <record id="moughataa_tevragh_zeina" model="real.estate.moughataa">
+        <field name="name">Tevragh Zeina</field>
+    </record>
+    <record id="moughataa_teyarett" model="real.estate.moughataa">
+        <field name="name">Teyarett</field>
+    </record>
+    <record id="moughataa_toujounine" model="real.estate.moughataa">
+        <field name="name">Toujounine</field>
+    </record>
+
+</odoo>

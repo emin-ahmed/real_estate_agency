@@ -1,0 +1,315 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo noupdate="1">
+
+    <!-- ========================= LOTISSEMENTS ======================= -->
+    <record id="lotissement_el_wahda" model="real.estate.lotissement">
+        <field name="name">Lotissement El Wahda</field>
+        <field name="code">LOT-WAHDA</field>
+        <field name="moughataa_id" ref="moughataa_riyad"/>
+        <field name="location">Riyad, near Carrefour BMD</field>
+        <field name="planned_plots">40</field>
+    </record>
+
+    <record id="lotissement_tz_nord" model="real.estate.lotissement">
+        <field name="name">Lotissement Tevragh Zeina Nord</field>
+        <field name="code">LOT-TZN</field>
+        <field name="moughataa_id" ref="moughataa_tevragh_zeina"/>
+        <field name="location">Tevragh Zeina, North sector</field>
+        <field name="planned_plots">25</field>
+    </record>
+
+    <record id="lotissement_dar_naim_ext" model="real.estate.lotissement">
+        <field name="name">Lotissement Dar Naïm Extension</field>
+        <field name="code">LOT-DNE</field>
+        <field name="moughataa_id" ref="moughataa_dar_naim"/>
+        <field name="location">Dar Naïm, eastern extension</field>
+        <field name="planned_plots">60</field>
+    </record>
+
+    <!-- ===================== PLOTS — El Wahda (Riyad) ================ -->
+    <record id="plot_wahda_01" model="real.estate.plot">
+        <field name="plot_number">A-01</field>
+        <field name="lotissement_id" ref="lotissement_el_wahda"/>
+        <field name="moughataa_id" ref="moughataa_riyad"/>
+        <field name="neighborhood">Riyad</field>
+        <field name="surface">300</field>
+        <field name="price">1200000</field>
+        <field name="currency_id" ref="base.MRU"/>
+        <field name="latitude">18.031200</field>
+        <field name="longitude">-15.921500</field>
+        <field name="state">available</field>
+        <field name="tag_ids" eval="[(6, 0, [ref('tag_titre_foncier'), ref('tag_viabilise')])]"/>
+    </record>
+
+    <record id="plot_wahda_02" model="real.estate.plot">
+        <field name="plot_number">A-02</field>
+        <field name="lotissement_id" ref="lotissement_el_wahda"/>
+        <field name="moughataa_id" ref="moughataa_riyad"/>
+        <field name="neighborhood">Riyad</field>
+        <field name="surface">300</field>
+        <field name="price">1250000</field>
+        <field name="currency_id" ref="base.MRU"/>
+        <field name="latitude">18.031800</field>
+        <field name="longitude">-15.921000</field>
+        <field name="state">reserved</field>
+        <field name="tag_ids" eval="[(6, 0, [ref('tag_titre_foncier')])]"/>
+    </record>
+
+    <record id="plot_wahda_03" model="real.estate.plot">
+        <field name="plot_number">A-03</field>
+        <field name="lotissement_id" ref="lotissement_el_wahda"/>
+        <field name="moughataa_id" ref="moughataa_riyad"/>
+        <field name="neighborhood">Riyad</field>
+        <field name="surface">450</field>
+        <field name="price">1800000</field>
+        <field name="currency_id" ref="base.MRU"/>
+        <field name="latitude">18.030500</field>
+        <field name="longitude">-15.920300</field>
+        <field name="state">sold</field>
+        <field name="tag_ids" eval="[(6, 0, [ref('tag_titre_foncier'), ref('tag_cloture')])]"/>
+    </record>
+
+    <record id="plot_wahda_04" model="real.estate.plot">
+        <field name="plot_number">A-04</field>
+        <field name="lotissement_id" ref="lotissement_el_wahda"/>
+        <field name="moughataa_id" ref="moughataa_riyad"/>
+        <field name="neighborhood">Riyad</field>
+        <field name="surface">300</field>
+        <field name="price">1150000</field>
+        <field name="currency_id" ref="base.MRU"/>
+        <field name="latitude">18.032100</field>
+        <field name="longitude">-15.922400</field>
+        <field name="state">available</field>
+    </record>
+
+    <record id="plot_wahda_05" model="real.estate.plot">
+        <field name="plot_number">B-01</field>
+        <field name="lotissement_id" ref="lotissement_el_wahda"/>
+        <field name="moughataa_id" ref="moughataa_riyad"/>
+        <field name="neighborhood">Riyad</field>
+        <field name="surface">500</field>
+        <field name="price">2100000</field>
+        <field name="currency_id" ref="base.MRU"/>
+        <field name="latitude">18.029800</field>
+        <field name="longitude">-15.919700</field>
+        <field name="state">available</field>
+        <field name="tag_ids" eval="[(6, 0, [ref('tag_viabilise'), ref('tag_bornage')])]"/>
+    </record>
+
+    <record id="plot_wahda_06" model="real.estate.plot">
+        <field name="plot_number">B-02</field>
+        <field name="lotissement_id" ref="lotissement_el_wahda"/>
+        <field name="moughataa_id" ref="moughataa_riyad"/>
+        <field name="neighborhood">Riyad</field>
+        <field name="surface">350</field>
+        <field name="price">1400000</field>
+        <field name="currency_id" ref="base.MRU"/>
+        <field name="latitude">18.030200</field>
+        <field name="longitude">-15.918900</field>
+        <field name="state">sold</field>
+        <field name="tag_ids" eval="[(6, 0, [ref('tag_titre_foncier')])]"/>
+    </record>
+
+    <!-- ============== PLOTS — Tevragh Zeina Nord (TZ) =============== -->
+    <record id="plot_tzn_01" model="real.estate.plot">
+        <field name="plot_number">TZ-01</field>
+        <field name="lotissement_id" ref="lotissement_tz_nord"/>
+        <field name="moughataa_id" ref="moughataa_tevragh_zeina"/>
+        <field name="neighborhood">Tevragh Zeina</field>
+        <field name="surface">400</field>
+        <field name="price">3200000</field>
+        <field name="currency_id" ref="base.MRU"/>
+        <field name="latitude">18.095400</field>
+        <field name="longitude">-15.986200</field>
+        <field name="state">available</field>
+        <field name="tag_ids" eval="[(6, 0, [ref('tag_titre_foncier'), ref('tag_viabilise'), ref('tag_cloture')])]"/>
+    </record>
+
+    <record id="plot_tzn_02" model="real.estate.plot">
+        <field name="plot_number">TZ-02</field>
+        <field name="lotissement_id" ref="lotissement_tz_nord"/>
+        <field name="moughataa_id" ref="moughataa_tevragh_zeina"/>
+        <field name="neighborhood">Tevragh Zeina</field>
+        <field name="surface">400</field>
+        <field name="price">3300000</field>
+        <field name="currency_id" ref="base.MRU"/>
+        <field name="latitude">18.096100</field>
+        <field name="longitude">-15.985500</field>
+        <field name="state">reserved</field>
+        <field name="tag_ids" eval="[(6, 0, [ref('tag_titre_foncier')])]"/>
+    </record>
+
+    <record id="plot_tzn_03" model="real.estate.plot">
+        <field name="plot_number">TZ-03</field>
+        <field name="lotissement_id" ref="lotissement_tz_nord"/>
+        <field name="moughataa_id" ref="moughataa_tevragh_zeina"/>
+        <field name="neighborhood">Tevragh Zeina</field>
+        <field name="surface">600</field>
+        <field name="price">5000000</field>
+        <field name="currency_id" ref="base.MRU"/>
+        <field name="latitude">18.094700</field>
+        <field name="longitude">-15.987000</field>
+        <field name="state">sold</field>
+        <field name="tag_ids" eval="[(6, 0, [ref('tag_titre_foncier'), ref('tag_permis_construire')])]"/>
+    </record>
+
+    <record id="plot_tzn_04" model="real.estate.plot">
+        <field name="plot_number">TZ-04</field>
+        <field name="lotissement_id" ref="lotissement_tz_nord"/>
+        <field name="moughataa_id" ref="moughataa_tevragh_zeina"/>
+        <field name="neighborhood">Tevragh Zeina</field>
+        <field name="surface">350</field>
+        <field name="price">2800000</field>
+        <field name="currency_id" ref="base.MRU"/>
+        <field name="latitude">18.097000</field>
+        <field name="longitude">-15.984800</field>
+        <field name="state">available</field>
+        <field name="tag_ids" eval="[(6, 0, [ref('tag_viabilise')])]"/>
+    </record>
+
+    <record id="plot_tzn_05" model="real.estate.plot">
+        <field name="plot_number">TZ-05</field>
+        <field name="lotissement_id" ref="lotissement_tz_nord"/>
+        <field name="moughataa_id" ref="moughataa_tevragh_zeina"/>
+        <field name="neighborhood">Tevragh Zeina</field>
+        <field name="surface">400</field>
+        <field name="price">3250000</field>
+        <field name="currency_id" ref="base.MRU"/>
+        <field name="latitude">18.095900</field>
+        <field name="longitude">-15.988100</field>
+        <field name="state">available</field>
+    </record>
+
+    <!-- ============ PLOTS — Dar Naïm Extension (Dar Naïm) ========== -->
+    <record id="plot_dne_01" model="real.estate.plot">
+        <field name="plot_number">DN-01</field>
+        <field name="lotissement_id" ref="lotissement_dar_naim_ext"/>
+        <field name="moughataa_id" ref="moughataa_dar_naim"/>
+        <field name="neighborhood">Dar Naïm</field>
+        <field name="surface">250</field>
+        <field name="price">700000</field>
+        <field name="currency_id" ref="base.MRU"/>
+        <field name="latitude">18.131500</field>
+        <field name="longitude">-15.944800</field>
+        <field name="state">available</field>
+        <field name="tag_ids" eval="[(6, 0, [ref('tag_bornage')])]"/>
+    </record>
+
+    <record id="plot_dne_02" model="real.estate.plot">
+        <field name="plot_number">DN-02</field>
+        <field name="lotissement_id" ref="lotissement_dar_naim_ext"/>
+        <field name="moughataa_id" ref="moughataa_dar_naim"/>
+        <field name="neighborhood">Dar Naïm</field>
+        <field name="surface">250</field>
+        <field name="price">720000</field>
+        <field name="currency_id" ref="base.MRU"/>
+        <field name="latitude">18.132100</field>
+        <field name="longitude">-15.944100</field>
+        <field name="state">reserved</field>
+    </record>
+
+    <record id="plot_dne_03" model="real.estate.plot">
+        <field name="plot_number">DN-03</field>
+        <field name="lotissement_id" ref="lotissement_dar_naim_ext"/>
+        <field name="moughataa_id" ref="moughataa_dar_naim"/>
+        <field name="neighborhood">Dar Naïm</field>
+        <field name="surface">300</field>
+        <field name="price">850000</field>
+        <field name="currency_id" ref="base.MRU"/>
+        <field name="latitude">18.130800</field>
+        <field name="longitude">-15.945600</field>
+        <field name="state">sold</field>
+        <field name="tag_ids" eval="[(6, 0, [ref('tag_titre_foncier')])]"/>
+    </record>
+
+    <record id="plot_dne_04" model="real.estate.plot">
+        <field name="plot_number">DN-04</field>
+        <field name="lotissement_id" ref="lotissement_dar_naim_ext"/>
+        <field name="moughataa_id" ref="moughataa_dar_naim"/>
+        <field name="neighborhood">Dar Naïm</field>
+        <field name="surface">250</field>
+        <field name="price">690000</field>
+        <field name="currency_id" ref="base.MRU"/>
+        <field name="latitude">18.132600</field>
+        <field name="longitude">-15.943500</field>
+        <field name="state">available</field>
+    </record>
+
+    <!-- ================= STANDALONE PLOTS (no lotissement) ========== -->
+    <record id="plot_standalone_ksar" model="real.estate.plot">
+        <field name="plot_number">KSR-12</field>
+        <field name="moughataa_id" ref="moughataa_ksar"/>
+        <field name="neighborhood">Ksar</field>
+        <field name="surface">200</field>
+        <field name="price">2500000</field>
+        <field name="currency_id" ref="base.MRU"/>
+        <field name="latitude">18.085300</field>
+        <field name="longitude">-15.975400</field>
+        <field name="state">available</field>
+        <field name="tag_ids" eval="[(6, 0, [ref('tag_titre_foncier'), ref('tag_cloture')])]"/>
+    </record>
+
+    <record id="plot_standalone_sebkha" model="real.estate.plot">
+        <field name="plot_number">SBK-07</field>
+        <field name="moughataa_id" ref="moughataa_sebkha"/>
+        <field name="neighborhood">Sebkha</field>
+        <field name="surface">180</field>
+        <field name="price">1600000</field>
+        <field name="currency_id" ref="base.MRU"/>
+        <field name="latitude">18.075600</field>
+        <field name="longitude">-16.001200</field>
+        <field name="state">reserved</field>
+    </record>
+
+    <record id="plot_standalone_arafat" model="real.estate.plot">
+        <field name="plot_number">ARF-21</field>
+        <field name="moughataa_id" ref="moughataa_arafat"/>
+        <field name="neighborhood">Arafat</field>
+        <field name="surface">220</field>
+        <field name="price">980000</field>
+        <field name="currency_id" ref="base.MRU"/>
+        <field name="latitude">18.060400</field>
+        <field name="longitude">-15.945900</field>
+        <field name="state">available</field>
+        <field name="tag_ids" eval="[(6, 0, [ref('tag_viabilise')])]"/>
+    </record>
+
+    <record id="plot_standalone_elmina" model="real.estate.plot">
+        <field name="plot_number">ELM-03</field>
+        <field name="moughataa_id" ref="moughataa_el_mina"/>
+        <field name="neighborhood">El Mina</field>
+        <field name="surface">240</field>
+        <field name="price">1100000</field>
+        <field name="currency_id" ref="base.MRU"/>
+        <field name="latitude">18.055700</field>
+        <field name="longitude">-15.974300</field>
+        <field name="state">sold</field>
+        <field name="tag_ids" eval="[(6, 0, [ref('tag_titre_foncier')])]"/>
+    </record>
+
+    <record id="plot_standalone_toujounine" model="real.estate.plot">
+        <field name="plot_number">TJN-09</field>
+        <field name="moughataa_id" ref="moughataa_toujounine"/>
+        <field name="neighborhood">Toujounine</field>
+        <field name="surface">280</field>
+        <field name="price">640000</field>
+        <field name="currency_id" ref="base.MRU"/>
+        <field name="latitude">18.085900</field>
+        <field name="longitude">-15.910700</field>
+        <field name="state">available</field>
+    </record>
+
+    <record id="plot_standalone_teyarett" model="real.estate.plot">
+        <field name="plot_number">TYR-15</field>
+        <field name="moughataa_id" ref="moughataa_teyarett"/>
+        <field name="neighborhood">Teyarett</field>
+        <field name="surface">260</field>
+        <field name="price">820000</field>
+        <field name="currency_id" ref="base.MRU"/>
+        <field name="latitude">18.130300</field>
+        <field name="longitude">-15.980100</field>
+        <field name="state">available</field>
+        <field name="tag_ids" eval="[(6, 0, [ref('tag_bornage'), ref('tag_viabilise')])]"/>
+    </record>
+
+</odoo>

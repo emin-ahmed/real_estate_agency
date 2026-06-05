@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo noupdate="1">
+
+    <!-- Mauritanian Ouguiya: ships inactive in base; activate it so it can be
+         selected on plots and used in monetary fields/reports. -->
+    <record id="base.MRU" model="res.currency">
+        <field name="active">True</field>
+    </record>
+
+</odoo>

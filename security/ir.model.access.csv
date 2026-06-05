@@ -1,0 +1,9 @@
+id,name,model_id:id,group_id:id,perm_read,perm_write,perm_create,perm_unlink
+access_moughataa_user,real.estate.moughataa.user,model_real_estate_moughataa,group_real_estate_user,1,0,0,0
+access_moughataa_manager,real.estate.moughataa.manager,model_real_estate_moughataa,group_real_estate_manager,1,1,1,1
+access_tag_user,real.estate.tag.user,model_real_estate_tag,group_real_estate_user,1,0,0,0
+access_tag_manager,real.estate.tag.manager,model_real_estate_tag,group_real_estate_manager,1,1,1,1
+access_lotissement_user,real.estate.lotissement.user,model_real_estate_lotissement,group_real_estate_user,1,1,1,0
+access_lotissement_manager,real.estate.lotissement.manager,model_real_estate_lotissement,group_real_estate_manager,1,1,1,1
+access_plot_user,real.estate.plot.user,model_real_estate_plot,group_real_estate_user,1,1,1,0
+access_plot_manager,real.estate.plot.manager,model_real_estate_plot,group_real_estate_manager,1,1,1,1

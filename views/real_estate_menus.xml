@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+
+    <!-- Top-level application menu -->
+    <menuitem id="real_estate_menu_root"
+              name="Real Estate"
+              sequence="20"
+              groups="group_real_estate_user"/>
+
+    <!-- Plots -->
+    <menuitem id="real_estate_menu_plots"
+              name="Plots"
+              parent="real_estate_menu_root"
+              action="real_estate_plot_action"
+              sequence="10"/>
+
+    <!-- Lotissements -->
+    <menuitem id="real_estate_menu_lotissements"
+              name="Lotissements"
+              parent="real_estate_menu_root"
+              action="real_estate_lotissement_action"
+              sequence="20"/>
+
+    <!-- Configuration (Manager only) -->
+    <menuitem id="real_estate_menu_config"
+              name="Configuration"
+              parent="real_estate_menu_root"
+              sequence="90"
+              groups="group_real_estate_manager"/>
+
+    <menuitem id="real_estate_menu_config_moughataa"
+              name="Moughataa"
+              parent="real_estate_menu_config"
+              action="real_estate_moughataa_action"
+              sequence="10"/>
+
+    <menuitem id="real_estate_menu_config_tags"
+              name="Tags"
+              parent="real_estate_menu_config"
+              action="real_estate_tag_action"
+              sequence="20"/>
+
+</odoo>

@@ -1,0 +1,117 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+
+    <!-- ============================ LIST ============================ -->
+    <record id="real_estate_lotissement_view_list" model="ir.ui.view">
+        <field name="name">real.estate.lotissement.list</field>
+        <field name="model">real.estate.lotissement</field>
+        <field name="arch" type="xml">
+            <list string="Lotissements">
+                <field name="code"/>
+                <field name="name"/>
+                <field name="moughataa_id"/>
+                <field name="location" optional="show"/>
+                <field name="planned_plots" optional="hide"/>
+                <field name="plot_count" string="Total"/>
+                <field name="available_count"/>
+                <field name="reserved_count"/>
+                <field name="sold_count"/>
+            </list>
+        </field>
+    </record>
+
+    <!-- ============================ FORM ============================ -->
+    <record id="real_estate_lotissement_view_form" model="ir.ui.view">
+        <field name="name">real.estate.lotissement.form</field>
+        <field name="model">real.estate.lotissement</field>
+        <field name="arch" type="xml">
+            <form string="Lotissement">
+                <sheet>
+                    <div class="oe_button_box" name="button_box">
+                        <button type="object" name="action_view_plots"
+                                class="oe_stat_button" icon="fa-map-marker">
+                            <field name="plot_count" widget="statinfo"
+                                   string="Plots"/>
+                        </button>
+                    </div>
+                    <div class="oe_title">
+                        <label for="name"/>
+                        <h1>
+                            <field name="name" placeholder="e.g. Lotissement El Wahda"/>
+                        </h1>
+                    </div>
+                    <group>
+                        <group string="Project">
+                            <field name="code"/>
+                            <field name="planned_plots"/>
+                        </group>
+                        <group string="Location">
+                            <field name="moughataa_id"/>
+                            <field name="location"/>
+                        </group>
+                    </group>
+                    <group string="Plot Overview" col="4">
+                        <field name="available_count"/>
+                        <field name="reserved_count"/>
+                        <field name="sold_count"/>
+                        <field name="plot_count"/>
+                    </group>
+                    <notebook>
+                        <page string="Plots" name="plots">
+                            <field name="plot_ids">
+                                <list editable="bottom">
+                                    <field name="reference"/>
+                                    <field name="plot_number"/>
+                                    <field name="surface"/>
+                                    <field name="price"/>
+                                    <field name="currency_id" column_invisible="1"/>
+                                    <field name="moughataa_id"/>
+                                    <field name="state" widget="badge"
+                                           decoration-success="state == 'available'"
+                                           decoration-warning="state == 'reserved'"
+                                           decoration-danger="state == 'sold'"/>
+                                </list>
+                            </field>
+                        </page>
+                    </notebook>
+                </sheet>
+                <chatter/>
+            </form>
+        </field>
+    </record>
+
+    <!-- ============================ SEARCH ========================== -->
+    <record id="real_estate_lotissement_view_search" model="ir.ui.view">
+        <field name="name">real.estate.lotissement.search</field>
+        <field name="model">real.estate.lotissement</field>
+        <field name="arch" type="xml">
+            <search string="Lotissements">
+                <field name="name"/>
+                <field name="code"/>
+                <field name="moughataa_id"/>
+                <group>
+                    <filter name="group_moughataa" string="Moughataa"
+                            context="{'group_by': 'moughataa_id'}"/>
+                </group>
+            </search>
+        </field>
+    </record>
+
+    <!-- ============================ ACTION ========================== -->
+    <record id="real_estate_lotissement_action" model="ir.actions.act_window">
+        <field name="name">Lotissements</field>
+        <field name="res_model">real.estate.lotissement</field>
+        <field name="view_mode">list,form</field>
+        <field name="search_view_id" ref="real_estate_lotissement_view_search"/>
+        <field name="help" type="html">
+            <p class="o_view_nocontent_smiling_face">
+                Create your first lotissement
+            </p>
+            <p>
+                Group the plots of a subdivision / land-development project so you
+                can track how many are available, reserved or sold.
+            </p>
+        </field>
+    </record>
+
+</odoo>

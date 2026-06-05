@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo noupdate="1">
+
+    <!-- Auto-generated reference for each plot: PARC/00001, PARC/00002, ... -->
+    <record id="seq_real_estate_plot" model="ir.sequence">
+        <field name="name">Land Plot Reference</field>
+        <field name="code">real.estate.plot</field>
+        <field name="prefix">PARC/</field>
+        <field name="padding">5</field>
+        <field name="company_id" eval="False"/>
+    </record>
+
+</odoo>

@@ -1,0 +1,173 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+
+    <!-- ============================ LIST ============================ -->
+    <record id="real_estate_plot_view_list" model="ir.ui.view">
+        <field name="name">real.estate.plot.list</field>
+        <field name="model">real.estate.plot</field>
+        <field name="arch" type="xml">
+            <list string="Plots"
+                  decoration-success="state == 'available'"
+                  decoration-warning="state == 'reserved'"
+                  decoration-danger="state == 'sold'">
+                <field name="reference"/>
+                <field name="plot_number" optional="show"/>
+                <field name="lotissement_id" optional="show"/>
+                <field name="moughataa_id" optional="show"/>
+                <field name="neighborhood" optional="hide"/>
+                <field name="surface" sum="Total surface"/>
+                <field name="price" sum="Total price"/>
+                <field name="currency_id" column_invisible="1"/>
+                <field name="tag_ids" widget="many2many_tags"
+                       options="{'color_field': 'color'}" optional="hide"/>
+                <field name="state" widget="badge"
+                       decoration-success="state == 'available'"
+                       decoration-warning="state == 'reserved'"
+                       decoration-danger="state == 'sold'"/>
+            </list>
+        </field>
+    </record>
+
+    <!-- ============================ FORM ============================ -->
+    <record id="real_estate_plot_view_form" model="ir.ui.view">
+        <field name="name">real.estate.plot.form</field>
+        <field name="model">real.estate.plot</field>
+        <field name="arch" type="xml">
+            <form string="Plot">
+                <header>
+                    <button name="action_set_reserved" type="object"
+                            string="Mark Reserved" class="btn-warning"
+                            invisible="state == 'reserved'"/>
+                    <button name="action_set_sold" type="object"
+                            string="Mark Sold" class="btn-primary"
+                            invisible="state == 'sold'"/>
+                    <button name="action_set_available" type="object"
+                            string="Set Available"
+                            invisible="state == 'available'"/>
+                    <field name="state" widget="statusbar"
+                           statusbar_visible="available,reserved,sold"/>
+                </header>
+                <sheet>
+                    <field name="image_1920" widget="image" class="oe_avatar"
+                           options="{'preview_image': 'image_128'}"/>
+                    <div class="oe_title">
+                        <label for="reference"/>
+                        <h1>
+                            <field name="reference" readonly="1"/>
+                        </h1>
+                        <field name="name" invisible="1"/>
+                    </div>
+                    <group>
+                        <group string="Plot">
+                            <field name="plot_number"/>
+                            <field name="lotissement_id"/>
+                            <field name="surface"/>
+                            <field name="price"/>
+                            <field name="currency_id" groups="base.group_multi_currency"/>
+                            <field name="tag_ids" widget="many2many_tags"
+                                   options="{'color_field': 'color'}"/>
+                        </group>
+                        <group string="Location">
+                            <field name="moughataa_id"/>
+                            <field name="neighborhood"/>
+                            <field name="address"/>
+                            <label for="latitude" string="Coordinates"/>
+                            <div class="o_row">
+                                <field name="latitude" nolabel="1"/>
+                                <field name="longitude" nolabel="1"/>
+                            </div>
+                        </group>
+                    </group>
+                </sheet>
+                <chatter/>
+            </form>
+        </field>
+    </record>
+
+    <!-- =========================== KANBAN =========================== -->
+    <record id="real_estate_plot_view_kanban" model="ir.ui.view">
+        <field name="name">real.estate.plot.kanban</field>
+        <field name="model">real.estate.plot</field>
+        <field name="arch" type="xml">
+            <kanban sample="1">
+                <field name="state"/>
+                <field name="currency_id"/>
+                <templates>
+                    <t t-name="card">
+                        <div class="o_kanban_image_fill_left me-2"
+                             t-attf-style="background-image:url('#{kanban_image('real.estate.plot', 'image_128', record.id.raw_value)}')"/>
+                        <div>
+                            <strong><field name="reference"/></strong>
+                            <span class="float-end">
+                                <field name="state" widget="label_selection"
+                                       options="{'classes': {'available': 'success', 'reserved': 'warning', 'sold': 'danger'}}"/>
+                            </span>
+                            <div class="text-muted">
+                                <field name="lotissement_id"/>
+                            </div>
+                            <div>
+                                <field name="surface"/> m² ·
+                                <field name="price" widget="monetary"/>
+                            </div>
+                            <div class="text-muted">
+                                <field name="moughataa_id"/>
+                                <field name="neighborhood"/>
+                            </div>
+                            <field name="tag_ids" widget="many2many_tags"
+                                   options="{'color_field': 'color'}"/>
+                        </div>
+                    </t>
+                </templates>
+            </kanban>
+        </field>
+    </record>
+
+    <!-- ============================ SEARCH ========================== -->
+    <record id="real_estate_plot_view_search" model="ir.ui.view">
+        <field name="name">real.estate.plot.search</field>
+        <field name="model">real.estate.plot</field>
+        <field name="arch" type="xml">
+            <search string="Plots">
+                <field name="reference"/>
+                <field name="plot_number"/>
+                <field name="lotissement_id"/>
+                <field name="moughataa_id"/>
+                <field name="neighborhood"/>
+                <field name="tag_ids"/>
+                <separator/>
+                <filter name="available" string="Available"
+                        domain="[('state', '=', 'available')]"/>
+                <filter name="reserved" string="Reserved"
+                        domain="[('state', '=', 'reserved')]"/>
+                <filter name="sold" string="Sold"
+                        domain="[('state', '=', 'sold')]"/>
+                <group>
+                    <filter name="group_state" string="Status"
+                            context="{'group_by': 'state'}"/>
+                    <filter name="group_lotissement" string="Lotissement"
+                            context="{'group_by': 'lotissement_id'}"/>
+                    <filter name="group_moughataa" string="Moughataa"
+                            context="{'group_by': 'moughataa_id'}"/>
+                </group>
+            </search>
+        </field>
+    </record>
+
+    <!-- ============================ ACTION ========================== -->
+    <record id="real_estate_plot_action" model="ir.actions.act_window">
+        <field name="name">Plots</field>
+        <field name="res_model">real.estate.plot</field>
+        <field name="view_mode">list,kanban,form</field>
+        <field name="search_view_id" ref="real_estate_plot_view_search"/>
+        <field name="help" type="html">
+            <p class="o_view_nocontent_smiling_face">
+                Create your first land plot
+            </p>
+            <p>
+                Register the plots your agency markets, with their location,
+                surface, price and availability status.
+            </p>
+        </field>
+    </record>
+
+</odoo>
