@@ -6,7 +6,7 @@
 
 <p align="center">
   Manage the inventory and sale of land plots (parcelles) for a real estate
-  agency in Nouakchott — with an interactive satellite map, sales &amp;
+  agency in Nouakchott — with an interactive satellite map, sales and
   commissions, documents, reports and a manager dashboard.
 </p>
 
@@ -33,20 +33,36 @@ All amounts are in **Mauritanian Ouguiya (MRU)**, and the interface ships in
 
 ---
 
-## ✨ Features
+## Screenshots
 
-### 🗺️ Interactive map
+**Interactive map** — satellite basemap, colour-coded markers, filters and live count
+
+![Interactive map](static/description/screenshot_map.png)
+
+**Manager dashboard** — KPIs, top agents and breakdown by moughataa
+
+![Manager dashboard](static/description/screenshot_dashboard.png)
+
+**Plot form** — location map on top, with details, photos and documents
+
+![Plot form](static/description/screenshot_plot.png)
+
+---
+
+## Features
+
+### Interactive map
 - Full-screen **Google Maps** client action with a **hybrid satellite + labels**
   basemap — see real buildings, streets and parcels.
-- Colour-coded markers — 🟢 available · 🟠 reserved · 🔴 sold.
+- Colour-coded markers — available (green), reserved (orange), sold (red).
 - Marker popups with a **photo carousel**, price, surface, lotissement,
   neighborhood, status and a **View Details** shortcut.
-- **Sidebar filters** (status, lotissement, moughataa, price &amp; surface ranges)
+- **Sidebar filters** (status, lotissement, moughataa, price and surface ranges)
   applied instantly, with an *"X / Y shown"* counter.
 - **Right-click** the map to quick-create a plot at that exact location.
 - Opens focused on **Nouakchott West**, where most listings sit.
 
-### 🏞️ Plot inventory
+### Plot inventory
 - Parcelles with auto-generated **reference** (`PARC/00001`), plot number,
   surface (m²), **price in MRU**, GPS coordinates, moughataa, neighborhood,
   tags, a **photo gallery**, **documents** and a rich-text **description**.
@@ -54,40 +70,40 @@ All amounts are in **Mauritanian Ouguiya (MRU)**, and the interface ships in
 - An on-form **mini-map** centred on the plot; drag the marker to set its
   coordinates.
 
-### 🏘️ Lotissements
-- Subdivisions with planned capacity and **live counts** of available /
-  reserved / sold plots.
+### Lotissements
+- Subdivisions with planned capacity and **live counts** of available,
+  reserved and sold plots.
 
-### 💰 Sales &amp; commissions
+### Sales and commissions
 - Record the **buyer**, **sale date**, **agreed price** and **agent** directly
-  on the plot (shown once reserved/sold).
+  on the plot (shown once reserved or sold).
 - Selling requires a buyer and a price; reserving stamps **who** reserved it and
   **when**.
 - **Commissions** per sale — percentage or fixed — with a company-wide default
   rate, plus a **per-agent commission report**.
 
-### 👥 Buyers
+### Buyers
 - `res.partner` extended to flag buyers, with a **Plots Bought** smart button and
   a dedicated **Buyers** menu.
 
-### 📄 Documents &amp; reports (QWeb PDF)
+### Documents and reports (QWeb PDF)
 - **Attestation de vente** generated from a sold plot.
-- **Commission report** for a chosen period / agent.
+- **Commission report** for a chosen period and agent.
 - **Inventory report** by status, moughataa and lotissement.
-- Typed **document attachments** on each plot (titre foncier, plan, contract…).
+- Typed **document attachments** on each plot (titre foncier, plan, contract).
 
-### 📊 Analytics
+### Analytics
 - **Manager dashboard** (OWL): KPI cards, sales/revenue/commission this month,
   top agents and a breakdown by moughataa.
 - **Graph** and **pivot** views on plots.
 
-### 🌍 Localization &amp; security
-- French &amp; Arabic translations out of the box.
+### Localization and security
+- French and Arabic translations out of the box.
 - **User** and **Manager** roles; administrators get access automatically.
 
 ---
 
-## 🚀 Installation
+## Installation
 
 > Requires **Odoo 19.0 Community** and a PostgreSQL database.
 
@@ -105,7 +121,7 @@ All amounts are in **Mauritanian Ouguiya (MRU)**, and the interface ships in
 
 ---
 
-## ⚙️ Configuration
+## Configuration
 
 ### Google Maps API key (required for the map)
 The map uses the Google Maps JavaScript API. Create a key in the
@@ -118,7 +134,7 @@ Until a key is set, the map area shows a hint instead of a map. The key is store
 as a system parameter — never hard-coded or committed.
 
 ### Default commission
-> **Settings → Real Estate → Commissions** — set the default type (percentage /
+> **Settings → Real Estate → Commissions** — set the default type (percentage or
 > fixed) and rate pre-filled on new plots.
 
 ### Currency
@@ -127,7 +143,7 @@ across plots, reports and the dashboard are shown in MRU.
 
 ---
 
-## 🧱 Tech stack
+## Tech stack
 
 | Layer | Technology |
 |------|------------|
@@ -139,7 +155,7 @@ across plots, reports and the dashboard are shown in MRU.
 
 ---
 
-## 📁 Project structure
+## Project structure
 
 ```
 real_estate_agency/
@@ -157,18 +173,18 @@ real_estate_agency/
 
 ---
 
-## 🗺️ Roadmap
+## Roadmap
 
-- **Cadastral parcel layer** — draw/import parcel boundary polygons and show a
+- **Cadastral parcel layer** — draw or import parcel boundary polygons and show a
   clickable lotissement outline with per-parcel details (surface, sides,
   elevation).
 
 ---
 
-## 👤 Author
+## Author
 
 **Emin Ahmed** — [github.com/emin-ahmed](https://github.com/emin-ahmed)
 
-## 📄 License
+## License
 
 Released under the **LGPL-3** license.
