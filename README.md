@@ -37,7 +37,7 @@ All amounts are in **Mauritanian Ouguiya (MRU)**, and the interface ships in
 
 **Interactive map** — satellite basemap, colour-coded markers, filters and live count
 
-![Interactive map](real_estate_agency/static/description/screenshot_map.png)
+![Interactive map](real_estate_agency/static/description/screenshot_map.jpg)
 
 **Manager dashboard** — KPIs, top agents and breakdown by moughataa
 
@@ -45,7 +45,7 @@ All amounts are in **Mauritanian Ouguiya (MRU)**, and the interface ships in
 
 **Plot form** — location map on top, with details, photos and documents
 
-![Plot form](real_estate_agency/static/description/screenshot_plot.png)
+![Plot form](real_estate_agency/static/description/screenshot_plot.jpg)
 
 ---
 

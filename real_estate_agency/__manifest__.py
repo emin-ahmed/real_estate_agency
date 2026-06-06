@@ -22,9 +22,9 @@ Amounts are in Mauritanian Ouguiya (MRU). Built incrementally on Odoo Community.
     'maintainer': 'Emin Ahmed',
     'website': 'https://github.com/emin-ahmed',
     'images': [
-        'static/description/screenshot_map.png',
+        'static/description/screenshot_map.jpg',
         'static/description/screenshot_dashboard.png',
-        'static/description/screenshot_plot.png',
+        'static/description/screenshot_plot.jpg',
     ],
     'depends': ['base', 'mail'],
     'data': [
