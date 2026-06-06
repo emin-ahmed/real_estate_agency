@@ -1,5 +1,5 @@
 <p align="center">
-  <img src="static/description/icon.png" width="120" alt="Real Estate Agency"/>
+  <img src="real_estate_agency/static/description/icon.png" width="120" alt="Real Estate Agency"/>
 </p>
 
 <h1 align="center">Real Estate Agency — Mauritania</h1>
@@ -37,15 +37,15 @@ All amounts are in **Mauritanian Ouguiya (MRU)**, and the interface ships in
 
 **Interactive map** — satellite basemap, colour-coded markers, filters and live count
 
-![Interactive map](static/description/screenshot_map.png)
+![Interactive map](real_estate_agency/static/description/screenshot_map.png)
 
 **Manager dashboard** — KPIs, top agents and breakdown by moughataa
 
-![Manager dashboard](static/description/screenshot_dashboard.png)
+![Manager dashboard](real_estate_agency/static/description/screenshot_dashboard.png)
 
 **Plot form** — location map on top, with details, photos and documents
 
-![Plot form](static/description/screenshot_plot.png)
+![Plot form](real_estate_agency/static/description/screenshot_plot.png)
 
 ---
 
