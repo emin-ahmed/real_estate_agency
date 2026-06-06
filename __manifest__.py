@@ -19,7 +19,13 @@ Amounts are in Mauritanian Ouguiya (MRU). Built incrementally on Odoo Community.
     'category': 'Sales',
     'license': 'LGPL-3',
     'author': 'Emin Ahmed',
+    'maintainer': 'Emin Ahmed',
     'website': 'https://github.com/emin-ahmed',
+    'images': [
+        'static/description/screenshot_map.png',
+        'static/description/screenshot_dashboard.png',
+        'static/description/screenshot_plot.png',
+    ],
     'depends': ['base', 'mail'],
     'data': [
         'security/real_estate_security.xml',
