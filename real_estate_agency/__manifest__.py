@@ -1,7 +1,7 @@
 # Part of the real_estate_agency module. See LICENSE file for details.
 {
     'name': 'Real Estate Agency (Mauritania)',
-    'version': '19.0.6.1.0',
+    'version': '19.0.6.2.0',
     'summary': 'Manage land-plot sales, agents and commissions for real estate agencies',
     'description': """
 Real Estate Agency (Mauritania)

@@ -100,7 +100,7 @@
                             <field name="sides"/>
                         </group>
                     </group>
-                    <group invisible="state == 'available'">
+                    <group>
                         <group string="Sale Information">
                             <field name="buyer_id"
                                    required="state == 'sold'"
