@@ -99,30 +99,35 @@ export class PlotLocationMap extends Component {
         if (!this.mapRef.el || this.gmap) {
             return;
         }
-        const pos = this.currentPos();
-        const editable = !this.props.readonly;
-        this.gmap = new google.maps.Map(this.mapRef.el, {
-            center: pos || DEFAULT_CENTER,
-            zoom: pos ? 16 : 13,
-            mapTypeId: "hybrid",
-            mapTypeControl: true,
-            streetViewControl: false,
-            fullscreenControl: true,
-            gestureHandling: "greedy",
-        });
-        this.marker = new google.maps.Marker({
-            position: pos || DEFAULT_CENTER,
-            map: this.gmap,
-            draggable: editable,
-            visible: Boolean(pos) || editable,
-        });
-        if (editable) {
-            this.marker.addListener("dragend", (e) => this.setCoords(e.latLng));
-            this.gmap.addListener("click", (e) => {
-                this.marker.setPosition(e.latLng);
-                this.marker.setVisible(true);
-                this.setCoords(e.latLng);
+        // Never let a Google Maps failure bubble up and break the form.
+        try {
+            const pos = this.currentPos();
+            const editable = !this.props.readonly;
+            this.gmap = new google.maps.Map(this.mapRef.el, {
+                center: pos || DEFAULT_CENTER,
+                zoom: pos ? 16 : 13,
+                mapTypeId: "hybrid",
+                mapTypeControl: true,
+                streetViewControl: false,
+                fullscreenControl: true,
+                gestureHandling: "greedy",
             });
+            this.marker = new google.maps.Marker({
+                position: pos || DEFAULT_CENTER,
+                map: this.gmap,
+                draggable: editable,
+                visible: Boolean(pos) || editable,
+            });
+            if (editable) {
+                this.marker.addListener("dragend", (e) => this.setCoords(e.latLng));
+                this.gmap.addListener("click", (e) => {
+                    this.marker.setPosition(e.latLng);
+                    this.marker.setVisible(true);
+                    this.setCoords(e.latLng);
+                });
+            }
+        } catch (e) {
+            console.warn("Real Estate: on-form map could not initialise.", e);
         }
     }
 

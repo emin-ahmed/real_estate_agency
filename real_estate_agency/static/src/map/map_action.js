@@ -145,18 +145,25 @@ export class RealEstateMap extends Component {
         if (!this.mapRef.el || this.gmap) {
             return;
         }
-        this.gmap = new google.maps.Map(this.mapRef.el, {
-            center: DEFAULT_CENTER,
-            zoom: DEFAULT_ZOOM,
-            mapTypeId: "hybrid", // satellite imagery + street/place labels
-            mapTypeControl: true,
-            streetViewControl: false,
-            fullscreenControl: true,
-            gestureHandling: "greedy",
-        });
-        this.infoWindow = new google.maps.InfoWindow();
-        this.gmap.addListener("contextmenu", (e) => this.onMapRightClick(e));
-        this.applyFilters();
+        try {
+            this.gmap = new google.maps.Map(this.mapRef.el, {
+                center: DEFAULT_CENTER,
+                zoom: DEFAULT_ZOOM,
+                mapTypeId: "hybrid", // satellite imagery + street/place labels
+                mapTypeControl: true,
+                streetViewControl: false,
+                fullscreenControl: true,
+                gestureHandling: "greedy",
+            });
+            this.infoWindow = new google.maps.InfoWindow();
+            this.gmap.addListener("contextmenu", (e) => this.onMapRightClick(e));
+            this.applyFilters();
+        } catch (e) {
+            console.warn("Real Estate: map could not initialise.", e);
+            this.state.error = _t(
+                "The map could not be displayed. Check the Google Maps API key and billing."
+            );
+        }
     }
 
     makeIcon(stateVal) {
