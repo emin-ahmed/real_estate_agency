@@ -28,6 +28,10 @@
 
     <!-- ===================== PLOTS — El Wahda (Riyad) ================ -->
     <record id="plot_wahda_01" model="real.estate.plot">
+        <field name="property_type">land</field>
+        <field name="zone">Riyad — BMD</field>
+        <field name="elevation">0.85</field>
+        <field name="sides">20m 15m 20m 15m</field>
         <field name="plot_number">A-01</field>
         <field name="lotissement_id" ref="lotissement_el_wahda"/>
         <field name="moughataa_id" ref="moughataa_riyad"/>
@@ -58,6 +62,10 @@
     </record>
 
     <record id="plot_wahda_03" model="real.estate.plot">
+        <field name="property_type">land</field>
+        <field name="zone">Riyad</field>
+        <field name="elevation">1.1</field>
+        <field name="sides">25m 18m 25m 18m</field>
         <field name="plot_number">A-03</field>
         <field name="lotissement_id" ref="lotissement_el_wahda"/>
         <field name="moughataa_id" ref="moughataa_riyad"/>
@@ -91,6 +99,7 @@
     </record>
 
     <record id="plot_wahda_05" model="real.estate.plot">
+        <field name="property_type">house</field>
         <field name="plot_number">B-01</field>
         <field name="lotissement_id" ref="lotissement_el_wahda"/>
         <field name="moughataa_id" ref="moughataa_riyad"/>
@@ -126,6 +135,10 @@
 
     <!-- ============== PLOTS — Tevragh Zeina Nord (TZ) =============== -->
     <record id="plot_tzn_01" model="real.estate.plot">
+        <field name="property_type">land</field>
+        <field name="zone">Tevragh Zeina Nord</field>
+        <field name="elevation">1.42</field>
+        <field name="sides">20m 20m 20m 20m</field>
         <field name="plot_number">TZ-01</field>
         <field name="lotissement_id" ref="lotissement_tz_nord"/>
         <field name="moughataa_id" ref="moughataa_tevragh_zeina"/>
@@ -156,6 +169,10 @@
     </record>
 
     <record id="plot_tzn_03" model="real.estate.plot">
+        <field name="property_type">land</field>
+        <field name="zone">N.O.T Extension</field>
+        <field name="elevation">0.96</field>
+        <field name="sides">30m 20m 30m 20m</field>
         <field name="plot_number">TZ-03</field>
         <field name="lotissement_id" ref="lotissement_tz_nord"/>
         <field name="moughataa_id" ref="moughataa_tevragh_zeina"/>
@@ -176,6 +193,7 @@
     </record>
 
     <record id="plot_tzn_04" model="real.estate.plot">
+        <field name="property_type">duplex</field>
         <field name="plot_number">TZ-04</field>
         <field name="lotissement_id" ref="lotissement_tz_nord"/>
         <field name="moughataa_id" ref="moughataa_tevragh_zeina"/>
@@ -204,6 +222,10 @@
 
     <!-- ============ PLOTS — Dar Naïm Extension (Dar Naïm) ========== -->
     <record id="plot_dne_01" model="real.estate.plot">
+        <field name="property_type">land</field>
+        <field name="zone">Dar Naïm Extension</field>
+        <field name="elevation">0.4</field>
+        <field name="sides">12m 20m 12m 20m</field>
         <field name="plot_number">DN-01</field>
         <field name="lotissement_id" ref="lotissement_dar_naim_ext"/>
         <field name="moughataa_id" ref="moughataa_dar_naim"/>
@@ -233,6 +255,10 @@
     </record>
 
     <record id="plot_dne_03" model="real.estate.plot">
+        <field name="property_type">land</field>
+        <field name="zone">Dar Naïm</field>
+        <field name="elevation">0.55</field>
+        <field name="sides">12m 25m 12m 25m</field>
         <field name="plot_number">DN-03</field>
         <field name="lotissement_id" ref="lotissement_dar_naim_ext"/>
         <field name="moughataa_id" ref="moughataa_dar_naim"/>
@@ -267,6 +293,7 @@
 
     <!-- ================= STANDALONE PLOTS (no lotissement) ========== -->
     <record id="plot_standalone_ksar" model="real.estate.plot">
+        <field name="property_type">house</field>
         <field name="plot_number">KSR-12</field>
         <field name="moughataa_id" ref="moughataa_ksar"/>
         <field name="neighborhood">Ksar</field>
@@ -294,6 +321,10 @@
     </record>
 
     <record id="plot_standalone_arafat" model="real.estate.plot">
+        <field name="property_type">land</field>
+        <field name="zone">Arafat</field>
+        <field name="elevation">0.62</field>
+        <field name="sides">15m 14m 15m 14m</field>
         <field name="plot_number">ARF-21</field>
         <field name="moughataa_id" ref="moughataa_arafat"/>
         <field name="neighborhood">Arafat</field>

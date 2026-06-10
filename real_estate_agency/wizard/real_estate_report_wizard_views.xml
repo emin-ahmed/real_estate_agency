@@ -58,6 +58,26 @@
         <field name="target">new</field>
     </record>
 
+    <!-- =============== DIRECT (ON-SCREEN) REPORTS ================== -->
+    <!-- Commissions per agent, defaulting to the current year (changeable). -->
+    <record id="action_commission_report" model="ir.actions.act_window">
+        <field name="name">Commission Report</field>
+        <field name="res_model">real.estate.plot</field>
+        <field name="view_mode">list</field>
+        <field name="domain">[('state', '=', 'sold')]</field>
+        <field name="view_id" ref="real_estate_commission_view_list"/>
+        <field name="search_view_id" ref="real_estate_commission_view_search"/>
+        <field name="context">{'search_default_group_agent': 1, 'search_default_sale_this_year': 1}</field>
+    </record>
+
+    <!-- Inventory as a pivot + graph (status / moughataa / lotissement). -->
+    <record id="action_inventory_report" model="ir.actions.act_window">
+        <field name="name">Inventory Report</field>
+        <field name="res_model">real.estate.plot</field>
+        <field name="view_mode">pivot,graph</field>
+        <field name="view_id" ref="real_estate_plot_view_pivot"/>
+    </record>
+
     <!-- ========================= MENUS ============================= -->
     <menuitem id="real_estate_menu_reporting"
               name="Reporting"
@@ -68,13 +88,13 @@
     <menuitem id="real_estate_menu_report_commission"
               name="Commission Report"
               parent="real_estate_menu_reporting"
-              action="action_commission_report_wizard"
+              action="action_commission_report"
               sequence="10"/>
 
     <menuitem id="real_estate_menu_report_inventory"
               name="Inventory Report"
               parent="real_estate_menu_reporting"
-              action="action_inventory_report_wizard"
+              action="action_inventory_report"
               sequence="20"/>
 
 </odoo>

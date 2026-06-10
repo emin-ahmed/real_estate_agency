@@ -5,6 +5,9 @@ from odoo import api, fields, models
 class ResPartner(models.Model):
     _inherit = 'res.partner'
 
+    is_plot_buyer = fields.Boolean(string='Is a Buyer')
+    is_real_estate_agent = fields.Boolean(string='Is an Agent')
+
     plot_ids = fields.One2many(
         comodel_name='real.estate.plot', inverse_name='buyer_id',
         string='Purchased Plots')

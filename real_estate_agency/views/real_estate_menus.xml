@@ -43,6 +43,13 @@
               action="res_partner_buyer_action"
               sequence="30"/>
 
+    <!-- Agents -->
+    <menuitem id="real_estate_menu_agents"
+              name="Agents"
+              parent="real_estate_menu_root"
+              action="res_partner_agent_action"
+              sequence="35"/>
+
     <!-- Commissions -->
     <menuitem id="real_estate_menu_commissions"
               name="Commissions"

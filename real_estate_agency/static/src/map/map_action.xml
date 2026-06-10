@@ -18,6 +18,10 @@
                     </span>
                 </div>
 
+                <button class="btn btn-primary btn-sm w-100 mb-3" t-on-click="onNewPlot">
+                    <i class="fa fa-plus me-1"/> New plot
+                </button>
+
                 <div class="o_re_filter_block">
                     <label class="o_re_filter_label">Status</label>
                     <div class="form-check">
@@ -47,12 +51,13 @@
                 </div>
 
                 <div class="o_re_filter_block">
-                    <label class="o_re_filter_label" for="re_f_lotissement">Lotissement</label>
-                    <select id="re_f_lotissement" class="form-select form-select-sm"
-                            t-model="state.filters.lotissementId" t-on-change="onFilterChange">
-                        <option value="">All lotissements</option>
-                        <option t-foreach="state.lotissementOptions" t-as="lot" t-key="lot.id"
-                                t-att-value="lot.id" t-esc="lot.name"/>
+                    <label class="o_re_filter_label" for="re_f_type">Property Type</label>
+                    <select id="re_f_type" class="form-select form-select-sm"
+                            t-model="state.filters.propertyType" t-on-change="onFilterChange">
+                        <option value="">All types</option>
+                        <option value="land">Land</option>
+                        <option value="house">House</option>
+                        <option value="duplex">Duplex</option>
                     </select>
                 </div>
 
@@ -63,6 +68,16 @@
                         <option value="">All moughataa</option>
                         <option t-foreach="state.moughataaOptions" t-as="m" t-key="m.id"
                                 t-att-value="m.id" t-esc="m.name"/>
+                    </select>
+                </div>
+
+                <div class="o_re_filter_block">
+                    <label class="o_re_filter_label" for="re_f_lotissement">Lotissement</label>
+                    <select id="re_f_lotissement" class="form-select form-select-sm"
+                            t-model="state.filters.lotissementId" t-on-change="onFilterChange">
+                        <option value="">All lotissements</option>
+                        <option t-foreach="lotissementOptionsFiltered" t-as="lot" t-key="lot.id"
+                                t-att-value="lot.id" t-esc="lot.name"/>
                     </select>
                 </div>
 
@@ -116,18 +131,14 @@
                 <span class="o_re_badge" t-attf-style="background-color:{{ stateColor }};"
                       t-esc="stateLabel"/>
             </div>
-            <div t-if="lotissementName" class="text-muted small" t-esc="lotissementName"/>
-            <div class="o_re_popup_price">
-                <t t-esc="priceLabel"/> <t t-esc="currencyName"/>
-            </div>
-            <div class="text-muted small">
-                <t t-esc="plot.surface"/> m²
-                <t t-if="plot.neighborhood"> · <t t-esc="plot.neighborhood"/></t>
-                <t t-if="moughataaName"> — <t t-esc="moughataaName"/></t>
-            </div>
-            <button class="btn btn-sm btn-primary o_re_view_details mt-2">
-                View Details
-            </button>
+            <div t-if="typeLabel" class="text-muted small mb-1" t-esc="typeLabel"/>
+            <table class="o_re_popup_table">
+                <tr t-foreach="rows" t-as="r" t-key="r_index">
+                    <td class="o_re_popup_k" t-esc="r.label"/>
+                    <td class="o_re_popup_v" t-esc="r.value"/>
+                </tr>
+            </table>
+            <button class="btn btn-sm btn-primary o_re_view_details mt-2" t-esc="viewDetails"/>
         </div>
     </t>
 

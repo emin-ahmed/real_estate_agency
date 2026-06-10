@@ -114,11 +114,28 @@
         font-size: 11px;
     }
 
-    .o_re_popup_price {
-        font-weight: 700;
-        font-size: 16px;
-        color: #212529;
-        margin: 2px 0;
+    .o_re_popup_table {
+        width: 100%;
+        border-collapse: collapse;
+        margin-top: 4px;
+
+        td {
+            padding: 2px 0;
+            vertical-align: top;
+            font-size: 13px;
+        }
+
+        .o_re_popup_k {
+            color: #6c757d;
+            padding-right: 10px;
+            white-space: nowrap;
+        }
+
+        .o_re_popup_v {
+            font-weight: 600;
+            color: #212529;
+            width: 100%;
+        }
     }
 }
 

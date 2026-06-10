@@ -11,6 +11,7 @@
                   decoration-warning="state == 'reserved'"
                   decoration-danger="state == 'sold'">
                 <field name="reference"/>
+                <field name="property_type" optional="show"/>
                 <field name="plot_number" optional="show"/>
                 <field name="lotissement_id" optional="show"/>
                 <field name="moughataa_id" optional="show"/>
@@ -68,8 +69,11 @@
                     </div>
                     <group>
                         <group string="Plot">
+                            <field name="property_type"/>
                             <field name="plot_number"/>
-                            <field name="lotissement_id"/>
+                            <field name="moughataa_id"/>
+                            <field name="lotissement_id"
+                                   domain="[('moughataa_id', '=?', moughataa_id)]"/>
                             <field name="surface"/>
                             <field name="price"/>
                             <field name="currency_id" groups="base.group_multi_currency"/>
@@ -77,7 +81,6 @@
                                    options="{'color_field': 'color'}"/>
                         </group>
                         <group string="Location">
-                            <field name="moughataa_id"/>
                             <field name="neighborhood"/>
                             <field name="address"/>
                             <label for="latitude" string="Coordinates"/>
@@ -87,11 +90,25 @@
                             </div>
                         </group>
                     </group>
+                    <group string="Land Details"
+                           invisible="property_type != 'land'">
+                        <group>
+                            <field name="zone"/>
+                            <field name="elevation"/>
+                        </group>
+                        <group>
+                            <field name="sides"/>
+                        </group>
+                    </group>
                     <group invisible="state == 'available'">
                         <group string="Sale Information">
                             <field name="buyer_id"
-                                   required="state == 'sold'"/>
-                            <field name="agent_id"/>
+                                   required="state == 'sold'"
+                                   domain="[('is_plot_buyer', '=', True)]"
+                                   context="{'default_is_plot_buyer': True}"/>
+                            <field name="agent_id"
+                                   domain="[('is_real_estate_agent', '=', True)]"
+                                   context="{'default_is_real_estate_agent': True}"/>
                             <field name="sale_date"/>
                             <field name="sale_price"
                                    required="state == 'sold'"/>
@@ -201,9 +218,18 @@
                         domain="[('state', '=', 'reserved')]"/>
                 <filter name="sold" string="Sold"
                         domain="[('state', '=', 'sold')]"/>
+                <separator/>
+                <filter name="type_land" string="Land"
+                        domain="[('property_type', '=', 'land')]"/>
+                <filter name="type_house" string="House"
+                        domain="[('property_type', '=', 'house')]"/>
+                <filter name="type_duplex" string="Duplex"
+                        domain="[('property_type', '=', 'duplex')]"/>
                 <group>
                     <filter name="group_state" string="Status"
                             context="{'group_by': 'state'}"/>
+                    <filter name="group_type" string="Property Type"
+                            context="{'group_by': 'property_type'}"/>
                     <filter name="group_lotissement" string="Lotissement"
                             context="{'group_by': 'lotissement_id'}"/>
                     <filter name="group_moughataa" string="Moughataa"

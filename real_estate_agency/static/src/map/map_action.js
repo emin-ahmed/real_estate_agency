@@ -95,6 +95,7 @@ export class RealEstateMap extends Component {
             available: true,
             reserved: true,
             sold: true,
+            propertyType: "",
             moughataaId: "",
             lotissementId: "",
             priceMin: "",
@@ -114,15 +115,29 @@ export class RealEstateMap extends Component {
                     "reference", "name", "latitude", "longitude", "state",
                     "price", "currency_id", "surface", "neighborhood",
                     "lotissement_id", "moughataa_id", "image_128",
+                    "property_type", "zone", "elevation", "sides", "plot_number",
                 ]
             ),
             this.orm.searchRead("real.estate.moughataa", [], ["name"]),
-            this.orm.searchRead("real.estate.lotissement", [], ["name"]),
+            this.orm.searchRead(
+                "real.estate.lotissement", [], ["name", "moughataa_id"]
+            ),
         ]);
         this.allPlots = plots;
         this.state.totalCount = plots.length;
         this.state.moughataaOptions = moughataas;
         this.state.lotissementOptions = lotissements;
+    }
+
+    // Lotissements limited to the selected moughataa (for the dropdown).
+    get lotissementOptionsFiltered() {
+        const mId = parseInt(this.state.filters.moughataaId);
+        if (isNaN(mId)) {
+            return this.state.lotissementOptions;
+        }
+        return this.state.lotissementOptions.filter(
+            (l) => l.moughataa_id && l.moughataa_id[0] === mId
+        );
     }
 
     // ---- map ----------------------------------------------------------
@@ -167,6 +182,9 @@ export class RealEstateMap extends Component {
         const surfMax = parseFloat(f.surfaceMax);
         return this.allPlots.filter((p) => {
             if (!f[p.state]) {
+                return false;
+            }
+            if (f.propertyType && p.property_type !== f.propertyType) {
                 return false;
             }
             if (!isNaN(mId) && (!p.moughataa_id || p.moughataa_id[0] !== mId)) {
@@ -215,8 +233,9 @@ export class RealEstateMap extends Component {
             bounds.extend(position);
         }
         this.state.shownCount = plots.length;
-        // Re-frame only when a filter is narrowing the set; otherwise keep the
-        // default Nouakchott-West view instead of zooming out to fit everything.
+        // Re-frame to the results when a filter is narrowing the set; otherwise
+        // return to the default Nouakchott-West overview (so clearing a filter
+        // doesn't leave the map zoomed into the previous lotissement).
         if (plots.length && this._filtersActive()) {
             this.gmap.fitBounds(bounds);
             google.maps.event.addListenerOnce(this.gmap, "idle", () => {
@@ -224,6 +243,9 @@ export class RealEstateMap extends Component {
                     this.gmap.setZoom(17);
                 }
             });
+        } else {
+            this.gmap.setCenter(DEFAULT_CENTER);
+            this.gmap.setZoom(DEFAULT_ZOOM);
         }
     }
 
@@ -231,6 +253,7 @@ export class RealEstateMap extends Component {
         const f = this.state.filters;
         return (
             !(f.available && f.reserved && f.sold) ||
+            !!f.propertyType ||
             !!f.moughataaId ||
             !!f.lotissementId ||
             !!f.priceMin ||
@@ -249,7 +272,18 @@ export class RealEstateMap extends Component {
 
     onFilterChange() {
         // Let t-model write the bound state first, then redraw the markers.
-        Promise.resolve().then(() => this.applyFilters());
+        Promise.resolve().then(() => {
+            // Keep the lotissement consistent with the chosen moughataa.
+            const mId = parseInt(this.state.filters.moughataaId);
+            const lId = parseInt(this.state.filters.lotissementId);
+            if (!isNaN(mId) && !isNaN(lId)) {
+                const lot = this.state.lotissementOptions.find((l) => l.id === lId);
+                if (lot && (!lot.moughataa_id || lot.moughataa_id[0] !== mId)) {
+                    this.state.filters.lotissementId = "";
+                }
+            }
+            this.applyFilters();
+        });
     }
 
     onResetFilters() {
@@ -273,16 +307,48 @@ export class RealEstateMap extends Component {
             });
     }
 
+    _popupRows(plot) {
+        const currency = plot.currency_id ? plot.currency_id[1] : "";
+        const price =
+            (plot.price || 0).toLocaleString() + (currency ? " " + currency : "");
+        const surface = plot.surface ? plot.surface + " m²" : "";
+        const moughataa = plot.moughataa_id ? plot.moughataa_id[1] : "";
+        const lotissement = plot.lotissement_id ? plot.lotissement_id[1] : "";
+        let rows;
+        if (plot.property_type === "land") {
+            rows = [
+                { label: _t("Moughataa"), value: moughataa },
+                { label: _t("Region"), value: plot.zone || lotissement },
+                { label: _t("Plot"), value: plot.plot_number || "" },
+                { label: _t("Surface"), value: surface },
+                {
+                    label: _t("Elevation"),
+                    value: plot.elevation ? plot.elevation + " m" : "",
+                },
+                { label: _t("Sides"), value: plot.sides || "" },
+                { label: _t("Price"), value: price },
+            ];
+        } else {
+            rows = [
+                { label: _t("Surface"), value: surface },
+                { label: _t("Lotissement"), value: lotissement },
+                { label: _t("Neighborhood"), value: plot.neighborhood || "" },
+                { label: _t("Moughataa"), value: moughataa },
+                { label: _t("Price"), value: price },
+            ];
+        }
+        return rows.filter((r) => r.value);
+    }
+
     async makePopup(plot) {
         const images = await this._getImages(plot.id);
         const el = renderToElement("real_estate_agency.PlotPopup", {
             plot,
-            currencyName: plot.currency_id ? plot.currency_id[1] : "",
-            lotissementName: plot.lotissement_id ? plot.lotissement_id[1] : "",
-            moughataaName: plot.moughataa_id ? plot.moughataa_id[1] : "",
-            priceLabel: (plot.price || 0).toLocaleString(),
+            typeLabel: this.typeLabel(plot.property_type),
+            rows: this._popupRows(plot),
             stateLabel: this.stateLabel(plot.state),
             stateColor: STATE_COLORS[plot.state] || "#6c757d",
+            viewDetails: _t("View Details"),
             hasImages: images.length > 0,
             imgCount: images.length,
             firstImg: images.length ? "data:image/jpeg;base64," + images[0] : "",
@@ -323,6 +389,16 @@ export class RealEstateMap extends Component {
         );
     }
 
+    typeLabel(t) {
+        return (
+            {
+                land: _t("Land"),
+                house: _t("House"),
+                duplex: _t("Duplex"),
+            }[t] || ""
+        );
+    }
+
     openPlot(plotId) {
         this.action.doAction({
             type: "ir.actions.act_window",
@@ -333,7 +409,19 @@ export class RealEstateMap extends Component {
         });
     }
 
-    // ---- right-click quick create ------------------------------------
+    // ---- create plots -------------------------------------------------
+    onNewPlot() {
+        this.action.doAction(
+            {
+                type: "ir.actions.act_window",
+                res_model: "real.estate.plot",
+                views: [[false, "form"]],
+                target: "new",
+            },
+            { onClose: () => this.reload() }
+        );
+    }
+
     onMapRightClick(e) {
         if (!e.latLng) {
             return;

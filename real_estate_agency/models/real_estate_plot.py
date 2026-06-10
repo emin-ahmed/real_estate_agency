@@ -20,10 +20,24 @@ class RealEstatePlot(models.Model):
         default=lambda self: ('New'))
     plot_number = fields.Char(string='Plot Number')
 
+    property_type = fields.Selection(
+        selection=[
+            ('land', 'Land'),
+            ('house', 'House'),
+            ('duplex', 'Duplex'),
+        ],
+        string='Property Type', default='land', required=True)
+
     lotissement_id = fields.Many2one(
         comodel_name='real.estate.lotissement', string='Lotissement',
         ondelete='set null',
         help='Leave empty for a standalone plot not part of a subdivision.')
+
+    # Cadastral details, mostly relevant for land parcels.
+    zone = fields.Char(string='Region')
+    elevation = fields.Float(string='Elevation (m)', digits=(8, 2))
+    sides = fields.Char(
+        string='Sides', help='Length of each side, e.g. "30m 20m 30m 20m".')
 
     surface = fields.Float(string='Surface (m²)')
     price = fields.Monetary(
@@ -223,7 +237,22 @@ class RealEstatePlot(models.Model):
             if not vals.get('reference') or vals['reference'] == 'New':
                 vals['reference'] = self.env['ir.sequence'].next_by_code(
                     'real.estate.plot') or 'New'
-        return super().create(vals_list)
+        plots = super().create(vals_list)
+        plots._flag_buyers()
+        return plots
+
+    def write(self, vals):
+        res = super().write(vals)
+        if vals.get('buyer_id'):
+            self._flag_buyers()
+        return res
+
+    def _flag_buyers(self):
+        """Mark the assigned buyers as real-estate buyers so they show up in
+        the buyer selector and the Buyers list."""
+        to_flag = self.mapped('buyer_id').filtered(lambda p: not p.is_plot_buyer)
+        if to_flag:
+            to_flag.is_plot_buyer = True
 
     # Statusbar buttons -----------------------------------------------------
     def action_set_available(self):
@@ -249,6 +278,4 @@ class RealEstatePlot(models.Model):
             vals = {'state': 'sold'}
             if not plot.sale_date:
                 vals['sale_date'] = fields.Date.context_today(plot)
-            if not plot.agent_id:
-                vals['agent_id'] = self.env.user.partner_id.id
             plot.write(vals)

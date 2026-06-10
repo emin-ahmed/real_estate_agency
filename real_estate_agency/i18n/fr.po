@@ -6,8 +6,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Odoo Server 19.0\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2026-06-05 21:07+0000\n"
-"PO-Revision-Date: 2026-06-05 21:07+0000\n"
+"POT-Creation-Date: 2026-06-10 20:28+0000\n"
+"PO-Revision-Date: 2026-06-10 20:28+0000\n"
 "Last-Translator: \n"
 "Language-Team: \n"
 "MIME-Version: 1.0\n"
@@ -40,6 +40,7 @@ msgstr "Une moughataa portant ce nom existe déjà."
 #. module: real_estate_agency
 #. odoo-python
 #: code:addons/real_estate_agency/models/real_estate_plot.py:0
+#: code:addons/real_estate_agency/real_estate_agency/models/real_estate_plot.py:0
 msgid "A sold plot (%s) requires a buyer and a sale price."
 msgstr "Une parcelle vendue (%s) nécessite un acheteur et un prix de vente."
 
@@ -91,6 +92,7 @@ msgstr "Adresse"
 
 #. module: real_estate_agency
 #. odoo-javascript
+#: code:addons/real_estate_agency/real_estate_agency/static/src/dashboard/dashboard.xml:0
 #: code:addons/real_estate_agency/static/src/dashboard/dashboard.xml:0
 #: model:ir.model.fields,field_description:real_estate_agency.field_real_estate_commission_report_wizard__agent_id
 #: model:ir.model.fields,field_description:real_estate_agency.field_real_estate_plot__agent_id
@@ -104,21 +106,43 @@ msgid "Agent en charge de la vente :"
 msgstr ""
 
 #. module: real_estate_agency
+#: model:ir.actions.act_window,name:real_estate_agency.res_partner_agent_action
+#: model:ir.ui.menu,name:real_estate_agency.real_estate_menu_agents
+msgid "Agents"
+msgstr "Agents"
+
+#. module: real_estate_agency
+#: model_terms:ir.actions.act_window,help:real_estate_agency.res_partner_agent_action
+msgid ""
+"Agents handle sales and earn commissions. Create them here, then\n"
+"                pick them on a plot's sale."
+msgstr ""
+
+#. module: real_estate_agency
 #: model:ir.model.fields,help:real_estate_agency.field_real_estate_plot__sale_price
 msgid "Agreed price; may differ from the listing price."
 msgstr "Prix convenu ; peut différer du prix affiché."
 
 #. module: real_estate_agency
 #. odoo-javascript
+#: code:addons/real_estate_agency/real_estate_agency/static/src/map/map_action.xml:0
 #: code:addons/real_estate_agency/static/src/map/map_action.xml:0
 msgid "All lotissements"
 msgstr "Tous les lotissements"
 
 #. module: real_estate_agency
 #. odoo-javascript
+#: code:addons/real_estate_agency/real_estate_agency/static/src/map/map_action.xml:0
 #: code:addons/real_estate_agency/static/src/map/map_action.xml:0
 msgid "All moughataa"
 msgstr "Toutes les moughataa"
+
+#. module: real_estate_agency
+#. odoo-javascript
+#: code:addons/real_estate_agency/real_estate_agency/static/src/map/map_action.xml:0
+#: code:addons/real_estate_agency/static/src/map/map_action.xml:0
+msgid "All types"
+msgstr "Tous les types"
 
 #. module: real_estate_agency
 #: model:real.estate.moughataa,name:real_estate_agency.moughataa_arafat
@@ -144,12 +168,16 @@ msgstr ""
 
 #. module: real_estate_agency
 #. odoo-javascript
+#: code:addons/real_estate_agency/real_estate_agency/static/src/dashboard/dashboard.xml:0
 #: code:addons/real_estate_agency/static/src/dashboard/dashboard.xml:0
 msgid "Avail."
 msgstr "Disp."
 
 #. module: real_estate_agency
 #. odoo-javascript
+#: code:addons/real_estate_agency/real_estate_agency/static/src/dashboard/dashboard.xml:0
+#: code:addons/real_estate_agency/real_estate_agency/static/src/map/map_action.js:0
+#: code:addons/real_estate_agency/real_estate_agency/static/src/map/map_action.xml:0
 #: code:addons/real_estate_agency/static/src/dashboard/dashboard.xml:0
 #: code:addons/real_estate_agency/static/src/map/map_action.js:0
 #: code:addons/real_estate_agency/static/src/map/map_action.xml:0
@@ -178,6 +206,13 @@ msgid "Buyers"
 msgstr "Acheteurs"
 
 #. module: real_estate_agency
+#: model_terms:ir.actions.act_window,help:real_estate_agency.res_partner_buyer_action
+msgid ""
+"Buyers are added automatically when assigned to a sold plot, and\n"
+"                you can also create them here."
+msgstr ""
+
+#. module: real_estate_agency
 #: model_terms:ir.ui.view,arch_db:real_estate_agency.report_inventory
 msgid "By Lotissement"
 msgstr "Par lotissement"
@@ -194,6 +229,7 @@ msgstr "Par statut"
 
 #. module: real_estate_agency
 #. odoo-javascript
+#: code:addons/real_estate_agency/real_estate_agency/static/src/dashboard/dashboard.xml:0
 #: code:addons/real_estate_agency/static/src/dashboard/dashboard.xml:0
 msgid "By moughataa"
 msgstr "Par moughataa"
@@ -226,6 +262,7 @@ msgstr "Couleur"
 
 #. module: real_estate_agency
 #. odoo-javascript
+#: code:addons/real_estate_agency/real_estate_agency/static/src/dashboard/dashboard.xml:0
 #: code:addons/real_estate_agency/static/src/dashboard/dashboard.xml:0
 #: model:ir.model.fields,field_description:real_estate_agency.field_real_estate_plot__commission_total
 #: model_terms:ir.ui.view,arch_db:real_estate_agency.real_estate_plot_view_form
@@ -239,6 +276,7 @@ msgid "Commission Rate (%)"
 msgstr "Taux de commission (%)"
 
 #. module: real_estate_agency
+#: model:ir.actions.act_window,name:real_estate_agency.action_commission_report
 #: model:ir.actions.act_window,name:real_estate_agency.action_commission_report_wizard
 #: model:ir.actions.report,name:real_estate_agency.action_report_commission
 #: model:ir.model,name:real_estate_agency.model_report_real_estate_agency_report_commission
@@ -260,6 +298,7 @@ msgstr "Type de commission"
 
 #. module: real_estate_agency
 #. odoo-javascript
+#: code:addons/real_estate_agency/real_estate_agency/static/src/dashboard/dashboard.xml:0
 #: code:addons/real_estate_agency/static/src/dashboard/dashboard.xml:0
 msgid "Commission this month"
 msgstr "Commissions ce mois-ci"
@@ -307,13 +346,6 @@ msgid "Contact"
 msgstr "Contact"
 
 #. module: real_estate_agency
-#: model_terms:ir.actions.act_window,help:real_estate_agency.res_partner_buyer_action
-msgid ""
-"Contacts appear here once they have purchased a plot. Open one\n"
-"                to see the plots they bought."
-msgstr ""
-
-#. module: real_estate_agency
 #: model:ir.model.fields.selection,name:real_estate_agency.selection__real_estate_plot_document__doc_type__contrat
 msgid "Contract"
 msgstr "Contrat"
@@ -325,12 +357,14 @@ msgstr "Coordonnées"
 
 #. module: real_estate_agency
 #. odoo-javascript
+#: code:addons/real_estate_agency/real_estate_agency/static/src/map/plot_map_widget.js:0
 #: code:addons/real_estate_agency/static/src/map/plot_map_widget.js:0
 msgid "Could not load Google Maps."
 msgstr "Impossible de charger Google Maps."
 
 #. module: real_estate_agency
 #. odoo-javascript
+#: code:addons/real_estate_agency/real_estate_agency/static/src/map/map_action.js:0
 #: code:addons/real_estate_agency/static/src/map/map_action.js:0
 msgid ""
 "Could not load Google Maps. Check the API key, billing and your network."
@@ -448,9 +482,32 @@ msgid "Documents"
 msgstr "Documents"
 
 #. module: real_estate_agency
+#. odoo-javascript
+#: code:addons/real_estate_agency/real_estate_agency/static/src/map/map_action.js:0
+#: code:addons/real_estate_agency/real_estate_agency/static/src/map/map_action.xml:0
+#: code:addons/real_estate_agency/static/src/map/map_action.js:0
+#: code:addons/real_estate_agency/static/src/map/map_action.xml:0
+#: model:ir.model.fields.selection,name:real_estate_agency.selection__real_estate_plot__property_type__duplex
+#: model_terms:ir.ui.view,arch_db:real_estate_agency.real_estate_plot_view_search
+msgid "Duplex"
+msgstr "Duplex"
+
+#. module: real_estate_agency
 #: model:real.estate.moughataa,name:real_estate_agency.moughataa_el_mina
 msgid "El Mina"
 msgstr ""
+
+#. module: real_estate_agency
+#. odoo-javascript
+#: code:addons/real_estate_agency/real_estate_agency/static/src/map/map_action.js:0
+#: code:addons/real_estate_agency/static/src/map/map_action.js:0
+msgid "Elevation"
+msgstr "Altitude"
+
+#. module: real_estate_agency
+#: model:ir.model.fields,field_description:real_estate_agency.field_real_estate_plot__elevation
+msgid "Elevation (m)"
+msgstr "Altitude (m)"
 
 #. module: real_estate_agency
 #: model:ir.model.fields,field_description:real_estate_agency.field_real_estate_plot_document__attachment
@@ -509,12 +566,14 @@ msgstr "Clé API Google Maps"
 
 #. module: real_estate_agency
 #. odoo-javascript
+#: code:addons/real_estate_agency/real_estate_agency/static/src/map/plot_map_widget.js:0
 #: code:addons/real_estate_agency/static/src/map/plot_map_widget.js:0
 msgid "Google Maps failed to initialise."
 msgstr "L'initialisation de Google Maps a échoué."
 
 #. module: real_estate_agency
 #. odoo-javascript
+#: code:addons/real_estate_agency/real_estate_agency/static/src/map/map_action.js:0
 #: code:addons/real_estate_agency/static/src/map/map_action.js:0
 msgid ""
 "Google Maps failed to initialise. The API key may be invalid or "
@@ -533,6 +592,17 @@ msgstr ""
 #: model:ir.model.fields,field_description:real_estate_agency.field_real_estate_plot__has_message
 msgid "Has Message"
 msgstr ""
+
+#. module: real_estate_agency
+#. odoo-javascript
+#: code:addons/real_estate_agency/real_estate_agency/static/src/map/map_action.js:0
+#: code:addons/real_estate_agency/real_estate_agency/static/src/map/map_action.xml:0
+#: code:addons/real_estate_agency/static/src/map/map_action.js:0
+#: code:addons/real_estate_agency/static/src/map/map_action.xml:0
+#: model:ir.model.fields.selection,name:real_estate_agency.selection__real_estate_plot__property_type__house
+#: model_terms:ir.ui.view,arch_db:real_estate_agency.real_estate_plot_view_search
+msgid "House"
+msgstr "Maison"
 
 #. module: real_estate_agency
 #: model:ir.model.fields,field_description:real_estate_agency.field_real_estate_commission_report_wizard__id
@@ -604,6 +674,7 @@ msgid "Image 512"
 msgstr ""
 
 #. module: real_estate_agency
+#: model:ir.actions.act_window,name:real_estate_agency.action_inventory_report
 #: model:ir.actions.act_window,name:real_estate_agency.action_inventory_report_wizard
 #: model:ir.actions.report,name:real_estate_agency.action_report_inventory
 #: model:ir.model,name:real_estate_agency.model_report_real_estate_agency_report_inventory
@@ -623,6 +694,18 @@ msgstr "Assistant de rapport d'inventaire"
 #: model:ir.model.fields,field_description:real_estate_agency.field_real_estate_plot__message_is_follower
 msgid "Is Follower"
 msgstr ""
+
+#. module: real_estate_agency
+#: model:ir.model.fields,field_description:real_estate_agency.field_res_partner__is_plot_buyer
+#: model:ir.model.fields,field_description:real_estate_agency.field_res_users__is_plot_buyer
+msgid "Is a Buyer"
+msgstr "Est un acheteur"
+
+#. module: real_estate_agency
+#: model:ir.model.fields,field_description:real_estate_agency.field_res_partner__is_real_estate_agent
+#: model:ir.model.fields,field_description:real_estate_agency.field_res_users__is_real_estate_agent
+msgid "Is an Agent"
+msgstr "Est un agent"
 
 #. module: real_estate_agency
 #: model_terms:ir.ui.view,arch_db:real_estate_agency.res_config_settings_view_form_real_estate
@@ -647,6 +730,22 @@ msgstr ""
 #: model_terms:ir.ui.view,arch_db:real_estate_agency.report_plot_attestation
 msgid "L'acheteur<br/><br/><br/>______________________"
 msgstr ""
+
+#. module: real_estate_agency
+#. odoo-javascript
+#: code:addons/real_estate_agency/real_estate_agency/static/src/map/map_action.js:0
+#: code:addons/real_estate_agency/real_estate_agency/static/src/map/map_action.xml:0
+#: code:addons/real_estate_agency/static/src/map/map_action.js:0
+#: code:addons/real_estate_agency/static/src/map/map_action.xml:0
+#: model:ir.model.fields.selection,name:real_estate_agency.selection__real_estate_plot__property_type__land
+#: model_terms:ir.ui.view,arch_db:real_estate_agency.real_estate_plot_view_search
+msgid "Land"
+msgstr "Terrain"
+
+#. module: real_estate_agency
+#: model_terms:ir.ui.view,arch_db:real_estate_agency.real_estate_plot_view_form
+msgid "Land Details"
+msgstr "Détails du terrain"
 
 #. module: real_estate_agency
 #: model:ir.model,name:real_estate_agency.model_real_estate_plot
@@ -693,6 +792,11 @@ msgid "Leave empty to include every agent."
 msgstr "Laisser vide pour inclure tous les agents."
 
 #. module: real_estate_agency
+#: model:ir.model.fields,help:real_estate_agency.field_real_estate_plot__sides
+msgid "Length of each side, e.g. \"30m 20m 30m 20m\"."
+msgstr ""
+
+#. module: real_estate_agency
 #: model:ir.model.fields,field_description:real_estate_agency.field_real_estate_lotissement__location
 #: model_terms:ir.ui.view,arch_db:real_estate_agency.real_estate_lotissement_view_form
 #: model_terms:ir.ui.view,arch_db:real_estate_agency.real_estate_plot_view_form
@@ -706,6 +810,9 @@ msgstr "Longitude"
 
 #. module: real_estate_agency
 #. odoo-javascript
+#: code:addons/real_estate_agency/real_estate_agency/static/src/map/map_action.js:0
+#: code:addons/real_estate_agency/real_estate_agency/static/src/map/map_action.xml:0
+#: code:addons/real_estate_agency/static/src/map/map_action.js:0
 #: code:addons/real_estate_agency/static/src/map/map_action.xml:0
 #: model:ir.model.fields,field_description:real_estate_agency.field_real_estate_inventory_report_wizard__lotissement_id
 #: model:ir.model.fields,field_description:real_estate_agency.field_real_estate_plot__lotissement_id
@@ -737,6 +844,7 @@ msgstr "Responsable"
 
 #. module: real_estate_agency
 #. odoo-javascript
+#: code:addons/real_estate_agency/real_estate_agency/static/src/map/map_action.xml:0
 #: code:addons/real_estate_agency/static/src/map/map_action.xml:0
 #: model:ir.actions.client,name:real_estate_agency.real_estate_map_action
 #: model:ir.ui.menu,name:real_estate_agency.real_estate_menu_map
@@ -756,6 +864,7 @@ msgstr "Marquer vendue"
 
 #. module: real_estate_agency
 #. odoo-javascript
+#: code:addons/real_estate_agency/real_estate_agency/static/src/map/map_action.xml:0
 #: code:addons/real_estate_agency/static/src/map/map_action.xml:0
 msgid "Max"
 msgstr "Max"
@@ -774,13 +883,18 @@ msgstr ""
 
 #. module: real_estate_agency
 #. odoo-javascript
+#: code:addons/real_estate_agency/real_estate_agency/static/src/map/map_action.xml:0
 #: code:addons/real_estate_agency/static/src/map/map_action.xml:0
 msgid "Min"
 msgstr "Min"
 
 #. module: real_estate_agency
 #. odoo-javascript
+#: code:addons/real_estate_agency/real_estate_agency/static/src/dashboard/dashboard.xml:0
+#: code:addons/real_estate_agency/real_estate_agency/static/src/map/map_action.js:0
+#: code:addons/real_estate_agency/real_estate_agency/static/src/map/map_action.xml:0
 #: code:addons/real_estate_agency/static/src/dashboard/dashboard.xml:0
+#: code:addons/real_estate_agency/static/src/map/map_action.js:0
 #: code:addons/real_estate_agency/static/src/map/map_action.xml:0
 #: model:ir.actions.act_window,name:real_estate_agency.real_estate_moughataa_action
 #: model:ir.model.fields,field_description:real_estate_agency.field_real_estate_inventory_report_wizard__moughataa_id
@@ -820,12 +934,23 @@ msgid "Name"
 msgstr "Nom"
 
 #. module: real_estate_agency
+#. odoo-javascript
+#: code:addons/real_estate_agency/real_estate_agency/static/src/map/map_action.js:0
+#: code:addons/real_estate_agency/static/src/map/map_action.js:0
 #: model:ir.model.fields,field_description:real_estate_agency.field_real_estate_plot__neighborhood
 msgid "Neighborhood"
 msgstr "Quartier"
 
 #. module: real_estate_agency
 #. odoo-javascript
+#: code:addons/real_estate_agency/real_estate_agency/static/src/map/map_action.xml:0
+#: code:addons/real_estate_agency/static/src/map/map_action.xml:0
+msgid "New plot"
+msgstr "Nouvelle parcelle"
+
+#. module: real_estate_agency
+#. odoo-javascript
+#: code:addons/real_estate_agency/real_estate_agency/static/src/map/map_action.xml:0
 #: code:addons/real_estate_agency/static/src/map/map_action.xml:0
 msgid "Next"
 msgstr "Suivant"
@@ -846,11 +971,6 @@ msgid "Next Activity Type"
 msgstr ""
 
 #. module: real_estate_agency
-#: model_terms:ir.actions.act_window,help:real_estate_agency.res_partner_buyer_action
-msgid "No buyers yet"
-msgstr "Aucun acheteur pour le moment"
-
-#. module: real_estate_agency
 #: model_terms:ir.ui.view,arch_db:real_estate_agency.report_commission
 msgid "No commissions in this period."
 msgstr "Aucune commission sur cette période."
@@ -862,6 +982,7 @@ msgstr "Aucune commission pour le moment"
 
 #. module: real_estate_agency
 #. odoo-javascript
+#: code:addons/real_estate_agency/real_estate_agency/static/src/dashboard/dashboard.xml:0
 #: code:addons/real_estate_agency/static/src/dashboard/dashboard.xml:0
 msgid "No sales yet."
 msgstr "Aucune vente pour le moment."
@@ -933,6 +1054,9 @@ msgid "Planned Plots"
 msgstr "Parcelles prévues"
 
 #. module: real_estate_agency
+#. odoo-javascript
+#: code:addons/real_estate_agency/real_estate_agency/static/src/map/map_action.js:0
+#: code:addons/real_estate_agency/static/src/map/map_action.js:0
 #: model:ir.model.fields,field_description:real_estate_agency.field_real_estate_plot_document__plot_id
 #: model:ir.model.fields,field_description:real_estate_agency.field_real_estate_plot_image__plot_id
 #: model_terms:ir.ui.view,arch_db:real_estate_agency.real_estate_plot_view_form
@@ -961,6 +1085,7 @@ msgstr "Photo de parcelle"
 
 #. module: real_estate_agency
 #. odoo-javascript
+#: code:addons/real_estate_agency/real_estate_agency/static/src/map/map_action.xml:0
 #: code:addons/real_estate_agency/static/src/map/map_action.xml:0
 msgid "Plot photo"
 msgstr "Photo de la parcelle"
@@ -991,17 +1116,22 @@ msgstr ""
 
 #. module: real_estate_agency
 #. odoo-javascript
+#: code:addons/real_estate_agency/real_estate_agency/static/src/map/map_action.xml:0
 #: code:addons/real_estate_agency/static/src/map/map_action.xml:0
 msgid "Previous"
 msgstr "Précédent"
 
 #. module: real_estate_agency
+#. odoo-javascript
+#: code:addons/real_estate_agency/real_estate_agency/static/src/map/map_action.js:0
+#: code:addons/real_estate_agency/static/src/map/map_action.js:0
 #: model:ir.model.fields,field_description:real_estate_agency.field_real_estate_plot__price
 msgid "Price"
 msgstr "Prix"
 
 #. module: real_estate_agency
 #. odoo-javascript
+#: code:addons/real_estate_agency/real_estate_agency/static/src/map/map_action.xml:0
 #: code:addons/real_estate_agency/static/src/map/map_action.xml:0
 msgid "Price (MRU)"
 msgstr "Prix (MRU)"
@@ -1018,8 +1148,18 @@ msgid "Project"
 msgstr "Projet"
 
 #. module: real_estate_agency
+#. odoo-javascript
+#: code:addons/real_estate_agency/real_estate_agency/static/src/map/map_action.xml:0
+#: code:addons/real_estate_agency/static/src/map/map_action.xml:0
+#: model:ir.model.fields,field_description:real_estate_agency.field_real_estate_plot__property_type
+#: model_terms:ir.ui.view,arch_db:real_estate_agency.real_estate_plot_view_search
+msgid "Property Type"
+msgstr "Type de bien"
+
+#. module: real_estate_agency
 #. odoo-python
 #: code:addons/real_estate_agency/models/res_partner.py:0
+#: code:addons/real_estate_agency/real_estate_agency/models/res_partner.py:0
 #: model:ir.model.fields,field_description:real_estate_agency.field_res_partner__plot_ids
 #: model:ir.model.fields,field_description:real_estate_agency.field_res_users__plot_ids
 msgid "Purchased Plots"
@@ -1040,6 +1180,7 @@ msgstr "Immobilier"
 
 #. module: real_estate_agency
 #. odoo-javascript
+#: code:addons/real_estate_agency/real_estate_agency/static/src/dashboard/dashboard.xml:0
 #: code:addons/real_estate_agency/static/src/dashboard/dashboard.xml:0
 msgid "Real Estate Overview"
 msgstr "Vue d'ensemble immobilière"
@@ -1061,11 +1202,29 @@ msgid "Reference Code"
 msgstr "Code de référence"
 
 #. module: real_estate_agency
+#. odoo-javascript
+#: code:addons/real_estate_agency/real_estate_agency/static/src/map/map_action.js:0
+#: code:addons/real_estate_agency/static/src/map/map_action.js:0
+#: model:ir.model.fields,field_description:real_estate_agency.field_real_estate_plot__zone
+msgid "Region"
+msgstr "Région"
+
+#. module: real_estate_agency
 #: model_terms:ir.actions.act_window,help:real_estate_agency.real_estate_plot_action
 msgid ""
 "Register the plots your agency markets, with their location,\n"
 "                surface, price and availability status."
 msgstr ""
+
+#. module: real_estate_agency
+#: model_terms:ir.actions.act_window,help:real_estate_agency.res_partner_agent_action
+msgid "Register your first agent"
+msgstr "Enregistrez votre premier agent"
+
+#. module: real_estate_agency
+#: model_terms:ir.actions.act_window,help:real_estate_agency.res_partner_buyer_action
+msgid "Register your first buyer"
+msgstr "Enregistrez votre premier acheteur"
 
 #. module: real_estate_agency
 #: model:ir.ui.menu,name:real_estate_agency.real_estate_menu_reporting
@@ -1084,6 +1243,9 @@ msgstr "Date de réservation"
 
 #. module: real_estate_agency
 #. odoo-javascript
+#: code:addons/real_estate_agency/real_estate_agency/static/src/dashboard/dashboard.xml:0
+#: code:addons/real_estate_agency/real_estate_agency/static/src/map/map_action.js:0
+#: code:addons/real_estate_agency/real_estate_agency/static/src/map/map_action.xml:0
 #: code:addons/real_estate_agency/static/src/dashboard/dashboard.xml:0
 #: code:addons/real_estate_agency/static/src/map/map_action.js:0
 #: code:addons/real_estate_agency/static/src/map/map_action.xml:0
@@ -1101,6 +1263,7 @@ msgstr "Réservée par"
 
 #. module: real_estate_agency
 #. odoo-javascript
+#: code:addons/real_estate_agency/real_estate_agency/static/src/map/map_action.xml:0
 #: code:addons/real_estate_agency/static/src/map/map_action.xml:0
 msgid "Reset filters"
 msgstr "Réinitialiser les filtres"
@@ -1112,12 +1275,14 @@ msgstr ""
 
 #. module: real_estate_agency
 #. odoo-javascript
+#: code:addons/real_estate_agency/real_estate_agency/static/src/dashboard/dashboard.xml:0
 #: code:addons/real_estate_agency/static/src/dashboard/dashboard.xml:0
 msgid "Resv."
 msgstr "Rés."
 
 #. module: real_estate_agency
 #. odoo-javascript
+#: code:addons/real_estate_agency/real_estate_agency/static/src/dashboard/dashboard.xml:0
 #: code:addons/real_estate_agency/static/src/dashboard/dashboard.xml:0
 msgid "Revenue this month"
 msgstr "Revenu ce mois-ci"
@@ -1157,12 +1322,14 @@ msgstr "Prix de vente"
 
 #. module: real_estate_agency
 #. odoo-javascript
+#: code:addons/real_estate_agency/real_estate_agency/static/src/dashboard/dashboard.xml:0
 #: code:addons/real_estate_agency/static/src/dashboard/dashboard.xml:0
 msgid "Sales"
 msgstr "Ventes"
 
 #. module: real_estate_agency
 #. odoo-javascript
+#: code:addons/real_estate_agency/real_estate_agency/static/src/dashboard/dashboard.xml:0
 #: code:addons/real_estate_agency/static/src/dashboard/dashboard.xml:0
 msgid "Sales this month"
 msgstr "Ventes ce mois-ci"
@@ -1186,11 +1353,13 @@ msgstr "Rendre disponible"
 #. module: real_estate_agency
 #. odoo-python
 #: code:addons/real_estate_agency/models/real_estate_plot.py:0
+#: code:addons/real_estate_agency/real_estate_agency/models/real_estate_plot.py:0
 msgid "Set a buyer and a sale price on plot %s before marking it as sold."
 msgstr "Renseignez un acheteur et un prix de vente sur la parcelle %s avant de la marquer comme vendue."
 
 #. module: real_estate_agency
 #. odoo-javascript
+#: code:addons/real_estate_agency/real_estate_agency/static/src/map/map_action.js:0
 #: code:addons/real_estate_agency/static/src/map/map_action.js:0
 msgid ""
 "Set the Google Maps API key in Settings → Real Estate to enable the map."
@@ -1198,6 +1367,7 @@ msgstr ""
 
 #. module: real_estate_agency
 #. odoo-javascript
+#: code:addons/real_estate_agency/real_estate_agency/static/src/map/plot_map_widget.js:0
 #: code:addons/real_estate_agency/static/src/map/plot_map_widget.js:0
 msgid "Set the Google Maps API key in Settings → Real Estate."
 msgstr "Renseignez la clé API Google Maps dans Configuration → Immobilier."
@@ -1209,6 +1379,17 @@ msgstr "Paramètres de la carte interactive des parcelles."
 
 #. module: real_estate_agency
 #. odoo-javascript
+#: code:addons/real_estate_agency/real_estate_agency/static/src/map/map_action.js:0
+#: code:addons/real_estate_agency/static/src/map/map_action.js:0
+#: model:ir.model.fields,field_description:real_estate_agency.field_real_estate_plot__sides
+msgid "Sides"
+msgstr "Côtés"
+
+#. module: real_estate_agency
+#. odoo-javascript
+#: code:addons/real_estate_agency/real_estate_agency/static/src/dashboard/dashboard.xml:0
+#: code:addons/real_estate_agency/real_estate_agency/static/src/map/map_action.js:0
+#: code:addons/real_estate_agency/real_estate_agency/static/src/map/map_action.xml:0
 #: code:addons/real_estate_agency/static/src/dashboard/dashboard.xml:0
 #: code:addons/real_estate_agency/static/src/map/map_action.js:0
 #: code:addons/real_estate_agency/static/src/map/map_action.xml:0
@@ -1231,6 +1412,7 @@ msgstr "Vendues cette année"
 
 #. module: real_estate_agency
 #. odoo-javascript
+#: code:addons/real_estate_agency/real_estate_agency/static/src/map/map_action.xml:0
 #: code:addons/real_estate_agency/static/src/map/map_action.xml:0
 #: model:ir.model.fields,field_description:real_estate_agency.field_real_estate_plot__state
 #: model_terms:ir.ui.view,arch_db:real_estate_agency.real_estate_plot_view_search
@@ -1258,6 +1440,14 @@ msgstr ""
 
 #. module: real_estate_agency
 #. odoo-javascript
+#: code:addons/real_estate_agency/real_estate_agency/static/src/map/map_action.js:0
+#: code:addons/real_estate_agency/static/src/map/map_action.js:0
+msgid "Surface"
+msgstr ""
+
+#. module: real_estate_agency
+#. odoo-javascript
+#: code:addons/real_estate_agency/real_estate_agency/static/src/map/map_action.xml:0
 #: code:addons/real_estate_agency/static/src/map/map_action.xml:0
 #: model:ir.model.fields,field_description:real_estate_agency.field_real_estate_plot__surface
 msgid "Surface (m²)"
@@ -1283,8 +1473,10 @@ msgstr ""
 
 #. module: real_estate_agency
 #: model:ir.model.fields,help:real_estate_agency.field_real_estate_plot__agent_id
-msgid "The agent who handled the sale and earns the commission."
-msgstr "L'agent qui a réalisé la vente et perçoit la commission."
+msgid ""
+"The agent who handled the sale and earns the commission. Set automatically "
+"to the seller when the plot is marked sold."
+msgstr ""
 
 #. module: real_estate_agency
 #: model:ir.model.constraint,message:real_estate_agency.constraint_real_estate_lotissement_code_uniq
@@ -1293,6 +1485,7 @@ msgstr "Le code de référence doit être unique."
 
 #. module: real_estate_agency
 #. odoo-javascript
+#: code:addons/real_estate_agency/real_estate_agency/static/src/map/map_action.xml:0
 #: code:addons/real_estate_agency/static/src/map/map_action.xml:0
 msgid "Tip: right-click the map to create a plot at that location."
 msgstr "Astuce : faites un clic droit sur la carte pour créer une parcelle à cet endroit."
@@ -1315,12 +1508,14 @@ msgstr "Au"
 
 #. module: real_estate_agency
 #. odoo-javascript
+#: code:addons/real_estate_agency/real_estate_agency/static/src/dashboard/dashboard.xml:0
 #: code:addons/real_estate_agency/static/src/dashboard/dashboard.xml:0
 msgid "Top agents"
 msgstr "Meilleurs agents"
 
 #. module: real_estate_agency
 #. odoo-javascript
+#: code:addons/real_estate_agency/real_estate_agency/static/src/dashboard/dashboard.xml:0
 #: code:addons/real_estate_agency/static/src/dashboard/dashboard.xml:0
 #: model_terms:ir.ui.view,arch_db:real_estate_agency.real_estate_lotissement_view_list
 #: model_terms:ir.ui.view,arch_db:real_estate_agency.report_inventory
@@ -1350,6 +1545,7 @@ msgstr "Nombre total de parcelles prévues dans ce lotissement."
 
 #. module: real_estate_agency
 #. odoo-javascript
+#: code:addons/real_estate_agency/real_estate_agency/static/src/dashboard/dashboard.xml:0
 #: code:addons/real_estate_agency/static/src/dashboard/dashboard.xml:0
 msgid "Total plots"
 msgstr "Total des parcelles"
@@ -1407,7 +1603,8 @@ msgstr ""
 
 #. module: real_estate_agency
 #. odoo-javascript
-#: code:addons/real_estate_agency/static/src/map/map_action.xml:0
+#: code:addons/real_estate_agency/real_estate_agency/static/src/map/map_action.js:0
+#: code:addons/real_estate_agency/static/src/map/map_action.js:0
 msgid "View Details"
 msgstr "Voir les détails"
 
@@ -1419,6 +1616,7 @@ msgstr ""
 #. module: real_estate_agency
 #. odoo-python
 #: code:addons/real_estate_agency/models/res_partner.py:0
+#: code:addons/real_estate_agency/real_estate_agency/models/res_partner.py:0
 msgid "buyer_id"
 msgstr ""
 
@@ -1433,8 +1631,6 @@ msgid "le"
 msgstr ""
 
 #. module: real_estate_agency
-#. odoo-javascript
-#: code:addons/real_estate_agency/static/src/map/map_action.xml:0
 #: model_terms:ir.ui.view,arch_db:real_estate_agency.report_plot_attestation
 msgid "m²"
 msgstr ""
@@ -1446,6 +1642,7 @@ msgstr ""
 
 #. module: real_estate_agency
 #. odoo-javascript
+#: code:addons/real_estate_agency/real_estate_agency/static/src/map/map_action.xml:0
 #: code:addons/real_estate_agency/static/src/map/map_action.xml:0
 msgid "shown"
 msgstr "affichées"
